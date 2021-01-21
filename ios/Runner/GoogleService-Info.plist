@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>801633227032-oi92ufnr9li7maqm94nrqau3mhb79ear.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.801633227032-oi92ufnr9li7maqm94nrqau3mhb79ear</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>801633227032-osb9pqlu80ge26na9f3l1tfs5av0tafm.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDM79nO_rSsK321Y7Yr_OgNTMqiLhicCTU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>801633227032</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.app.storeangelApp</string>
+	<key>PROJECT_ID</key>
+	<string>storeangels-2d5ee</string>
+	<key>STORAGE_BUCKET</key>
+	<string>storeangels-2d5ee.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:801633227032:ios:f88db7f55c42fd69e28e6d</string>
+	<key>DATABASE_URL</key>
+	<string>https://storeangels-2d5ee.firebaseio.com</string>
+</dict>
+</plist>

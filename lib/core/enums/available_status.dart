@@ -1,0 +1,1 @@
+enum AvailableStatus{inactive,plenty,few,runOut,selected,unknown}

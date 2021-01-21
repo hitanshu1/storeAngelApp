@@ -1,0 +1,1 @@
+enum VerifyStatus{Varified,Reliable,Unknown}

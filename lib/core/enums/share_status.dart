@@ -1,0 +1,1 @@
+enum ShareStatus{Approve,Shared,Unknown}

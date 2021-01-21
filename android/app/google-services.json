@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "947800254595",
+    "firebase_url": "https://storeangel.firebaseio.com",
+    "project_id": "storeangel",
+    "storage_bucket": "storeangel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947800254595:android:5a8a0eed56a19c6b2d13b6",
+        "android_client_info": {
+          "package_name": "com.example.dummyfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947800254595-0r5q6fc761736g2jj7dmgqjh0qab198l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzuYmWrc81sRS3pp_I5N631yPEO1rxv0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947800254595-0r5q6fc761736g2jj7dmgqjh0qab198l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "947800254595-6pvgu35ghp7tr77i63rp4t6i8ssrlvtu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mobileApp.StoreAngel"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947800254595:android:3030480f5526506b2d13b6",
+        "android_client_info": {
+          "package_name": "com.mobileApp.StoreAngel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947800254595-88bord5vnasao7grv5f1qk4v9c47r4s1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobileApp.StoreAngel",
+            "certificate_hash": "4518e2695cdf865fd045450eaa9646e490eb93a1"
+          }
+        },
+        {
+          "client_id": "947800254595-0r5q6fc761736g2jj7dmgqjh0qab198l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzuYmWrc81sRS3pp_I5N631yPEO1rxv0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947800254595-0r5q6fc761736g2jj7dmgqjh0qab198l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "947800254595-6pvgu35ghp7tr77i63rp4t6i8ssrlvtu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mobileApp.StoreAngel"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

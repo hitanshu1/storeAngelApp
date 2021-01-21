@@ -1,0 +1,1 @@
+enum CheckBoxStatus {inactive, available, littleAvailable, unavailable, unknown}

@@ -1,0 +1,10 @@
+<svg x="0" y="0" width="512" height="512" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <title>diamond icon</title>
+    <desc>diamond icon from the IconExperience.com G-Collection. Copyright by INCORS GmbH (www.incors.com).</desc>
+    <g>
+        <polygon points="112,32 400,32 512,176 256,512 0,176" fill="#28b5f5"/>
+        <polygon points="256,32 400,32 512,176 256,512" fill="#0299e3"/>
+        <path d="M112,32l96,0l-64,144l-144,0z M304,32l96,0l112,144l-144,0z M368,176l-112,336l-112,-336z" fill="#7fd3f9"/>
+        <path d="M256,512l0,-336l112,0z M304,32l96,0l112,144l-144,0z" fill="#4ec1f5"/>
+    </g>
+</svg>

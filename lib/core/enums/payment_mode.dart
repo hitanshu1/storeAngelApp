@@ -1,0 +1,1 @@
+enum PaymentMode{PayPal,AmazonPay,SofortDients,Cash}
