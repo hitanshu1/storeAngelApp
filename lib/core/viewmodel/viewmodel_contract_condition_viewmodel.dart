@@ -15,8 +15,14 @@ class ContractConditionViewModel extends BaseModel{
   int deliveryTimeSelectValue;
   DateTime startDate;
   DateTime endDate;
-  String selectPayment=AppStrings.AS_SOON_AS_POSSIBLE.tr();
+  String selectPayment=AppStrings.PREPAYMENT.tr();
+  String selectedDeliveryPeriod=AppStrings.AS_SOON_AS_POSSIBLE.tr();
   List<String>timeOfPayments=[
+    AppStrings.PREPAYMENT.tr(),
+    AppStrings.PAYMENT_ON_DELIVERY.tr(),
+    AppStrings.WITH_BUDGET_RESTRICTION.tr()
+  ];
+  List<String>deliveryPeriods=[
     AppStrings.AS_SOON_AS_POSSIBLE.tr(),
     AppStrings.TOMORROW_DELIVERY.tr(),
     AppStrings.CHOOSE_PERIOD.tr()
@@ -120,6 +126,12 @@ class ContractConditionViewModel extends BaseModel{
   void onSelectPayment(String val){
     setState(ViewState.Busy);
     selectPayment=val;
+    setState(ViewState.Idle);
+
+  }
+  void onSelectDeliveryPeriod(String val){
+    setState(ViewState.Busy);
+    selectedDeliveryPeriod=val;
     setState(ViewState.Idle);
 
   }

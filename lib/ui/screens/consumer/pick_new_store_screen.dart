@@ -1,9 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:storeangelApp/core/consts/appConstants.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
+import 'package:storeangelApp/core/models/user.dart';
+import 'package:storeangelApp/core/viewmodel/view_model_pick_new_store.dart';
 import 'package:storeangelApp/core/viewmodel/viewmodel_mystore.dart';
 import 'package:storeangelApp/ui/shared/base_model.dart';
 import 'package:storeangelApp/ui/shared/base_view.dart';
@@ -30,18 +33,20 @@ class _NewOrderSelectStoreState extends State<NewOrderSelectStore> {
   @override
   Widget build(BuildContext context) {
 
-    return BaseView<MyStoreViewModel>(
-      onModelReady: (myStoreViewModel) {
-        myStoreViewModel.initialize(_scrollController);
+    final user=Provider.of<UserModel>(context);
+
+    return BaseView<PickNewStoreViewModel>(
+      onModelReady: (pickNewStoreViewModel) {
+        pickNewStoreViewModel.initialize(_scrollController,user.id);
       },
-      builder: (context, myStoreViewModel, child) {
+      builder: (context, pickNewStoreViewModel, child) {
         return Scaffold(
           appBar: CustomAppBar(
-            elevation: myStoreViewModel.hasShadow?4:0,
+            elevation: pickNewStoreViewModel.hasShadow?4:0,
             leading: BackButton(
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
-                myStoreViewModel.navigatorPop();
+                pickNewStoreViewModel.navigatorPop();
               },
             ),
             title: Text(
@@ -58,7 +63,7 @@ class _NewOrderSelectStoreState extends State<NewOrderSelectStore> {
                 Expanded(
                   flex: 9,
                   child: BaseView<MyStoreViewModel>(
-                    onModelReady: (model) => model.getUserStore('userId'),
+                    onModelReady: (model) => model.getUserStore(user.id),
                     builder: (context, model, child) {
                       if (model.state == ViewState.Busy) {
                         return AppConstants.circulerProgressIndicator();
@@ -67,12 +72,12 @@ class _NewOrderSelectStoreState extends State<NewOrderSelectStore> {
                             controller: _scrollController,
                             shrinkWrap: true,
                             padding: EdgeInsets.all(0),
-                            itemCount: model.stores.length,
+                            itemCount: model.selectedStores.length,
                             itemBuilder: (context, int index) {
                               return Padding(
                                 padding: SizeConfig.bottomPadding.copyWith(top: index==0?SizeConfig.verticalMediumPadding.top:0),
                                 child: ViewStore(
-                                  store: model.stores[index],
+                                  store: model.selectedStores[index],
                                   newOrder: true,
                                   currentIndex: index,
                                 ),
@@ -95,13 +100,11 @@ class _NewOrderSelectStoreState extends State<NewOrderSelectStore> {
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      Padding(
-                          padding: SizeConfig.padding,
-                          child: PremiumCard(
-                            title: AppStrings.GET_PREMIUM_NOW.tr(),
-                            imageHeight: 90,
-                            subtitle: AppStrings.PREMIUM_SUBTITLE.tr(),
-                          )),
+                      PremiumCard(
+                        title: AppStrings.GET_PREMIUM_NOW.tr(),
+                        imageHeight: 90,
+                        subtitle: AppStrings.PREMIUM_SUBTITLE.tr(),
+                      ),
                     ],
                   ),
                 )

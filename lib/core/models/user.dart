@@ -26,23 +26,24 @@ class UserModel {
   String zipCode;
   int verify;
   Timestamp t;
-  bool isPremium;
+
 
   UserModel(
       {this.street,
       this.city:'Hauptstraße 37',
-      this.name,
+      this.name:"",
       this.id,
       this.imageUrl,
       this.userType,
       this.status,
-      this.firstName,
+      this.firstName:"",
 
         this.country='Nümbrecht',
-      this.lastName,
+      this.lastName:"",
       this.verify,
+        this.premium: false,
         this.zipCode:'',
-      this.addressLine,this.isPremium:false});
+      this.addressLine});
 
   UserModel.fromMap(Map snapshot)
       : id = snapshot['ID_User'],
@@ -56,7 +57,7 @@ class UserModel {
         country = snapshot['txt_Country'] ?? '',
         addressLine = snapshot['addressLine'] ?? '',
         email = snapshot['txt_Email'] ?? '',
-        name = snapshot['txt_Name'] ?? "",
+        name = snapshot['txt_Username'] ?? "",
         phone = snapshot['txt_Phone'] ?? "",
         state = snapshot['state'] ?? "",
         userName = snapshot['userName'] ?? "",
@@ -65,6 +66,7 @@ class UserModel {
         lastName = snapshot['lastName'] ?? '',
         street = snapshot['street'] ?? '',
         verify = snapshot['verify'] ?? 0,
+        zipCode=snapshot['txt_Zip']??'',
         userType = snapshot['userType'] ?? "";
 
   toJson() {
@@ -83,6 +85,7 @@ class UserModel {
       "txt_Name": name,
       "txt_Phone": phone,
       "txt_State": state,
+      "txt_Zip":zipCode,
       "txt_Username": userName,
       'firstName': firstName,
       'lastName': lastName,

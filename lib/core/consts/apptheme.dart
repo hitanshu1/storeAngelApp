@@ -5,7 +5,7 @@ import 'appColors.dart';
 
 class AppTheme {
   static ThemeData light = ThemeData(
-    fontFamily: 'Roboto',
+    fontFamily: 'SFUIText',
     backgroundColor: AppColors.backgroundColor,
     scaffoldBackgroundColor: AppColors.backgroundColor,
     canvasColor: AppColors.backgroundColor,
@@ -38,7 +38,7 @@ class AppTheme {
     primaryColorDark: AppColors.lightGreyColor,
     secondaryHeaderColor: AppColors.backgroundColor,
     disabledColor: AppColors.black.withOpacity(.3),
-    toggleableActiveColor: AppColors.textBackgroundColor,
+    toggleableActiveColor: AppColors.cardColor,
     bottomNavigationBarTheme:  BottomNavigationBarThemeData(
       backgroundColor: AppColors.bottomNavigationBarLightColor,
     ),
@@ -50,7 +50,7 @@ class AppTheme {
   );
 
   static ThemeData dark = ThemeData(
-    fontFamily: 'Roboto',
+    fontFamily: 'SFUIText',
     backgroundColor: AppColors.backgroundDarkColor,
     scaffoldBackgroundColor: AppColors.backgroundDarkColor,
     canvasColor: AppColors.backgroundDarkColor,

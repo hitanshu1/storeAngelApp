@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:storeangelApp/core/consts/appColors.dart';
 import 'package:storeangelApp/core/consts/appConstants.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
-import 'package:storeangelApp/core/consts/storeangel_icons_icons.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/enums/order_purchase_status.dart';
 import 'package:storeangelApp/core/models/order.dart';
@@ -27,7 +25,7 @@ class YourOrderTodayWidget extends StatelessWidget {
 
 
   Widget getTrailingTwoWidget(OrderOrPurchases order){
-    if(order.status==OrderPurchaseStatus.Pending){
+    if(order.status==OrderPurchaseStatus.PlaceAOrder){
       return FittedBox(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,7 +60,7 @@ class YourOrderTodayWidget extends StatelessWidget {
                 (context, int index) {
 
               return Padding(
-                padding: sidePadding.copyWith(bottom: SizeConfig.bottomPadding.bottom*.5),
+                padding: sidePadding.copyWith(bottom: SizeConfig.bottomPadding.bottom*.7),
                 child: GestureDetector(
                   onTap: (){
                     model.navigateToScreen(YourOfferScreen.routeName, context,
@@ -77,7 +75,7 @@ class YourOrderTodayWidget extends StatelessWidget {
                       ),
                       trailingTwo: getTrailingTwoWidget(model.orderList[index]),
                       imageUrl: model.orderList[index].purchaseDetails.storeDetails.image,
-                      enableTrailingTwoPadding:model.orderList[index].status==OrderPurchaseStatus.Pending,
+                      enableTrailingTwoPadding:model.orderList[index].status==OrderPurchaseStatus.PlaceAOrder,
                       middleWidget: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

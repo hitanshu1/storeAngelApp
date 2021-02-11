@@ -63,7 +63,7 @@ class _PickStoreScreenState extends State<PickStoreScreen> {
       ],
       child: BaseView<PickStoreViewModel>(
         onModelReady: (model) {
-//          model.getStoreData();
+          model.getStoreData();
           model.textFieldNode = _searchNearbyStoreFocusNode;
           },
         builder: (context, pickStoreModel, child) => CustomScaffold(
@@ -76,6 +76,7 @@ class _PickStoreScreenState extends State<PickStoreScreen> {
                 ),
                 SizeConfig.verticalSliverSmallSpace(),
                 PickerStoreListWidget(),
+                SizeConfig.verticalSliverExtraLargeSpace()
 
 
 

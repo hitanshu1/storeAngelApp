@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:storeangelApp/core/consts/appString.dart';
 
 class DateService{
 
@@ -31,6 +33,13 @@ class DateService{
     }
 
     return date;
+  }
+  static String pickDate(DateTime picked,BuildContext context) {
+    if (picked != null) {
+      String formatted = DateFormat.yMMMMd(context.locale.toString()).format(picked);
+      return formatted;
+    }
+    return '';
   }
 
 
@@ -86,6 +95,19 @@ class DateService{
 
     return date;
   }
+  static String getDateFormatDdMMYyyyWithTimeWord(String dateString,BuildContext context){
+
+    var dateTime = DateTime.parse(dateString);
+    String languageCode = Localizations.localeOf(context).languageCode;
+    String date;
+    if(languageCode=='de'){
+      date='${DateFormat('dd.MMM.yyyy - kk:mm',languageCode).format(dateTime)}';
+    }else{
+      date='${DateFormat('dd.MMM.yyyy - kk:mm',languageCode).format(dateTime)}';
+    }
+
+    return date;
+  }
 
   static String getDateWithHourFormat(String dateString, BuildContext context) {
 
@@ -99,6 +121,15 @@ class DateService{
       date='${DateFormat('MMM dd. yyyy - kk:mm aa',languageCode).format(dateTime)}';
     }
     return date;
+  }
+  static String getMinutesString(BuildContext context,int min){
+    if(context.locale==Locale('de')){
+      return 'var $min min';
+
+    }
+
+    return '$min '+AppStrings.MIN_AGO.tr();
+
   }
 
 }

@@ -18,10 +18,9 @@ class ProfileHeaderWidget extends StatelessWidget {
             child:Stack(
               children: [
                 SizedBox(
-                  height: SizeConfig.headerHeight+(SizeConfig.imageHeight160*.5),
+                  height: SizeConfig.customerHeaderHeight+(SizeConfig.imageHeight140*.5),
                 ),
                 AppHeader(
-                  height: SizeConfig.headerHeight,
                   title: AppStrings.YOUR_PROFILE.tr(),
                   style: AppStyles.WhiteStyleWithFont24,
                   actions: [
@@ -39,19 +38,19 @@ class ProfileHeaderWidget extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: CustomCard(
-                      radius: SizeConfig.imageHeight160,
+                      radius: SizeConfig.imageHeight140,
                       child: Container(
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(color: AppColors.whiteColor)
                         ),
                         child: ViewAppImage(
-                          height: SizeConfig.imageHeight160,
-                          width: SizeConfig.imageHeight160,
-                          imageUrl: profileViewModel.user.imageUrl != null && profileViewModel.user.imageUrl.isNotEmpty
+                          height: SizeConfig.imageHeight140,
+                          width: SizeConfig.imageHeight140,
+                          imageUrl: profileViewModel.user?.imageUrl != null && profileViewModel.user.imageUrl.isNotEmpty
                               ? profileViewModel.user.imageUrl
                               : 'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7',
-                          radius: SizeConfig.imageHeight160,
+                          radius: SizeConfig.imageHeight140,
                           boxFit: BoxFit.cover,
                         ),
                       ),

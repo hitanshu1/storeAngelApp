@@ -90,6 +90,8 @@ class AppStyles {
   static TextStyle  BlackStyleFont_24(BuildContext context) =>TextStyle(fontSize:SizeConfig.fontSizeLarge,color: Theme.of(context).focusColor,);
   static TextStyle  BlackStyleFontWeight500_24(BuildContext context) =>TextStyle(fontSize:SizeConfig.fontSizeLarge,color: Theme.of(context).focusColor,
       fontWeight: FontWeight.w500);
+  static TextStyle  BlackStyleFontWeight400_24(BuildContext context) =>TextStyle(fontSize:SizeConfig.fontSizeLarge,color: Theme.of(context).focusColor,
+      fontWeight: FontWeight.w400);
   static TextStyle BlackStyleFont300_16(BuildContext context) =>TextStyle(fontSize:SizeConfig.fontSizeSmall,color: Theme.of(context).focusColor,fontWeight: FontWeight.w500);
   static TextStyle BlackStyleFontBold_16(BuildContext context) =>TextStyle(fontSize:SizeConfig.fontSizeSmall,color: Theme.of(context).focusColor,fontWeight: FontWeight.bold);
 
@@ -117,13 +119,15 @@ class AppStyles {
       fontStyle: FontStyle.normal);
   static TextStyle BlackStyleFont20W300(BuildContext context)=>TextStyle(fontSize:SizeConfig.fontSizeMedium,color:Theme.of(context).focusColor,fontWeight: FontWeight.w300,
       fontStyle: FontStyle.normal);
-  static TextStyle BlackStyleFont16W300(BuildContext context)=>TextStyle(fontSize:SizeConfig.fontSizeMedium,color:Theme.of(context).focusColor,fontWeight: FontWeight.w300,
+  static TextStyle BlackStyleFont16W300(BuildContext context)=>TextStyle(fontSize:SizeConfig.fontSizeSmall,color:Theme.of(context).focusColor,fontWeight: FontWeight.w300,
   );
+  static TextStyle BlackStyle_WithW300_Font24(BuildContext context)=>TextStyle(fontSize: SizeConfig.fontSizeLarge,color:Theme.of(context).focusColor,fontWeight: FontWeight.w300,);
   static TextStyle WhiteStyle_Font16=TextStyle(fontSize:SizeConfig.fontSizeSmall,color: Colors.white);
-  static TextStyle WhiteStyle_FontSmall=TextStyle(fontSize:SizeConfig.fontSizeVerySmall,color: Colors.white);
+  static TextStyle WhiteStyle_FontSmall=TextStyle(fontSize:SizeConfig.fontSizeSmall,color: Colors.white);
   static TextStyle WhiteStyle_Font20=TextStyle(fontSize: SizeConfig.fontSizeMedium,color:Colors.white,);
   static TextStyle WhiteStyle_WithBold900_Font20=TextStyle(fontSize: SizeConfig.fontSizeMedium,color:Colors.white,fontWeight: FontWeight.w900,);
   static TextStyle WhiteStyle_WithBold900_Font24=TextStyle(fontSize: SizeConfig.fontSizeLarge,color:Colors.white,fontWeight: FontWeight.w900,);
+  static TextStyle WhiteStyle_WithBold_Font24=TextStyle(fontSize: SizeConfig.fontSizeLarge,color:Colors.white,fontWeight: FontWeight.bold,);
   static TextStyle WhiteStyle_WithBold900_Font36=TextStyle(fontSize: SizeConfig.fontSizeLargest,color:Colors.white,fontWeight: FontWeight.w900,);
   static TextStyle WhiteStyleWithFont24=TextStyle(fontSize: SizeConfig.fontSizeLarge,color:Colors.white,fontWeight: FontWeight.normal,);
   static TextStyle WhiteStyle_WithBold700_Font20=TextStyle(fontSize: SizeConfig.fontSizeMedium,color:Colors.white,fontWeight: FontWeight.w700,);
@@ -140,6 +144,8 @@ class AppStyles {
   static TextStyle GrayStyle_Font16(BuildContext context)=>TextStyle(color: Theme.of(context).textTheme.headline6.color, fontSize: SizeConfig.fontSizeSmall);
   static TextStyle GrayStyleItalicFont16(BuildContext context)=>TextStyle(color: Theme.of(context).textTheme.headline6.color, fontSize: SizeConfig.fontSizeSmall,
   fontStyle: FontStyle.italic,fontWeight: FontWeight.w100);
+  static TextStyle GrayStyleItalicFont20(BuildContext context)=>TextStyle(color: Theme.of(context).textTheme.headline6.color, fontSize: SizeConfig.fontSizeMedium,
+      fontStyle: FontStyle.italic,fontWeight: FontWeight.w100);
   static TextStyle GrayStyleItalicFontSmaller(BuildContext context)=>TextStyle(color: Theme.of(context).textTheme.headline6.color, fontSize: SizeConfig.fontSizeSmaller,
       fontStyle: FontStyle.italic,fontWeight: FontWeight.w100);
   static TextStyle GrayStyle_FontMedium(BuildContext context)=>TextStyle(color: Theme.of(context).textTheme.headline6.color, fontSize: SizeConfig.fontSizeMedium);
@@ -149,6 +155,7 @@ class AppStyles {
   static TextStyle GrayStyle_FontC12W600(BuildContext context)=>TextStyle(color: Theme.of(context).textTheme.headline6.color, fontSize: 12,fontWeight: FontWeight.w600);
   static TextStyle GrayStyle_Font10(BuildContext context)=>TextStyle(color: Theme.of(context).textTheme.headline6.color, fontSize: 10);
   static TextStyle GrayStyleWithBold300_Font20(BuildContext context)=> TextStyle(color:Theme.of(context).textTheme.headline6.color, fontSize: SizeConfig.fontSizeMedium, fontWeight: FontWeight.w300);
+  static TextStyle GrayLightStyleWithBold500_Font20(BuildContext context)=> TextStyle(color:AppColors.grayLight, fontSize: SizeConfig.fontSizeMedium, fontWeight: FontWeight.w500);
 
 
   //dark gray
@@ -171,5 +178,6 @@ class AppStyles {
   static TextStyle GreenStyleWithw500Font_d20(BuildContext context)=>TextStyle(fontSize: SizeConfig.screenHeight*.024, fontWeight: FontWeight.w500,color: Theme.of(context).primaryColor);
   static TextStyle BlackStyleWithw500_Fontd18(BuildContext context) =>TextStyle(color: Theme.of(context).focusColor,fontSize: SizeConfig.screenHeight*.024,fontWeight:FontWeight.w500);
 
+  static TextStyle RedStyle_WithBold900_Font20=TextStyle(fontSize: SizeConfig.fontSizeMedium,color:AppColors.red,fontWeight: FontWeight.w900,);
 
 }

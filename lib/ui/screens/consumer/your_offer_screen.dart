@@ -25,7 +25,7 @@ class YourOfferScreen extends StatelessWidget {
   final OrderOrPurchases order;
   YourOfferScreen({this.order});
   Widget getTrailingTwoWidget(OrderOrPurchases order){
-    if(order.status==OrderPurchaseStatus.Pending){
+    if(order.status==OrderPurchaseStatus.PlaceAOrder){
       return FittedBox(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,7 +71,7 @@ class YourOfferScreen extends StatelessWidget {
                         child: Padding(
                           padding: SizeConfig.sidepadding,
                           child: CustomFiveWidgetsTile(
-                            enableTrailingTwoPadding: order.status==OrderPurchaseStatus.Pending,
+                            enableTrailingTwoPadding: order.status==OrderPurchaseStatus.PlaceAOrder,
                               trailingTwoBackGroundColor: AppColors.amberGradient,
                               trailingOneBackGroundColor: AppColors.getStatusColor(order.status),
                               trailingOne: Center(
@@ -115,7 +115,7 @@ class YourOfferScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
 
               SliverToBoxAdapter(
                 child: Padding(

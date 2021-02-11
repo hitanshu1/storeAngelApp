@@ -35,7 +35,7 @@ class StoreDetailsScreen extends StatelessWidget {
               OpeningHourTile(),
               SizeConfig.verticalSliverSmallSpace(),
               StoreAddressWidget(),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
               SliverToBoxAdapter(
                 child: Padding(
                   padding:SizeConfig.sidepadding,
@@ -44,7 +44,7 @@ class StoreDetailsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
               TopListsWidget()
 
 

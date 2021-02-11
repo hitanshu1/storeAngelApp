@@ -32,7 +32,7 @@ class ProfileViewModel extends BaseModel {
   AuthBase auth = getIt<Auth>();
 
   FirebaseAbstraction database = getIt<FirebaseAbstraction>();
-  UserModel user;
+  UserModel user=UserModel();
 
   void getUserDetails(UserModel userModel) async {
     UserModel _user = await database.getUserDetails(userModel.id);

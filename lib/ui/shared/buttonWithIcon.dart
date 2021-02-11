@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:storeangelApp/core/consts/appColors.dart';
-import 'package:storeangelApp/core/consts/appConstants.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/ui/shared/app_shap_item.dart';
 
@@ -49,7 +48,7 @@ class ButtonWithIcon extends StatelessWidget {
           height: SizeConfig.buttonHeight,
           width: weight??SizeConfig.screenWidth,
           child:  Padding(
-            padding: SizeConfig.innerpadding,
+            padding: SizeConfig.sidepadding,
             child: Row(
               children: [
                 Opacity(opacity: 0,child: Icon(icon)),

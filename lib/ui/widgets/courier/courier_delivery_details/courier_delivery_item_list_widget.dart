@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_group_sliver/flutter_group_sliver.dart';
-import 'package:storeangelApp/core/consts/appColors.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
@@ -10,7 +9,8 @@ import 'package:easy_localization/easy_localization.dart';
 import '../courier_item_tile_widget.dart';
 class CourierDeliveryItemListWidget extends StatelessWidget {
   final List<Product>products;
-  CourierDeliveryItemListWidget({this.products});
+  final bool enableQuantity;
+  CourierDeliveryItemListWidget({this.products,this.enableQuantity:false});
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
@@ -32,10 +32,15 @@ class CourierDeliveryItemListWidget extends StatelessWidget {
               return Padding(
                 padding: SizeConfig.sidepadding,
                 child: CourierItemTileWidget(
+                  onClickStatus: (){
+
+                  },
                   isBorder:index!=products.length,
                   product: products[index-1],
-                  enableQuantity: false,
-                  enablePriceText: true,
+                  enableQuantity: true,
+//                  enablePriceText: true,
+//                  availableButton: false,
+                availableButton: false,
                 ),
 
               );

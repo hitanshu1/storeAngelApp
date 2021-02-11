@@ -35,10 +35,10 @@ class OrderItemListWidget extends StatelessWidget {
       padding: EdgeInsets.only(top: SizeConfig.bottomPadding.bottom * .5),
       child: InkWell(
         onTap: () {
-          if (order.status == OrderPurchaseStatus.Finished || order.status == OrderPurchaseStatus.OrderDelivered) {
+          if (order.status == OrderPurchaseStatus.OrderDelivered || order.status == OrderPurchaseStatus.OrderDelivered) {
             model.navigateToScreen(OrderDeliveredScreen.routeName, context,
                 arguments: OrderDeliveredScreenArgument(orderOrPurchases: order, isPrePaid: false));
-          }else if(order.status==OrderPurchaseStatus.Proposal){
+          }else if(order.status==OrderPurchaseStatus.OrderPlaced){
             model.navigateToScreen(OrderPageScreen.routeName, context,
                 arguments: order.purchaseDetails);
           } else {
@@ -68,7 +68,7 @@ class OrderItemListWidget extends StatelessWidget {
                 onTap: () {},
               ),
             ],
-            secondaryActions: order.status == OrderPurchaseStatus.Finished
+            secondaryActions: order.status == OrderPurchaseStatus.OrderDelivered
                 ? <Widget>[
                     IconSlideAction(
                       foregroundColor: Colors.transparent,
@@ -98,14 +98,14 @@ class OrderItemListWidget extends StatelessWidget {
                                     ? AppStrings.STATUS.tr()
                                     : AppStrings.PURCHASE_STATUS.tr(),
                                 style: order.status != OrderPurchaseStatus.OrderDelivered &&
-                                        order.status != OrderPurchaseStatus.Finished
+                                        order.status != OrderPurchaseStatus.OrderDelivered
                                     ? AppStyles.GreenStyleWithBold300_Font20(context)
                                     : AppStyles.GrayStyle_FontMedium(context),
                                 children: <TextSpan>[
                                   TextSpan(
                                       text: _getOrderStatus,
                                       style: order.status != OrderPurchaseStatus.OrderDelivered &&
-                                              order.status != OrderPurchaseStatus.Finished
+                                              order.status != OrderPurchaseStatus.OrderDelivered
                                           ? AppStyles.GreenStyleWithBold800_Font20(context)
                                           : AppStyles.GrayStyle_FontMedium(context).copyWith(fontWeight: FontWeight.w800)),
                                 ],
@@ -115,7 +115,7 @@ class OrderItemListWidget extends StatelessWidget {
                           Text(
                             DateService.getDateWithHourFormat(DateTime.now().toIso8601String(), context),
                             style: order.status != OrderPurchaseStatus.OrderDelivered &&
-                                    order.status != OrderPurchaseStatus.Finished
+                                    order.status != OrderPurchaseStatus.OrderDelivered
                                 ? AppStyles.GreenStyleWithBold300_Font20(context)
                                 : AppStyles.GrayStyle_FontMedium(context),
                           ),
@@ -140,7 +140,7 @@ class OrderItemListWidget extends StatelessWidget {
                                 Text(
                                   order.shopName,
                                   style: order.status != OrderPurchaseStatus.OrderDelivered &&
-                                          order.status != OrderPurchaseStatus.Finished
+                                          order.status != OrderPurchaseStatus.OrderDelivered
                                       ? AppStyles.BlackStyleWithBold800Font_24(context)
                                       : AppStyles.GrayStyle_Font24(context).copyWith(fontWeight: FontWeight.w800),
                                 ),
@@ -169,7 +169,7 @@ class OrderItemListWidget extends StatelessWidget {
                                 Text(
                                   "${AppStrings.euro} ${NumberService.priceAfterConvert(order.orderAmount,context)}",
                                   style: order.status != OrderPurchaseStatus.OrderDelivered &&
-                                          order.status != OrderPurchaseStatus.Finished
+                                          order.status != OrderPurchaseStatus.OrderDelivered
                                       ? AppStyles.BlackStyleWithBold800Font_24(context)
                                       : AppStyles.GrayStyle_Font24(context).copyWith(fontWeight: FontWeight.w800),
                                 ),
@@ -194,7 +194,7 @@ class OrderItemListWidget extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                           color: order.status != OrderPurchaseStatus.OrderDelivered &&
-                                  order.status != OrderPurchaseStatus.Finished
+                                  order.status != OrderPurchaseStatus.OrderDelivered
                               ? Theme.of(context).primaryColor
                               : Theme.of(context).toggleableActiveColor,
                           borderRadius: BorderRadius.circular(AppConstants.ContainerRoundCorner_Radius),
@@ -217,7 +217,7 @@ class OrderItemListWidget extends StatelessWidget {
   }
 
   Widget showporposal(OrderOrPurchases order, BuildContext context) {
-    if (order.status != OrderPurchaseStatus.OrderDelivered && order.status != OrderPurchaseStatus.Finished) {
+    if (order.status != OrderPurchaseStatus.OrderDelivered && order.status != OrderPurchaseStatus.OrderDelivered) {
       return Row(
         children: <Widget>[
           Expanded(
@@ -257,7 +257,7 @@ class OrderItemListWidget extends StatelessWidget {
           Visibility(
             child: Expanded(
               flex: 3,
-              child: order.status==OrderPurchaseStatus.Pending||order.status==OrderPurchaseStatus.Proposal?Column(
+              child: order.status==OrderPurchaseStatus.PlaceAOrder||order.status==OrderPurchaseStatus.OrderPlaced?Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   Text(
@@ -439,9 +439,9 @@ class OrderItemListWidget extends StatelessWidget {
   String get _getOrderStatus {
     if (order.status == OrderPurchaseStatus.OrderDelivered) {
       return AppStrings.DELIVERED.tr();
-    } else if (order.status == OrderPurchaseStatus.Finished) {
+    } else if (order.status == OrderPurchaseStatus.OrderDelivered) {
       return AppStrings.FINISHED.tr();
-    } else if (order.status == OrderPurchaseStatus.Pending) {
+    } else if (order.status == OrderPurchaseStatus.PlaceAOrder) {
       return AppStrings.PENDING.tr();
     } else {
       return AppStrings.ACTIVE.tr();
@@ -449,19 +449,19 @@ class OrderItemListWidget extends StatelessWidget {
   }
   String get statusString{
 
-    if (order.status == OrderPurchaseStatus.Proposal) {
+    if (order.status == OrderPurchaseStatus.OrderPlaced) {
       return AppStrings.WAITING_FOR_OFFERS.tr();
     } else if (order.status == OrderPurchaseStatus.MoneyTransfer) {
       return AppStrings.PAYMENT_TRANSFER.tr();
-    } else if (order.status == OrderPurchaseStatus.OrderAccepted) {
+    } else if (order.status == OrderPurchaseStatus.OrderPlaced) {
       return AppStrings.PURCHASE_IN_PROGRESS.tr();
     } else if (order.status == OrderPurchaseStatus.OrderRunning) {
       return AppStrings.DELIVERING_PURCHASE.tr();
-    }else if (order.status == OrderPurchaseStatus.Pending) {
+    }else if (order.status == OrderPurchaseStatus.PlaceAOrder) {
       return AppStrings.WAITING_FOR_OFFERS.tr();
-    }else if (order.status == OrderPurchaseStatus.PriceCheck) {
+    }else if (order.status == OrderPurchaseStatus.MoneyTransfer) {
       return AppStrings.PAYMENT_TRANSFER.tr();
-    }else if (order.status == OrderPurchaseStatus.Finished) {
+    }else if (order.status == OrderPurchaseStatus.OrderDelivered) {
       return AppStrings.DELIVERING_PURCHASE.tr();
     }else if (order.status == OrderPurchaseStatus.OrderDelivered) {
       return AppStrings.DELIVERING_PURCHASE.tr();
@@ -473,11 +473,11 @@ class OrderItemListWidget extends StatelessWidget {
   String get statusSubtitle {
      if (order.status == OrderPurchaseStatus.MoneyTransfer) {
       return AppStrings.INITIATED_PENDING.tr();
-    } else if (order.status == OrderPurchaseStatus.OrderAccepted) {
+    } else if (order.status == OrderPurchaseStatus.OrderPlaced) {
       return AppStrings.STARTED.tr()+': 12:55';
     } else if (order.status == OrderPurchaseStatus.OrderRunning) {
       return AppStrings.EXPECTED_DELIVERY.tr()+": 17:30";
-    }else if (order.status == OrderPurchaseStatus.PriceCheck) {
+    }else if (order.status == OrderPurchaseStatus.MoneyTransfer) {
       return AppStrings.CONFIRMED.tr();
     } else {
       return  '';
@@ -486,11 +486,11 @@ class OrderItemListWidget extends StatelessWidget {
 
 
   IconData get_order_icon() {
-    if (order.status == OrderPurchaseStatus.Proposal) {
+    if (order.status == OrderPurchaseStatus.PlaceAOrder) {
       return StoreangelIcons.hourglass_full;
     } else if (order.status == OrderPurchaseStatus.MoneyTransfer) {
       return StoreangelIcons.credit_card_order_flow_icon_full;
-    } else if (order.status == OrderPurchaseStatus.OrderAccepted) {
+    } else if (order.status == OrderPurchaseStatus.OrderPlaced) {
       return StoreangelIcons.shopping_cart_order_full;
     } else if (order.status == OrderPurchaseStatus.OrderRunning) {
       return StoreangelIcons.change_to_courier_profile_full;

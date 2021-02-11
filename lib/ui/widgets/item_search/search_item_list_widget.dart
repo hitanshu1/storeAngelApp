@@ -25,7 +25,7 @@ class SearchItemListWidget extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
                   (context, index) {
                 return Padding(
-                  padding: SizeConfig.bottomPadding,
+                  padding: SizeConfig.tilesBottomPadding,
                   child: GestureDetector(
                     onTap: (){
                       model.navigateToScreen(ItemDetailsScreen.routeName,
@@ -37,7 +37,7 @@ class SearchItemListWidget extends StatelessWidget {
                     child: CustomFiveWidgetsTile(
                       imageUrl: model.products[index].imageUrl,
                       trailingOne: Center(
-                        child: Icon(Icons.add,color: AppColors.whiteColor,),
+                        child: Icon(Icons.add,color: AppColors.whiteColor,size: SizeConfig.mediumIcon,),
                       ),
                       trailingTwo: Center(child:
                       AvailableCircleWidget(availableStatus:model.products[index].availableStatus,)),

@@ -40,6 +40,8 @@ class _TellUsYourAddressScreenState extends State<TellUsYourAddressScreen> {
 
   final streetFocusNode = FocusNode();
   final zipFocusNode = FocusNode();
+  final cityFocusNode=FocusNode();
+  final countryFocusNode=FocusNode();
 
   @override
   void initState() {
@@ -77,6 +79,9 @@ class _TellUsYourAddressScreenState extends State<TellUsYourAddressScreen> {
 
                     AppHeader(
                       isBack: true,
+                      onBackPress: (){
+
+                      },
                       height: SizeConfig.smallHeaderSize,
                       title:AppStrings.TELL_US_YOUR_ADDRESS.tr() ,
                     ),
@@ -133,11 +138,12 @@ class _TellUsYourAddressScreenState extends State<TellUsYourAddressScreen> {
                           ),
                           SizeConfig.verticalSpaceSmall(),
                           TextTextfieldWidget(
-                            hint: AppStrings.ZIP.tr(),
+                            hint: AppStrings.ZIP2.tr(),
                             radius: SizeConfig.radiusSmaller,
                             buttonColor: Theme.of(context).cardColor,
                             controller: zipController,
                             focusNode: zipFocusNode,
+                            nextFocusNode: cityFocusNode,
                           ),
                           SizeConfig.verticalSpaceSmall(),
                           TextTextfieldWidget(
@@ -145,10 +151,13 @@ class _TellUsYourAddressScreenState extends State<TellUsYourAddressScreen> {
                             radius: SizeConfig.radiusSmaller,
                             buttonColor: Theme.of(context).cardColor,
                             controller: cityController,
+                            focusNode: cityFocusNode,
+                            nextFocusNode: countryFocusNode,
                           ),
                           SizeConfig.verticalSpaceSmall(),
                           InkWell(
                             child: TextTextfieldWidget(
+                              focusNode: countryFocusNode,
                               hint: AppStrings.COUNTRY.tr(),
                               radius: SizeConfig.radiusSmaller,
                               enabled: false,

@@ -8,6 +8,7 @@ import 'package:storeangelApp/core/enums/user_type.dart';
 import 'package:storeangelApp/core/models/response_model.dart';
 import 'package:storeangelApp/core/models/user.dart';
 import 'package:storeangelApp/core/services/firebase_abstraction.dart';
+import 'package:storeangelApp/ui/screens/consumer/mainApp_Screen.dart';
 import 'package:storeangelApp/ui/screens/consumer/pick_Store_Screen.dart';
 import 'package:storeangelApp/ui/shared/MyUtils.dart';
 import 'package:storeangelApp/ui/shared/base_model.dart';
@@ -60,6 +61,10 @@ class TellUsYourAddressViewModel extends BaseModel{
     }
   }
 
+  void onBackPress(){
+    navigationService.navigateTo(MainAppScreen.routeName);
+  }
+
   DateTime _pickedDateTime;
   DateTime get pickedDateTime =>_pickedDateTime;
 
@@ -82,20 +87,24 @@ class TellUsYourAddressViewModel extends BaseModel{
   }) async {
     setState(ViewState.Busy);
 
-    if (!MyUtils().validationFirstName(street)) {
+    if (!MyUtils().validationStreet(street)) {
       setState(ViewState.Idle);
       return false;
     }
 
-    if (!MyUtils().validationLastName(zip)) {
+    if (!MyUtils().validationZip(zip)) {
       setState(ViewState.Idle);
       return false;
     }
 
-    if (!MyUtils().validationDate(city)) {
+    if (!MyUtils().validationCity(city)) {
       setState(ViewState.Idle);
       return false;
     }
+//    if (!MyUtils().validationCountry(country)) {
+//      setState(ViewState.Idle);
+//      return false;
+//    }
 
     UserModel _user=user;
     _user.city=city;

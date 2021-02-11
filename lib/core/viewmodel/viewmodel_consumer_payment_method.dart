@@ -21,7 +21,7 @@ class ConsumerPaymentMethodViewModel extends BaseModel{
   }
   void onClickPayment(String paymentOption, BuildContext context, OrderOrPurchases orderOrPurchases,CourierCandidate candidate) async {
 //    setState(ViewState.Busy);
-    orderOrPurchases.status = OrderPurchaseStatus.PriceCheck;
+    orderOrPurchases.status = OrderPurchaseStatus.Purchasing;
 
     navigationService.navigateTo(OrderDetailsAndChatScreen.routeName,
     arguments: OrderDetailsAndChatScreenArguments(

@@ -77,6 +77,7 @@ class CourierBoy {
 }
 
 class ClientDetails {
+  String id;
   String name;
   String imageUrl;
   int rating;
@@ -86,9 +87,10 @@ class ClientDetails {
   String streetNo;
   String city;
   String zip;
+  int productQuantity;
 
   String get addressLine => city + ', ' + street;
-  String get addressWithName =>name+', '+ city + ', ' + street;
+  String get addressWithName =>name+', \n'+street+'\n'+zip+', '+city;
 
   String get zipCity => zip + ' ' + city;
 
@@ -98,6 +100,7 @@ class ClientDetails {
 
   ClientDetails(
       {this.name,
+        this.id,
       this.status,
         this.zip,
       this.rating,
@@ -105,6 +108,7 @@ class ClientDetails {
       this.street,
       this.city,
         this.streetNo,
+        this.productQuantity:0,
       this.imageUrl:
           'https://www.stuttgarter-nachrichten.de/media.media.d8c538e0-8bc1-4efc-84b3-ac0ef7241c24.original1024.jpg'});
 

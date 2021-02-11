@@ -15,7 +15,7 @@ class DeclineOfferWidget extends StatelessWidget {
      return Padding(
       padding: EdgeInsets.only(bottom: SizeConfig.bottomPadding.bottom),
       child: Opacity(
-        opacity: .6,
+        opacity: SizeConfig.lowOpacity,
         child: CustomerDetailsWidget(
           clientDetails: order.clientDetails,
           products: order.purchaseDetails.products,

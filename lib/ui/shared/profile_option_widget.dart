@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:storeangelApp/core/consts/appColors.dart';
 import 'package:storeangelApp/core/consts/appConstants.dart';
 import 'package:storeangelApp/core/consts/assetsPath.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';

@@ -16,7 +16,7 @@ class CustomBarItemWidget extends StatelessWidget {
         padding: EdgeInsets.only(top: SizeConfig.screenHeight * .008, bottom: SizeConfig.screenHeight * .003),
         child: Icon(
           icon,color: active?AppColors.whiteColor:Theme.of(context).focusColor,
-          size: 24,
+          size: 28,
         ));
   }
   @override
@@ -31,6 +31,7 @@ class CustomBarItemWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               _customIcon(icon,active,context),
+              SizeConfig.verticalSpaceSmall(),
               Text(title,style: active?AppStyles.WhiteStyle_Font16:
               AppStyles.BlackStyleFont_16(context),)
             ],

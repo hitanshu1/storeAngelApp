@@ -14,7 +14,7 @@ import 'package:storeangelApp/core/services/statusbar_service.dart';
 import 'package:storeangelApp/core/viewmodel/signup_viewmodel.dart';
 import 'package:storeangelApp/ui/screens/consumer/login_Screen.dart';
 import 'package:storeangelApp/ui/shared/base_model.dart';
-import 'package:storeangelApp/ui/shared/circuler_button_widget.dart';
+import 'package:storeangelApp/ui/shared/button_widget.dart';
 import 'package:storeangelApp/ui/shared/customAppBar.dart';
 import 'package:storeangelApp/ui/shared/social_login_widget.dart';
 import 'package:storeangelApp/ui/widgets/login/email_pwd_widget.dart';
@@ -165,7 +165,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     SizeConfig.verticalSpace(SizeConfig.screenHeight * .03),
                     signUpViewModel.state == ViewState.Busy
                         ? CircularProgressIndicator()
-                        : CircularButtonWidget(
+                        : ButtonWidget(
                             buttonText: AppStrings.SIGNUP.tr(),
                             buttonColor: Theme.of(context).primaryColor,
                             fontSize: SizeConfig.fontSizeMedium,

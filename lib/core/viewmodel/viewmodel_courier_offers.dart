@@ -24,7 +24,7 @@ class CourierOffersViewModel extends BaseModel{
   Future getAssignOrderList(String courierId)async{
     setState(ViewState.Busy);
     offerOrders=await database.getOfferOrderForCourier(courierId);
-    declineOffers=offerOrders;
+    declineOffers=await database.getDeclineOfferOrderForCourier(courierId);
     acceptedOrders=0;
 
     setState(ViewState.Idle);

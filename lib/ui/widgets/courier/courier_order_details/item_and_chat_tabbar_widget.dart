@@ -99,13 +99,13 @@ class _ItemAndChatTabBarWidgetState extends State<ItemAndChatTabBarWidget>with S
           decoration: BoxDecoration(
               color: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(SizeConfig.radiusSmall)),
-          padding: EdgeInsets.all(2),
+//          padding: EdgeInsets.all(2),
           child: Stack(children: <Widget>[
             Transform.translate(
-                offset: Offset(((SizeConfig.screenWidth * 0.5) * value - (2 * value)), 0),
+                offset: Offset(((SizeConfig.screenWidth * 0.5-SizeConfig.sidepadding.left+2) * value - (2 * value)), 0),
                 child: Container(
                   height:SizeConfig.screenHeight*.07,
-                  width: SizeConfig.screenWidth * 0.5-(SizeConfig.sidepadding.left*2) ,
+                  width: SizeConfig.screenWidth * 0.5-(SizeConfig.sidepadding.left) ,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(SizeConfig.radiusSmall),
                       gradient: AppColors.primaryGradient,

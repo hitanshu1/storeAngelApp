@@ -49,7 +49,7 @@ class CourierCurrentOrderTabViewModel extends BaseModel{
   }
   void onSelectCandidate(int index){
     setState(ViewState.Busy);
-    if(order.status==OrderPurchaseStatus.OrderAccepted||order.status==OrderPurchaseStatus.PriceCheck){
+    if(order.status==OrderPurchaseStatus.OrderPlaced||order.status==OrderPurchaseStatus.Purchasing){
       if(selectedValues){
         if (selectedClients.contains(clientList[index])) {
           getProduct();
@@ -85,13 +85,13 @@ class CourierCurrentOrderTabViewModel extends BaseModel{
     setState(ViewState.Idle);
   }
 
-  bool get deleteVisible=>order.status == OrderPurchaseStatus.Proposal || order.status == OrderPurchaseStatus.MoneyTransfer;
-  bool get shareVisible=>order.status == OrderPurchaseStatus.OrderAccepted;
-  bool get enableSelect=>order.status == OrderPurchaseStatus.OrderAccepted || order.status == OrderPurchaseStatus.PriceCheck;
-  bool get bigHeight=>order.status == OrderPurchaseStatus.OrderAccepted || order.status == OrderPurchaseStatus.PriceCheck;
-  bool get isProposalOrMoneyTransferView=>order.status == OrderPurchaseStatus.Proposal || order.status == OrderPurchaseStatus.MoneyTransfer;
-  bool get isOrderAccepted=>order.status == OrderPurchaseStatus.OrderAccepted;
-  bool get isPriceCheckView=>order.status == OrderPurchaseStatus.PriceCheck;
+  bool get deleteVisible=>order.status == OrderPurchaseStatus.OrderPlaced || order.status == OrderPurchaseStatus.MoneyTransfer;
+  bool get shareVisible=>order.status == OrderPurchaseStatus.OrderPlaced;
+  bool get enableSelect=>order.status == OrderPurchaseStatus.OrderPlaced || order.status == OrderPurchaseStatus.MoneyTransfer;
+  bool get bigHeight=>order.status == OrderPurchaseStatus.OrderPlaced || order.status == OrderPurchaseStatus.MoneyTransfer;
+  bool get isProposalOrMoneyTransferView=>order.status == OrderPurchaseStatus.MoneyTransfer || order.status == OrderPurchaseStatus.MoneyTransfer;
+  bool get isOrderAccepted=>order.status == OrderPurchaseStatus.OrderPlaced;
+  bool get isPriceCheckView=>order.status == OrderPurchaseStatus.MoneyTransfer;
   bool get isOrderRunningView=>order.status == OrderPurchaseStatus.OrderRunning;
   bool get isOrderDeliveredView =>order.status == OrderPurchaseStatus.OrderDelivered;
 

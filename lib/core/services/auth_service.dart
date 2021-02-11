@@ -93,6 +93,9 @@ class Auth implements AuthBase {
             ));
       }
     } catch (e) {
+      if(e.message=='The password is invalid or the user does not have a password'){
+        return AuthResponseModel(statusCode: 0, message:AppStrings.THE_PASSWORD_IS_INVALID_OR_THE_USER_DOES_NOT_HAVE_A_PASSWORD.tr(), user: null);
+      }
       return AuthResponseModel(statusCode: 0, message: e.toString(), user: null);
     }
   }
@@ -116,9 +119,16 @@ class Auth implements AuthBase {
 
       return AuthResponseModel(statusCode: 1, message: 'SignUp success', user: _userFromFirebase(authResult.user));
     } catch (e) {
+      print(e);
       if(e.message=='The email address is already in use by another account.'){
         return AuthResponseModel(message: AppStrings.THE_EMAIL_ADDRESS_IS_ALREADY.tr(),
         statusCode: 0,user:_userFromFirebase(null) );
+      }else if(e.message=='Password should be at least 6 characters'){
+        return AuthResponseModel(
+          message: AppStrings.PASSWORD_SHOULD_BE_AT_LEAST_6_CHARACTERS.tr(),
+          statusCode: 0,user:_userFromFirebase(null)
+        );
+
       }
       return AuthResponseModel(statusCode: 0, message: e.message.toString(), user: _userFromFirebase(null));
     }

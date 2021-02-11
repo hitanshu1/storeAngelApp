@@ -7,21 +7,15 @@ import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/storeangel_icons_icons.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
-import 'package:storeangelApp/core/enums/order_purchase_status.dart';
-import 'package:storeangelApp/core/services/numberService.dart';
 import 'package:storeangelApp/core/services/time_ago_service.dart';
 import 'package:storeangelApp/core/viewmodel/home_viewmodel.dart';
-import 'package:storeangelApp/ui/screens/courier_status_screen.dart';
-import 'package:storeangelApp/ui/screens/order/order_page.dart';
 import 'package:storeangelApp/ui/screens/order_delivered_screen.dart';
 import 'package:storeangelApp/ui/shared/base_model.dart';
 import 'package:storeangelApp/ui/shared/buttonWithIcon.dart';
 import 'package:storeangelApp/ui/shared/custom_five_widgets_tile.dart';
-import 'package:storeangelApp/ui/shared/premium_card.dart';
 import 'package:storeangelApp/ui/shared/view_app_Image.dart';
 import 'package:storeangelApp/ui/widgets/courier/courier_order/item_available_widget.dart';
 
-import 'order_list_item_widget.dart';
 
 class HomePurchasesTiles extends StatelessWidget {
   final EdgeInsets sidePadding;

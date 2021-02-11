@@ -4,6 +4,7 @@ import 'package:storeangelApp/core/consts/appConstants.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/models/order.dart';
 import 'package:storeangelApp/core/models/response_model.dart';
+import 'package:storeangelApp/core/models/user.dart';
 import 'package:storeangelApp/core/services/date_service.dart';
 import 'package:storeangelApp/core/services/firebase_abstraction.dart';
 import 'package:storeangelApp/ui/shared/base_model.dart';
@@ -18,7 +19,13 @@ class OrderInformationViewModel extends BaseModel{
   String selectDateAndTime;
   String selectedPaymentMethod=AppStrings.PREPAYMENT.tr();
   int myFee=5;
+  UserModel userDetails;
+  void initializeData(String userID)async{
+    setState(ViewState.Busy);
+    userDetails=await database.getUserDetails(userID);
 
+    setState(ViewState.Idle);
+  }
   void onIncrementFee(){
     setState(ViewState.Busy);
     myFee=myFee+5;

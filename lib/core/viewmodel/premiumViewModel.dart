@@ -2,29 +2,39 @@
 import 'package:flutter/material.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/enums/premium_selected_tile.dart';
+import 'package:storeangelApp/core/models/firebase_storedata_model.dart';
 import 'package:storeangelApp/core/models/premium_tile.dart';
+import 'package:storeangelApp/core/services/firebase_abstraction.dart';
 import 'package:storeangelApp/ui/shared/base_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import '../../getIt.dart';
+
 class PremiumViewModel extends BaseModel{
+
+  FirebaseAbstraction database=getIt<FirebaseAbstraction>();
+  List<StoreDataModel>stores=[];
   final List<PremiumTile> _premiumTiles = [
     PremiumTile(
         tileName: PremiumSelectedTile.left,
         header: AppStrings.BASIC.tr(),
         monthString: '1 ${AppStrings.MONTH.tr()}',
-        price: '€ 6,99',
+        price: '€ 0,00',
+        paymentType: 'after 30 days\n € 6,99 ',
         stackPosition: 0),
     PremiumTile(
         tileName: PremiumSelectedTile.middle,
-        header: AppStrings.STOREANGEL_PREMIUM.tr(),
+        header: AppStrings.PREMIUM.tr(),
         monthString: '12 ${AppStrings.MONTHS.tr()}',
         price: '€ 4,99',
+        paymentType: '\n',
         stackPosition: 1),
     PremiumTile(
         tileName: PremiumSelectedTile.right,
         header: AppStrings.EXPERT.tr(),
         monthString: '6 ${AppStrings.MONTHS.tr()}',
         price: '€ 5,99',
+        paymentType: ' \n',
         stackPosition: 2),
   ];
 
@@ -52,11 +62,14 @@ class PremiumViewModel extends BaseModel{
     setState(ViewState.Idle);
   }
 
-  void initialize(ScrollController scrollController){
+  void initialize(ScrollController scrollController)async{
+    setState(ViewState.Busy);
     Future.delayed(Duration.zero,(){
       this.scrollController = scrollController;
       this.scrollController.addListener(addScrollListener);
     });
+    stores=await database.getStoreData();
+    setState(ViewState.Idle);
   }
 
   void addScrollListener(){

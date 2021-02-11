@@ -13,6 +13,7 @@ import 'package:storeangelApp/core/models/courier_candidate_model.dart';
 import 'package:storeangelApp/core/models/firebase_storedata_model.dart';
 import 'package:storeangelApp/core/models/order.dart';
 import 'package:storeangelApp/core/models/order_by_store.dart';
+import 'package:storeangelApp/core/models/participant.dart';
 import 'package:storeangelApp/core/models/payment_option.dart';
 import 'package:storeangelApp/core/models/product.dart';
 import 'package:storeangelApp/core/models/purchase_deatails.dart';
@@ -20,6 +21,11 @@ import 'package:storeangelApp/core/models/rating_model.dart';
 import 'package:storeangelApp/core/models/user.dart';
 
 class AppSampleData {
+
+
+  static List<Product>sampleProducts=[
+
+  ];
   static List<String> languages_en = [
     'Austria',
     'German',
@@ -40,111 +46,666 @@ class AppSampleData {
   ];
   static List<String> units = ["Stk", "Ltr", "ml", "kg", "gr", "mg"];
 
-  static List<OrderByStore>orderByStoreList=[
-    OrderByStore(
-      storeDetails: StoreDataModel(
-        name: 'REWE',
-        steetNo: '2',
-        image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-        street: 'Domstrasse 20 ',
-        txtZip: '50668',
-        city: 'Nürnberg',
-      ),
-      clients: [
-        ClientDetails(
-            streetNo: '3',
-            name: 'Jakob Merz',
-            street: 'Knesebeckstrasse 76',
-            city: 'Nürnberg',
-            zip: '92323',
-            imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
-        ClientDetails(
-            streetNo: '3',
-            name: 'Jakob Merz',
-            street: 'Knesebeckstrasse 76',
-            city: 'Nürnberg',
-            zip: '92323',
+
+  static List<Product>_productsOne=[
+    Product(
+      id: '1',
+      name: 'Wagyu Beef Ribeye Steak',
+      imageUrl:
+      'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+      originQuantity: 2,
+      price: 3,
+      createdBy: UserModel(
+          name: 'Vanessa Gantikow-Schröder',
+          imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+      availableStatus: AvailableStatus.plenty,
+      alternativeProduct: [
+        Product(
+            id: 'sadfsdf',
+            name: 'Beef Ribeye Steak, 1.12 - 2.0 lb',
             imageUrl:
-            'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+            'https://i5.walmartimages.com/asr/4acce8a6-6b50-4db2-b6a5-3d4bad6e0840.2fa574f42d693e990f9bb8b8175b6f7b.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+            quantity: 2,
+            createdBy: UserModel(
+                name: 'Vanessa Gantikow-Schröder',
+                imageUrl:
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+            price: 3,
+            availableStatus: AvailableStatus.plenty,
+            enableUnit: true,
+            storeDetails: StoreDataModel(
+              name: 'REWE',
+              steetNo: '2',
+              image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+              street: 'Domstrasse 20 ',
+              txtZip: '50668',
+              city: 'Nürnberg',
+
+
+            )),
+      ],
+      assignClient: ClientDetails(
+          id: '1',
+          streetNo: '3',
+          name: 'Jakob Merz',
+          street: 'Knesebeckstrasse 76',
+          city: 'Nürnberg',
+          zip: '92323',
+          imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+
+      storeDetails: storeList[0],),
+
+    Product(
+      id: '3',
+      name: 'Semi Skimmed Milk',
+      imageUrl:
+      'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+      originQuantity: 10,
+      createdBy: UserModel(
+          name: 'Vanessa Gantikow-Schröder',
+          imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+      price: 2,
+      availableStatus: AvailableStatus.few,
+      alternativeProduct: [
 
       ],
-      orderAmount: 250,
-      orderTime: DateTime.now().subtract(Duration(minutes: 10)),
-      products: [
+      assignClient: ClientDetails(
+          id: '1',
+          streetNo: '3',
+          name: 'Jakob Merz',
+          street: 'Knesebeckstrasse 76',
+          city: 'Nürnberg',
+          zip: '92323',
+          imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+
+      storeDetails: storeList[0],),
+    Product(
+      id: '4',
+      name: 'Orangic Black Peppercorns',
+      originQuantity: 1,
+      price: 2,
+      createdBy: UserModel(
+          name: 'Vanessa Gantikow-Schröder',
+          imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+      imageUrl:
+      'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+      availableStatus: AvailableStatus.runOut,
+      assignClient: ClientDetails(
+          id: '1',
+          streetNo: '3',
+          name: 'Jakob Merz',
+          street: 'Knesebeckstrasse 76',
+          city: 'Nürnberg',
+          zip: '92323',
+          imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+      alternativeProduct: [],
+
+      storeDetails: storeList[0],),
+    Product(
+      id: '5',
+      name: 'Red Bull Energy Drink',
+      originQuantity: 1,
+      alternativeProduct: [],
+      price: 2,
+      createdBy: UserModel(
+          name: 'Vanessa Gantikow-Schröder',
+          imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+      imageUrl:
+      'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+      availableStatus: AvailableStatus.unknown,
+      assignClient: ClientDetails(
+          id: '2',
+
+          streetNo: '3',
+          name: 'Jakob Merz',
+          street: 'Knesebeckstrasse 76',
+          city: 'Nürnberg',
+          zip: '92323',
+          imageUrl:
+          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+      storeDetails: storeList[0],
+    ),
+  ];
+
+  static List<Product>_productsTwo=[
+    Product(
+      id: '1',
+      name: 'Wagyu Beef Ribeye Steak',
+      imageUrl:
+      'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+      originQuantity: 2,
+      price: 3,
+      createdBy: UserModel(
+          name: 'Vanessa Gantikow-Schröder',
+          imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+      availableStatus: AvailableStatus.plenty,
+      alternativeProduct: [
         Product(
+            id: 'sadfsdf',
+            name: 'Beef Ribeye Steak, 1.12 - 2.0 lb',
+            imageUrl:
+            'https://i5.walmartimages.com/asr/4acce8a6-6b50-4db2-b6a5-3d4bad6e0840.2fa574f42d693e990f9bb8b8175b6f7b.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+            quantity: 2,
+            createdBy: UserModel(
+                name: 'Vanessa Gantikow-Schröder',
+                imageUrl:
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+            price: 3,
+            availableStatus: AvailableStatus.plenty,
+            enableUnit: true,
+            storeDetails: StoreDataModel(
+              name: 'REWE',
+              steetNo: '2',
+              image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+              street: 'Domstrasse 20 ',
+              txtZip: '50668',
+              city: 'Nürnberg',
+
+            )),
+      ],
+      assignClient: ClientDetails(
+          id: '2',
+
+          streetNo: '3',
+          name: 'Jakob Merz',
+          street: 'Knesebeckstrasse 76',
+          city: 'Nürnberg',
+          zip: '92323',
+          imageUrl:
+          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+
+      storeDetails: storeList[0],),
+    Product(
+      id: '5',
+      name: 'Red Bull Energy Drink',
+      originQuantity: 1,
+      alternativeProduct: [],
+      price: 2,
+      createdBy: UserModel(
+          name: 'Vanessa Gantikow-Schröder',
+          imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+      imageUrl:
+      'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+      availableStatus: AvailableStatus.unknown,
+      assignClient: ClientDetails(
+          id: '2',
+
+          streetNo: '3',
+          name: 'Jakob Merz',
+          street: 'Knesebeckstrasse 76',
+          city: 'Nürnberg',
+          zip: '92323',
+          imageUrl:
+          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+      storeDetails: storeList[0],
+    ),
+  ];
+  static List<OrderByStore>orderByStoreList = [
+    OrderByStore(
+        participants: [
+          Participant(
+            products:_productsOne,
+            clientDetails:  ClientDetails(
+                id: '1',
+                streetNo: '3',
+                name: 'Jakob Merz',
+                street: 'Knesebeckstrasse 76',
+                city: 'Nürnberg',
+                zip: '92323',
+                imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg')
+          ),
+          Participant(
+              products:_productsTwo,
+              clientDetails:  ClientDetails(
+                  id: '2',
+                  streetNo: '3',
+                  name: 'Jakob Merz',
+                  street: 'Knesebeckstrasse 76',
+                  city: 'Nürnberg',
+                  zip: '92323',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+          ),
+        ],
+        storeDetails: storeList[0],
+        status: OrderPurchaseStatus.InOrder,
+        clients: [
+          ClientDetails(
+              id: '1',
+              streetNo: '3',
+              name: 'Jakob Merz',
+              street: 'Knesebeckstrasse 76',
+              city: 'Nürnberg',
+              zip: '92323',
+              imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+          ClientDetails(
+              id: '2',
+              streetNo: '3',
+              name: 'Jakob Merz',
+              street: 'Knesebeckstrasse 76',
+              city: 'Nürnberg',
+              zip: '92323',
+              imageUrl:
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+
+        ],
+        orderAmount: 250,
+        orderTime: DateTime.now().subtract(Duration(minutes: 10)),
+        products:_productsOne
+    ),
+    OrderByStore(
+        storeDetails: storeList[1],
+        status: OrderPurchaseStatus.InOrder,
+        participants: [
+          Participant(
+            products: [
+              Product(
+                id: '1',
+                name: 'Wagyu Beef Ribeye Steak',
+                imageUrl:
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                originQuantity: 2,
+                price: 3,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+                availableStatus: AvailableStatus.plenty,
+                alternativeProduct: [
+                  Product(
+                      id: 'sadfsdf',
+                      name: 'Beef Ribeye Steak, 1.12 - 2.0 lb',
+                      imageUrl:
+                      'https://i5.walmartimages.com/asr/4acce8a6-6b50-4db2-b6a5-3d4bad6e0840.2fa574f42d693e990f9bb8b8175b6f7b.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                      quantity: 2,
+                      createdBy: UserModel(
+                          name: 'Vanessa Gantikow-Schröder',
+                          imageUrl:
+                          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                      price: 3,
+                      availableStatus: AvailableStatus.plenty,
+                      enableUnit: true,
+                      storeDetails: StoreDataModel(
+                        name: 'REWE',
+                        steetNo: '2',
+                        image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                        street: 'Domstrasse 20 ',
+                        txtZip: '50668',
+                        city: 'Nürnberg',
+
+
+                      )),
+                ],
+                assignClient: ClientDetails(
+                    id: '1',
+                    streetNo: '3',
+                    name: 'Jakob Merz',
+                    street: 'Knesebeckstrasse 76',
+                    city: 'Nürnberg',
+                    zip: '92323',
+                    imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+
+                storeDetails: storeList[0],),
+
+              Product(
+                id: '3',
+                name: 'Semi Skimmed Milk',
+                imageUrl:
+                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                originQuantity: 10,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+                price: 2,
+                availableStatus: AvailableStatus.few,
+                alternativeProduct: [
+
+                ],
+                assignClient: ClientDetails(
+                    id: '1',
+                    streetNo: '3',
+                    name: 'Jakob Merz',
+                    street: 'Knesebeckstrasse 76',
+                    city: 'Nürnberg',
+                    zip: '92323',
+                    imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+
+                storeDetails: storeList[0],),
+              Product(
+                id: '4',
+                name: 'Orangic Black Peppercorns',
+                originQuantity: 1,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.runOut,
+                assignClient: ClientDetails(
+                    id: '1',
+                    streetNo: '3',
+                    name: 'Jakob Merz',
+                    street: 'Knesebeckstrasse 76',
+                    city: 'Nürnberg',
+                    zip: '92323',
+                    imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+                alternativeProduct: [],
+
+                storeDetails: storeList[0],),
+              Product(
+                id: '5',
+                name: 'Red Bull Energy Drink',
+                originQuantity: 1,
+                alternativeProduct: [],
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.unknown,
+                assignClient: ClientDetails(
+                    id: '2',
+
+                    streetNo: '3',
+                    name: 'Jakob Merz',
+                    street: 'Knesebeckstrasse 76',
+                    city: 'Nürnberg',
+                    zip: '92323',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+                storeDetails: storeList[0],
+              ),
+            ],
+            clientDetails:  ClientDetails(
+                id: '2',
+                streetNo: '3',
+                name: 'Jakob Merz',
+                street: 'Knesebeckstrasse 76',
+                city: 'Nürnberg',
+                zip: '92323',
+                imageUrl:
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+          ),
+          Participant(
+            products: [
+              Product(
+                id: '1',
+                name: 'Wagyu Beef Ribeye Steak',
+                imageUrl:
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                originQuantity: 2,
+                price: 3,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+                availableStatus: AvailableStatus.plenty,
+                alternativeProduct: [
+                  Product(
+                      id: 'sadfsdf',
+                      name: 'Beef Ribeye Steak, 1.12 - 2.0 lb',
+                      imageUrl:
+                      'https://i5.walmartimages.com/asr/4acce8a6-6b50-4db2-b6a5-3d4bad6e0840.2fa574f42d693e990f9bb8b8175b6f7b.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                      quantity: 2,
+                      createdBy: UserModel(
+                          name: 'Vanessa Gantikow-Schröder',
+                          imageUrl:
+                          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                      price: 3,
+                      availableStatus: AvailableStatus.plenty,
+                      enableUnit: true,
+                      storeDetails: StoreDataModel(
+                        name: 'REWE',
+                        steetNo: '2',
+                        image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                        street: 'Domstrasse 20 ',
+                        txtZip: '50668',
+                        city: 'Nürnberg',
+
+                      )),
+                ],
+                assignClient: ClientDetails(
+                    id: '2',
+
+                    streetNo: '3',
+                    name: 'Jakob Merz',
+                    street: 'Knesebeckstrasse 76',
+                    city: 'Nürnberg',
+                    zip: '92323',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+
+                storeDetails: storeList[0],),
+              Product(
+                id: '5',
+                name: 'Red Bull Energy Drink',
+                originQuantity: 1,
+                alternativeProduct: [],
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.unknown,
+                assignClient: ClientDetails(
+                    id: '2',
+
+                    streetNo: '3',
+                    name: 'Jakob Merz',
+                    street: 'Knesebeckstrasse 76',
+                    city: 'Nürnberg',
+                    zip: '92323',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+                storeDetails: storeList[0],
+              ),
+            ],
+            clientDetails: ClientDetails(
+                id: '1',
+                streetNo: '3',
+                name: 'Jakob Merz',
+                street: 'Knesebeckstrasse 76',
+                city: 'Nürnberg',
+                zip: '92323',
+                imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+          ),
+        ],
+        clients: [
+
+          ClientDetails(
+              id: '2',
+              streetNo: '3',
+              name: 'Jakob Merz',
+              street: 'Knesebeckstrasse 76',
+              city: 'Nürnberg',
+              zip: '92323',
+              imageUrl:
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+          ClientDetails(
+              id: '1',
+              streetNo: '3',
+              name: 'Jakob Merz',
+              street: 'Knesebeckstrasse 76',
+              city: 'Nürnberg',
+              zip: '92323',
+              imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+
+        ],
+        orderAmount: 250,
+        orderTime: DateTime.now().subtract(Duration(minutes: 10)),
+        products: [
+          Product(
+            id: '1',
             name: 'Wagyu Beef Ribeye Steak',
             imageUrl:
             'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
-            quantity: 2,
+            originQuantity: 2,
             price: 3,
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
             availableStatus: AvailableStatus.plenty,
-            storeDetails: StoreDataModel(
-              name: 'REWE',
-              steetNo: '2',
-              image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-              street: 'Domstrasse 20 ',
-              txtZip: '50668',
-              city: 'Nürnberg',
-            )),
-        Product(
+            alternativeProduct: [],
+            assignClient: ClientDetails(
+                id: '1',
+                streetNo: '3',
+                name: 'Jakob Merz',
+                street: 'Knesebeckstrasse 76',
+                city: 'Nürnberg',
+                zip: '92323',
+                imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+
+            storeDetails: storeList[1],),
+          Product(
+            id: '1',
+            name: 'Wagyu Beef Ribeye Steak',
+            imageUrl:
+            'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+            originQuantity: 2,
+            price: 3,
+            createdBy: UserModel(
+                name: 'Vanessa Gantikow-Schröder',
+                imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+            availableStatus: AvailableStatus.plenty,
+            alternativeProduct: [],
+            assignClient: ClientDetails(
+                id: '2',
+
+                streetNo: '3',
+                name: 'Jakob Merz',
+                street: 'Knesebeckstrasse 76',
+                city: 'Nürnberg',
+                zip: '92323',
+                imageUrl:
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+
+            storeDetails: storeList[1],),
+          Product(
+            id: '3',
             name: 'Semi Skimmed Milk',
             imageUrl:
             'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
-            quantity: 10,
+            originQuantity: 10,
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
             price: 2,
             availableStatus: AvailableStatus.few,
-            storeDetails: StoreDataModel(
-              name: 'REWE',
-              steetNo: '2',
-              image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-              street: 'Domstrasse 20 ',
-              txtZip: '50668',
-              city: 'Nürnberg',
-            )),
-        Product(
+            alternativeProduct: [],
+            assignClient: ClientDetails(
+                id: '1',
+                streetNo: '3',
+                name: 'Jakob Merz',
+                street: 'Knesebeckstrasse 76',
+                city: 'Nürnberg',
+                zip: '92323',
+                imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+
+            storeDetails: storeList[1],),
+          Product(
+            id: '4',
             name: 'Orangic Black Peppercorns',
-            quantity: 1,
+            originQuantity: 1,
             price: 2,
+            alternativeProduct: [],
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
             imageUrl:
             'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
             availableStatus: AvailableStatus.runOut,
-            storeDetails: StoreDataModel(
-              name: 'REWE',
-              steetNo: '2',
-              image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-              street: 'Domstrasse 20 ',
-              txtZip: '50668',
-              city: 'Nürnberg',
-            )),
-        Product(
+            assignClient: ClientDetails(
+                id: '1',
+                streetNo: '3',
+                name: 'Jakob Merz',
+                street: 'Knesebeckstrasse 76',
+                city: 'Nürnberg',
+                zip: '92323',
+                imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+
+            storeDetails: storeList[1],),
+          Product(
+            id: '5',
             name: 'Red Bull Energy Drink',
-            quantity: 1,
+            originQuantity: 1,
             price: 2,
+            alternativeProduct: [],
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
             imageUrl:
             'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
             availableStatus: AvailableStatus.unknown,
-            storeDetails: StoreDataModel(
-              name: 'REWE',
-              steetNo: '2',
-              image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-              street: 'Domstrasse 20 ',
-              txtZip: '50668',
-              city: 'Nürnberg',
-            )),
-      ]
+            assignClient: ClientDetails(
+                id: '2',
+
+                streetNo: '3',
+                name: 'Jakob Merz',
+                street: 'Knesebeckstrasse 76',
+                city: 'Nürnberg',
+                zip: '92323',
+                imageUrl:
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+            storeDetails: storeList[1],
+          ),
+        ]
     ),
+  ];
+  static List<OrderByStore>pastOrders = [
+    OrderByStore(
+        participants: [
+          Participant(
+              products:_productsOne,
+              clientDetails:  ClientDetails(
+                  id: '1',
+                  streetNo: '3',
+                  name: 'Jakob Merz',
+                  street: 'Knesebeckstrasse 76',
+                  city: 'Nürnberg',
+                  zip: '92323',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg')
+          ),
+          Participant(
+            products:_productsTwo,
+            clientDetails:  ClientDetails(
+                id: '2',
+                streetNo: '3',
+                name: 'Jakob Merz',
+                street: 'Knesebeckstrasse 76',
+                city: 'Nürnberg',
+                zip: '92323',
+                imageUrl:
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+          ),
+        ],
+        storeDetails: storeList[0],
+        status: OrderPurchaseStatus.OrderDelivered,
+        clients: [
+          ClientDetails(
+              id: '1',
+              streetNo: '3',
+              name: 'Jakob Merz',
+              street: 'Knesebeckstrasse 76',
+              city: 'Nürnberg',
+              zip: '92323',
+              imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+          ClientDetails(
+              id: '2',
+              streetNo: '3',
+              name: 'Jakob Merz',
+              street: 'Knesebeckstrasse 76',
+              city: 'Nürnberg',
+              zip: '92323',
+              imageUrl:
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+
+        ],
+        orderAmount: 250,
+        orderTime: DateTime.now().subtract(Duration(minutes: 10)),
+        products:_productsOne
+    ),
+
   ];
   static List<OrderOrPurchases> courierOffers = <OrderOrPurchases>[
     OrderOrPurchases(
@@ -168,11 +729,12 @@ class AppSampleData {
           city: 'Nürnberg',
         ),
         purchaseDetails:
-            PurchaseDetails(paymentOption: PaymentOption(paymentOptionEnum: PaymentOptionEnum.prepayment), products: [
+        PurchaseDetails(paymentOption: PaymentOption(
+            paymentOptionEnum: PaymentOptionEnum.prepayment), products: [
           Product(
               name: 'Wagyu Beef Ribeye Steak',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               quantity: 2,
               price: 3,
               createdBy: UserModel(
@@ -190,7 +752,7 @@ class AppSampleData {
           Product(
               name: 'Semi Skimmed Milk',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               quantity: 10,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
@@ -213,7 +775,7 @@ class AppSampleData {
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.runOut,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -231,7 +793,7 @@ class AppSampleData {
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.unknown,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -249,7 +811,7 @@ class AppSampleData {
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.few,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -267,7 +829,7 @@ class AppSampleData {
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5b27d3f9-1fcc-4300-b96b-ae576f6d184b_2.7999df8a262568356848e28ed7009150.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5b27d3f9-1fcc-4300-b96b-ae576f6d184b_2.7999df8a262568356848e28ed7009150.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.runOut,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -284,7 +846,7 @@ class AppSampleData {
                   imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
               price: 2,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/072ec72d-30a2-4cb9-b929-743c99ab3815_1.12fe1f13b22c5ffc35ccf9b26d61ad7c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/072ec72d-30a2-4cb9-b929-743c99ab3815_1.12fe1f13b22c5ffc35ccf9b26d61ad7c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               availableStatus: AvailableStatus.plenty,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -302,7 +864,7 @@ class AppSampleData {
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
             imageUrl:
-                'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
             availableStatus: AvailableStatus.plenty,
           ),
           Product(
@@ -312,9 +874,9 @@ class AppSampleData {
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl:
-                    'https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fed%2F18%2F91%2Fed189191dc22169f0e6786a85f068616.jpg&imgrefurl=https%3A%2F%2Fin.pinterest.com%2Fpin%2F673710425477850462%2F&tbnid=Z9ob-bmDnmJawM&vet=12ahUKEwirmeGDo__sAhUKQH0KHct-CfYQMygKegUIARDsAQ..i&docid=RXkt-PYKFlOJ2M&w=2592&h=3872&q=passport%20size%20photo&hl=en&ved=2ahUKEwirmeGDo__sAhUKQH0KHct-CfYQMygKegUIARDsAQ'),
+                'https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fed%2F18%2F91%2Fed189191dc22169f0e6786a85f068616.jpg&imgrefurl=https%3A%2F%2Fin.pinterest.com%2Fpin%2F673710425477850462%2F&tbnid=Z9ob-bmDnmJawM&vet=12ahUKEwirmeGDo__sAhUKQH0KHct-CfYQMygKegUIARDsAQ..i&docid=RXkt-PYKFlOJ2M&w=2592&h=3872&q=passport%20size%20photo&hl=en&ved=2ahUKEwirmeGDo__sAhUKQH0KHct-CfYQMygKegUIARDsAQ'),
             imageUrl:
-                'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
             availableStatus: AvailableStatus.plenty,
           ),
           Product(
@@ -325,24 +887,31 @@ class AppSampleData {
                 imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
             price: 5,
             imageUrl:
-                'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
             availableStatus: AvailableStatus.plenty,
           ),
         ]),
         quantity: 10,
         status: OrderPurchaseStatus.Rejected,
-        selectedDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 2),
+        selectedDate: DateTime(DateTime
+            .now()
+            .year, DateTime
+            .now()
+            .month, DateTime
+            .now()
+            .day + 2),
         timeDuration: '17:00 - 20:00'),
     OrderOrPurchases(
       orderID: 'O2',
       comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
       purchaseDetails: PurchaseDetails(
-        paymentOption: PaymentOption(paymentOptionEnum: PaymentOptionEnum.prepayment),
+        paymentOption: PaymentOption(
+            paymentOptionEnum: PaymentOptionEnum.prepayment),
         products: [
           Product(
               name: 'Wagyu Beef Ribeye Steak',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               quantity: 2,
               price: 3,
               createdBy: UserModel(
@@ -360,7 +929,7 @@ class AppSampleData {
           Product(
               name: 'Semi Skimmed Milk',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               quantity: 10,
               price: 2,
               createdBy: UserModel(
@@ -383,7 +952,7 @@ class AppSampleData {
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.runOut,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -401,7 +970,7 @@ class AppSampleData {
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.unknown,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -419,7 +988,7 @@ class AppSampleData {
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               availableStatus: AvailableStatus.few,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -437,7 +1006,7 @@ class AppSampleData {
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/8c85e0b1-3639-47c7-8997-5114715dff7d.deede370d942a086b13a143e61fea4a8.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/8c85e0b1-3639-47c7-8997-5114715dff7d.deede370d942a086b13a143e61fea4a8.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               availableStatus: AvailableStatus.few,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -451,9 +1020,15 @@ class AppSampleData {
       ),
       orderAmount: 350,
       orderPayment: 'Prepayment',
-      selectedDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 2),
+      selectedDate: DateTime(DateTime
+          .now()
+          .year, DateTime
+          .now()
+          .month, DateTime
+          .now()
+          .day + 2),
       timeDuration: '17:00 - 20:00',
-      status: OrderPurchaseStatus.Pending,
+      status: OrderPurchaseStatus.PlaceAOrder,
       clientDetails: ClientDetails(
           streetNo: '3',
           name: 'Jakob Merz',
@@ -461,7 +1036,7 @@ class AppSampleData {
           city: 'Nürnberg',
           zip: '92323',
           imageUrl:
-              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
       storeDetails: StoreDataModel(
         name: 'REWE',
         steetNo: '2',
@@ -476,18 +1051,19 @@ class AppSampleData {
       orderID: 'O3',
       comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
       purchaseDetails: PurchaseDetails(
-        paymentOption: PaymentOption(paymentOptionEnum: PaymentOptionEnum.prepayment),
+        paymentOption: PaymentOption(
+            paymentOptionEnum: PaymentOptionEnum.prepayment),
         products: [
           Product(
               name: 'Wagyu Beef Ribeye Steak',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               quantity: 2,
               price: 3,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               availableStatus: AvailableStatus.plenty,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -500,13 +1076,13 @@ class AppSampleData {
           Product(
               name: 'Semi Skimmed Milk',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               quantity: 10,
               price: 2,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               availableStatus: AvailableStatus.few,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -523,9 +1099,9 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.runOut,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -542,9 +1118,9 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.unknown,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -561,9 +1137,9 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               availableStatus: AvailableStatus.few,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -580,9 +1156,9 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5b27d3f9-1fcc-4300-b96b-ae576f6d184b_2.7999df8a262568356848e28ed7009150.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5b27d3f9-1fcc-4300-b96b-ae576f6d184b_2.7999df8a262568356848e28ed7009150.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.few,
               storeDetails: StoreDataModel(
                 name: 'REWE',
@@ -596,14 +1172,20 @@ class AppSampleData {
       ),
       orderAmount: 350,
       orderPayment: 'Prepayment',
-      status: OrderPurchaseStatus.Pending,
-      selectedDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 2),
+      status: OrderPurchaseStatus.PlaceAOrder,
+      selectedDate: DateTime(DateTime
+          .now()
+          .year, DateTime
+          .now()
+          .month, DateTime
+          .now()
+          .day + 2),
       timeDuration: '17:00 - 20:00',
       clientDetails: ClientDetails(
         streetNo: '3',
         name: 'Jakob Merz',
         imageUrl:
-            'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg',
+        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg',
         street: 'Knesebeckstrasse 76',
         city: 'Nürnberg',
         zip: '92323',
@@ -619,6 +1201,501 @@ class AppSampleData {
       quantity: 10,
     ),
   ];
+  static List<OrderOrPurchases> declineOffers = <OrderOrPurchases>[
+    OrderOrPurchases(
+        orderID: 'O1',
+        orderAmount: 350,
+        comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
+        orderPayment: 'Pending',
+        clientDetails: ClientDetails(
+            streetNo: '3',
+            name: 'Jakob Merz',
+            street: 'Knesebeckstrasse 76',
+            city: 'Nürnberg',
+            zip: '92323',
+            imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+        storeDetails: StoreDataModel(
+          name: 'REWE',
+          steetNo: '2',
+          image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+          street: 'Domstrasse 20 ',
+          txtZip: '50668',
+          city: 'Nürnberg',
+        ),
+        purchaseDetails:
+        PurchaseDetails(paymentOption: PaymentOption(
+            paymentOptionEnum: PaymentOptionEnum.prepayment), products: [
+          Product(
+              name: 'Wagyu Beef Ribeye Steak',
+              imageUrl:
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              quantity: 2,
+              price: 3,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              availableStatus: AvailableStatus.plenty,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Semi Skimmed Milk',
+              imageUrl:
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              quantity: 10,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              price: 2,
+              availableStatus: AvailableStatus.few,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Orangic Black Peppercorns',
+              quantity: 1,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.runOut,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Red Bull Energy Drink',
+              quantity: 1,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.unknown,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Mizani 25 Miracle Milk leave',
+              quantity: 2,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.few,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Great Value Original Soymilk',
+              quantity: 10,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/5b27d3f9-1fcc-4300-b96b-ae576f6d184b_2.7999df8a262568356848e28ed7009150.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.runOut,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Short-grain rice',
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              price: 2,
+              imageUrl:
+              'https://i5.walmartimages.com/asr/072ec72d-30a2-4cb9-b929-743c99ab3815_1.12fe1f13b22c5ffc35ccf9b26d61ad7c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              availableStatus: AvailableStatus.plenty,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+            name: 'Organic Black Peppercorns',
+            quantity: 1,
+            price: 5,
+            createdBy: UserModel(
+                name: 'Vanessa Gantikow-Schröder',
+                imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+            imageUrl:
+            'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+            availableStatus: AvailableStatus.plenty,
+          ),
+          Product(
+            name: 'Organic Black Peppercorns',
+            quantity: 1,
+            price: 5,
+            createdBy: UserModel(
+                name: 'Vanessa Gantikow-Schröder',
+                imageUrl:
+                'https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fed%2F18%2F91%2Fed189191dc22169f0e6786a85f068616.jpg&imgrefurl=https%3A%2F%2Fin.pinterest.com%2Fpin%2F673710425477850462%2F&tbnid=Z9ob-bmDnmJawM&vet=12ahUKEwirmeGDo__sAhUKQH0KHct-CfYQMygKegUIARDsAQ..i&docid=RXkt-PYKFlOJ2M&w=2592&h=3872&q=passport%20size%20photo&hl=en&ved=2ahUKEwirmeGDo__sAhUKQH0KHct-CfYQMygKegUIARDsAQ'),
+            imageUrl:
+            'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+            availableStatus: AvailableStatus.plenty,
+          ),
+          Product(
+            name: 'Organic Black Peppercorns',
+            quantity: 1,
+            createdBy: UserModel(
+                name: 'Vanessa Gantikow-Schröder',
+                imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+            price: 5,
+            imageUrl:
+            'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+            availableStatus: AvailableStatus.plenty,
+          ),
+        ]),
+        quantity: 10,
+        status: OrderPurchaseStatus.Rejected,
+        selectedDate: DateTime(DateTime
+            .now()
+            .year, DateTime
+            .now()
+            .month, DateTime
+            .now()
+            .day + 2),
+        timeDuration: '17:00 - 20:00'),
+    OrderOrPurchases(
+      orderID: 'O2',
+      comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
+      purchaseDetails: PurchaseDetails(
+        paymentOption: PaymentOption(
+            paymentOptionEnum: PaymentOptionEnum.prepayment),
+        products: [
+          Product(
+              name: 'Wagyu Beef Ribeye Steak',
+              imageUrl:
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              quantity: 2,
+              price: 3,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              availableStatus: AvailableStatus.few,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Semi Skimmed Milk',
+              imageUrl:
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              quantity: 10,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              availableStatus: AvailableStatus.plenty,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Orangic Black Peppercorns',
+              quantity: 1,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.runOut,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Red Bull Energy Drink',
+              quantity: 1,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.unknown,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Mizani 25 Miracle Milk leave in 13.5oz',
+              quantity: 2,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              availableStatus: AvailableStatus.few,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Silk Shelf-Stable Chocolate Soymilk Singles',
+              quantity: 10,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl: 'https://i.pinimg.com/originals/ed/18/91/ed189191dc22169f0e6786a85f068616.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/8c85e0b1-3639-47c7-8997-5114715dff7d.deede370d942a086b13a143e61fea4a8.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              availableStatus: AvailableStatus.few,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+        ],
+      ),
+      orderAmount: 350,
+      orderPayment: 'Prepayment',
+      selectedDate: DateTime(DateTime
+          .now()
+          .year, DateTime
+          .now()
+          .month, DateTime
+          .now()
+          .day + 2),
+      timeDuration: '17:00 - 20:00',
+      status: OrderPurchaseStatus.Rejected,
+      clientDetails: ClientDetails(
+          streetNo: '3',
+          name: 'Jakob Merz',
+          street: 'Knesebeckstrasse 76',
+          city: 'Nürnberg',
+          zip: '92323',
+          imageUrl:
+          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg'),
+      storeDetails: StoreDataModel(
+        name: 'REWE',
+        steetNo: '2',
+        image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+        street: 'Domstrasse 20 ',
+        txtZip: '50668',
+        city: 'Nürnberg',
+      ),
+      quantity: 10,
+    ),
+    OrderOrPurchases(
+      orderID: 'O3',
+      comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
+      purchaseDetails: PurchaseDetails(
+        paymentOption: PaymentOption(
+            paymentOptionEnum: PaymentOptionEnum.prepayment),
+        products: [
+          Product(
+              name: 'Wagyu Beef Ribeye Steak',
+              imageUrl:
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              quantity: 2,
+              price: 3,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              availableStatus: AvailableStatus.plenty,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Semi Skimmed Milk',
+              imageUrl:
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              quantity: 10,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              availableStatus: AvailableStatus.few,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Orangic Black Peppercorns',
+              quantity: 1,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.runOut,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Red Bull Energy Drink',
+              quantity: 1,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.unknown,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Mizani 25 Miracle Milk leave in 13.5oz',
+              quantity: 2,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              availableStatus: AvailableStatus.few,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+          Product(
+              name: 'Great Value Original Soymilk',
+              quantity: 10,
+              price: 2,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/5b27d3f9-1fcc-4300-b96b-ae576f6d184b_2.7999df8a262568356848e28ed7009150.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.few,
+              storeDetails: StoreDataModel(
+                name: 'REWE',
+                steetNo: '2',
+                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                street: 'Domstrasse 20 ',
+                txtZip: '50668',
+                city: 'Nürnberg',
+              )),
+        ],
+      ),
+      orderAmount: 350,
+      orderPayment: 'Prepayment',
+      status: OrderPurchaseStatus.Rejected,
+      selectedDate: DateTime(DateTime
+          .now()
+          .year, DateTime
+          .now()
+          .month, DateTime
+          .now()
+          .day + 2),
+      timeDuration: '17:00 - 20:00',
+      clientDetails: ClientDetails(
+        streetNo: '3',
+        name: 'Jakob Merz',
+        imageUrl:
+        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-george-clooney-gettyimages-178273260.jpg',
+        street: 'Knesebeckstrasse 76',
+        city: 'Nürnberg',
+        zip: '92323',
+      ),
+      storeDetails: StoreDataModel(
+        name: 'REWE',
+        steetNo: '2',
+        image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+        street: 'Domstrasse 20 ',
+        txtZip: '50668',
+        city: 'Nürnberg',
+      ),
+      quantity: 10,
+    ),
+  ];
+
   static List<CourierCandidate> candidatesList = [
     CourierCandidate(
         id: 'c1',
@@ -651,7 +1728,7 @@ class AppSampleData {
     CourierCandidate(
         id: 'c2',
         imageUrl:
-            'https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/NDcUKEpwx/videoblocks-young-happy-beautiful-delivery-woman-worker-smiling-to-the-camera-cheerfully-holding-cardboard-box-package-with-copy-space-showing-thumbs-up-on-green-background-service_ruesmxgmyg_thumbnail-1080_01.png',
+        'https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/NDcUKEpwx/videoblocks-young-happy-beautiful-delivery-woman-worker-smiling-to-the-camera-cheerfully-holding-cardboard-box-package-with-copy-space-showing-thumbs-up-on-green-background-service_ruesmxgmyg_thumbnail-1080_01.png',
         name: 'Connie Webb',
         stars: 5,
         reviews: 30,
@@ -706,7 +1783,7 @@ class AppSampleData {
     CourierCandidate(
         id: 'c4',
         imageUrl:
-            'https://image.freepik.com/free-photo/smiling-young-pretty-delivery-girl-red-uniform-cap-holding-pizza-packages_141793-31534.jpg',
+        'https://image.freepik.com/free-photo/smiling-young-pretty-delivery-girl-red-uniform-cap-holding-pizza-packages_141793-31534.jpg',
         name: 'Jane Pena',
         stars: 4,
         reviews: 24,
@@ -734,7 +1811,7 @@ class AppSampleData {
     CourierCandidate(
         id: 'c5',
         imageUrl:
-            'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg',
+        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg',
         name: 'Vanessa Gantikow-Schröder',
         stars: 3,
         reviews: 45,
@@ -789,7 +1866,7 @@ class AppSampleData {
     CourierCandidate(
         id: 'c7',
         imageUrl:
-            'https://images.unsplash.com/photo-1462804993656-fac4ff489837?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+        'https://images.unsplash.com/photo-1462804993656-fac4ff489837?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
         name: 'Marjorie Miles',
         stars: 3,
         reviews: 24,
@@ -859,7 +1936,7 @@ class AppSampleData {
         customer: UserModel(
             name: 'Jakob Merz',
             imageUrl:
-                'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
+            'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
         quantity: 9,
         time: DateTime.now(),
         products: [
@@ -867,7 +1944,7 @@ class AppSampleData {
               category: 'GROCERY',
               id: 'g1',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               name: 'Wagyu Beef Ribeye Steak',
               quantity: 2,
               price: 4.32,
@@ -875,7 +1952,7 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'REWE',
                 steetNo: '2',
@@ -890,14 +1967,14 @@ class AppSampleData {
               name: 'Semi Skimmed Milk',
               quantity: 5,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               price: 4.32,
               newPrice: 5.34,
               availableStatus: AvailableStatus.few,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'REWE',
                 steetNo: '2',
@@ -1010,7 +2087,7 @@ class AppSampleData {
         customer: UserModel(
             name: 'Joson Flores',
             imageUrl:
-                'https://dmn-dallas-news-prod.cdn.arcpublishing.com/resizer/TP2Goa_wkbClIvFlUeuCKZOpeCM=/1660x934/smart/filters:no_upscale()/arc-anglerfish-arc2-prod-dmn.s3.amazonaws.com/public/EEFXXGI2ONE6FMYGZTIMKXOQAY.jpg'),
+            'https://dmn-dallas-news-prod.cdn.arcpublishing.com/resizer/TP2Goa_wkbClIvFlUeuCKZOpeCM=/1660x934/smart/filters:no_upscale()/arc-anglerfish-arc2-prod-dmn.s3.amazonaws.com/public/EEFXXGI2ONE6FMYGZTIMKXOQAY.jpg'),
         quantity: 9,
         time: DateTime.now(),
         products: [
@@ -1018,7 +2095,7 @@ class AppSampleData {
               category: 'GROCERY',
               id: '01',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               name: 'Wagyu Beef Ribeye Steak',
               quantity: 2,
               price: 2.22,
@@ -1026,7 +2103,7 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 name: 'Lidl',
@@ -1039,16 +2116,16 @@ class AppSampleData {
             category: 'GROCERY',
             id: '02',
             imageUrl:
-                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl:
-                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
             storeDetails: StoreDataModel(
               steetNo: '2',
               name: 'Lidl',
               image:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               street: 'Hauptstrasse 6a',
               city: 'Düsseldorf',
               txtZip: '56456',
@@ -1066,12 +2143,12 @@ class AppSampleData {
               category: 'GROCERY',
               price: 11.11,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/1a4d04e2-08a8-4887-a81f-f900b8acfeb0.4e46924d62e48379644d1bd3c40a5080.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/1a4d04e2-08a8-4887-a81f-f900b8acfeb0.4e46924d62e48379644d1bd3c40a5080.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               availableStatus: AvailableStatus.few,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'REWE',
                 steetNo: '2',
@@ -1087,12 +2164,12 @@ class AppSampleData {
               category: 'GROCERY',
               price: 11.11,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5e3107e9-ca85-41f4-9ee5-f028e71fc8d8_2.023ca795f624f4d161f3f7b66d132577.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5e3107e9-ca85-41f4-9ee5-f028e71fc8d8_2.023ca795f624f4d161f3f7b66d132577.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               availableStatus: AvailableStatus.few,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'REWE',
                 steetNo: '2',
@@ -1105,11 +2182,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '03',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'Lidl',
                 steetNo: '2',
@@ -1126,11 +2203,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '04',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'Lidl',
                 steetNo: '2',
@@ -1159,7 +2236,7 @@ class AppSampleData {
         customer: UserModel(
             name: 'Smrith',
             imageUrl:
-                'https://cdn.shopify.com/s/files/1/0092/2969/7086/files/Copy_of_Untitled_3_f1177dac-8a67-4d94-a3df-d88886571d2b.png?v=16406613511003005348'),
+            'https://cdn.shopify.com/s/files/1/0092/2969/7086/files/Copy_of_Untitled_3_f1177dac-8a67-4d94-a3df-d88886571d2b.png?v=16406613511003005348'),
         quantity: 9,
         time: DateTime.now(),
         products: [
@@ -1167,7 +2244,7 @@ class AppSampleData {
               category: 'GROCERY',
               id: '01',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               name: 'Wagyu Beef Ribeye Steak',
               quantity: 2,
               price: 2.11,
@@ -1175,7 +2252,7 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'Lidl',
                 steetNo: '2',
@@ -1191,12 +2268,12 @@ class AppSampleData {
               category: 'GROCERY',
               price: 11.11,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/1a4d04e2-08a8-4887-a81f-f900b8acfeb0.4e46924d62e48379644d1bd3c40a5080.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/1a4d04e2-08a8-4887-a81f-f900b8acfeb0.4e46924d62e48379644d1bd3c40a5080.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               availableStatus: AvailableStatus.plenty,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'REWE',
                 steetNo: '2',
@@ -1212,12 +2289,12 @@ class AppSampleData {
               category: 'GROCERY',
               price: 11.11,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5e3107e9-ca85-41f4-9ee5-f028e71fc8d8_2.023ca795f624f4d161f3f7b66d132577.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5e3107e9-ca85-41f4-9ee5-f028e71fc8d8_2.023ca795f624f4d161f3f7b66d132577.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               availableStatus: AvailableStatus.plenty,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'REWE',
                 steetNo: '2',
@@ -1230,16 +2307,16 @@ class AppSampleData {
             category: 'GROCERY',
             id: '02',
             imageUrl:
-                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl:
-                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
             storeDetails: StoreDataModel(
               name: 'Lidl',
               steetNo: '2',
               image:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               street: 'Hauptstrasse 6a',
               city: 'Düsseldorf',
               txtZip: '56456',
@@ -1253,11 +2330,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '03',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'Lidl',
                 steetNo: '2',
@@ -1274,11 +2351,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '04',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'Lidl',
                 steetNo: '2',
@@ -1307,7 +2384,7 @@ class AppSampleData {
         customer: UserModel(
             name: 'Thomas Flores',
             imageUrl:
-                'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg'),
+            'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg'),
         quantity: 9,
         time: DateTime.now(),
         products: [
@@ -1315,7 +2392,7 @@ class AppSampleData {
               category: 'GROCERY',
               id: '01',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               name: 'Wagyu Beef Ribeye Steak',
               quantity: 2,
               price: 2.21,
@@ -1323,7 +2400,7 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'Lidl',
                 image: 'https://dwkujuq9vpuly.cloudfront.net/news/wp-content/uploads/2019/10/Lidl.jpg',
@@ -1335,16 +2412,16 @@ class AppSampleData {
             category: 'GROCERY',
             id: '02',
             imageUrl:
-                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl:
-                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
             storeDetails: StoreDataModel(
               steetNo: '2',
               name: 'Lidl',
               image:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               street: 'Hauptstrasse 6a',
               city: 'Düsseldorf',
               txtZip: '56456',
@@ -1358,11 +2435,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '03',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 name: 'Lidl',
@@ -1379,11 +2456,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '04',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 name: 'Lidl',
@@ -1489,10 +2566,11 @@ class AppSampleData {
   static List<PurchaseDetails> notificationList = [
     PurchaseDetails(
         id: '1',
-        notificationType: NotificationType.shoppingNotification.notificationValue,
+        notificationType: NotificationType.shoppingNotification
+            .notificationValue,
         listName: 'Weekly food',
         paymentOption: PaymentOption(
-          title: 'Advance payment'
+            title: 'Advance payment'
         ),
         storeDetails: StoreDataModel(
             steetNo: '2',
@@ -1512,7 +2590,7 @@ class AppSampleData {
             zipCode: '50668',
             city: 'Nürnberg',
             imageUrl:
-                'https://cdn.shopify.com/s/files/1/0092/2969/7086/files/Copy_of_Untitled_3_f1177dac-8a67-4d94-a3df-d88886571d2b.png?v=16406613511003005348'),
+            'https://cdn.shopify.com/s/files/1/0092/2969/7086/files/Copy_of_Untitled_3_f1177dac-8a67-4d94-a3df-d88886571d2b.png?v=16406613511003005348'),
         quantity: 9,
         time: DateTime.now(),
         products: [
@@ -1521,19 +2599,19 @@ class AppSampleData {
               name: 'Wagyu Beef Ribeye Steak',
               quantity: 2,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               category: 'GROCERY',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               price: 4,
               availableStatus: AvailableStatus.plenty,
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 name: 'REWE',
                 image:
-                    'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 street: 'Domstrasse 20 ',
                 txtZip: '50668',
                 city: 'Nürnberg',
@@ -1543,11 +2621,11 @@ class AppSampleData {
               name: 'Semi Skimmed Milk',
               quantity: 5,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               category: 'GROCERY',
               price: 4,
               availableStatus: AvailableStatus.few,
@@ -1564,12 +2642,12 @@ class AppSampleData {
               name: 'Organic Black Peppercorns',
               quantity: 1,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               price: 3,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               category: 'GROCERY',
               availableStatus: AvailableStatus.runOut,
               storeDetails: StoreDataModel(
@@ -1585,12 +2663,12 @@ class AppSampleData {
               name: 'Red Bull Energy Drink',
               quantity: 1,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               category: 'GROCERY',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               price: 11,
               availableStatus: AvailableStatus.unknown,
               storeDetails: StoreDataModel(
@@ -1626,7 +2704,7 @@ class AppSampleData {
             zipCode: '50668',
             city: 'Nürnberg',
             imageUrl:
-                'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
+            'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
         quantity: 9,
         time: DateTime.now(),
         products: [
@@ -1634,14 +2712,14 @@ class AppSampleData {
               category: 'GROCERY',
               id: '01',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               name: 'Wagyu Beef Ribeye Steak',
               quantity: 2,
               price: 2,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               availableStatus: AvailableStatus.few,
               storeDetails: StoreDataModel(
                 steetNo: '2',
@@ -1654,17 +2732,17 @@ class AppSampleData {
           Product(
             category: 'GROCERY',
             imageUrl:
-                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl:
-                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
             id: '02',
             storeDetails: StoreDataModel(
               steetNo: '2',
               name: 'Lidl',
               image:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               street: 'Hauptstrasse 6a',
               city: 'Düsseldorf',
               txtZip: '56456',
@@ -1678,11 +2756,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '03',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 name: 'Lidl',
@@ -1699,11 +2777,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '04',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 name: 'Lidl',
@@ -1719,7 +2797,8 @@ class AppSampleData {
         ]),
     PurchaseDetails(
         id: '1',
-        notificationType: NotificationType.shoppingNotification.notificationValue,
+        notificationType: NotificationType.shoppingNotification
+            .notificationValue,
         listName: 'Weekly food',
         paymentOption: PaymentOption(
             title: 'Advance payment'
@@ -1742,7 +2821,7 @@ class AppSampleData {
             zipCode: '50668',
             city: 'Nürnberg',
             imageUrl:
-                'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7'),
+            'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7'),
         quantity: 9,
         time: DateTime.now(),
         products: [
@@ -1751,12 +2830,12 @@ class AppSampleData {
               name: 'Wagyu Beef Ribeye Steak',
               quantity: 2,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               category: 'GROCERY',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               price: 4,
               availableStatus: AvailableStatus.plenty,
               storeDetails: StoreDataModel(
@@ -1772,11 +2851,11 @@ class AppSampleData {
               name: 'Semi Skimmed Milk',
               quantity: 5,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               category: 'GROCERY',
               price: 4,
               availableStatus: AvailableStatus.few,
@@ -1793,12 +2872,12 @@ class AppSampleData {
               name: 'Organic Black Peppercorns',
               quantity: 1,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               price: 3,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               category: 'GROCERY',
               availableStatus: AvailableStatus.runOut,
               storeDetails: StoreDataModel(
@@ -1814,12 +2893,12 @@ class AppSampleData {
               name: 'Red Bull Energy Drink',
               quantity: 1,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               category: 'GROCERY',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               price: 11,
               availableStatus: AvailableStatus.unknown,
               storeDetails: StoreDataModel(
@@ -1855,7 +2934,7 @@ class AppSampleData {
             zipCode: '50668',
             city: 'Nürnberg',
             imageUrl:
-                'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
+            'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
         quantity: 9,
         time: DateTime.now(),
         products: [
@@ -1863,14 +2942,14 @@ class AppSampleData {
               category: 'GROCERY',
               id: '01',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               name: 'Wagyu Beef Ribeye Steak',
               quantity: 2,
               price: 2,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               availableStatus: AvailableStatus.few,
               storeDetails: StoreDataModel(
                 steetNo: '2',
@@ -1883,11 +2962,11 @@ class AppSampleData {
           Product(
             category: 'GROCERY',
             imageUrl:
-                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl:
-                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
             id: '02',
             storeDetails: StoreDataModel(
               steetNo: '2',
@@ -1906,11 +2985,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '03',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 name: 'Lidl',
@@ -1927,11 +3006,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '04',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 name: 'Lidl',
@@ -1950,7 +3029,8 @@ class AppSampleData {
             title: 'Advance payment'
         ),
         id: '1',
-        notificationType: NotificationType.shoppingNotification.notificationValue,
+        notificationType: NotificationType.shoppingNotification
+            .notificationValue,
         listName: 'Weekly food',
         storeDetails: StoreDataModel(
             steetNo: '2',
@@ -1970,7 +3050,7 @@ class AppSampleData {
             zipCode: '50668',
             city: 'Nürnberg',
             imageUrl:
-                'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg'),
+            'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg'),
         quantity: 9,
         time: DateTime.now(),
         products: [
@@ -1979,12 +3059,12 @@ class AppSampleData {
               name: 'Wagyu Beef Ribeye Steak',
               quantity: 2,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               category: 'GROCERY',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               price: 4,
               availableStatus: AvailableStatus.plenty,
               storeDetails: StoreDataModel(
@@ -2000,11 +3080,11 @@ class AppSampleData {
               name: 'Semi Skimmed Milk',
               quantity: 5,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               category: 'GROCERY',
               price: 4,
               availableStatus: AvailableStatus.few,
@@ -2021,12 +3101,12 @@ class AppSampleData {
               name: 'Organic Black Peppercorns',
               quantity: 1,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               price: 3,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               category: 'GROCERY',
               availableStatus: AvailableStatus.runOut,
               storeDetails: StoreDataModel(
@@ -2042,12 +3122,12 @@ class AppSampleData {
               name: 'Red Bull Energy Drink',
               quantity: 1,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               category: 'GROCERY',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               price: 11,
               availableStatus: AvailableStatus.unknown,
               storeDetails: StoreDataModel(
@@ -2083,7 +3163,7 @@ class AppSampleData {
             zipCode: '50668',
             city: 'Nürnberg',
             imageUrl:
-                'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
+            'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
         quantity: 9,
         time: DateTime.now(),
         products: [
@@ -2091,14 +3171,14 @@ class AppSampleData {
               category: 'GROCERY',
               id: '01',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               name: 'Wagyu Beef Ribeye Steak',
               quantity: 2,
               price: 2,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               availableStatus: AvailableStatus.few,
               storeDetails: StoreDataModel(
                 steetNo: '2',
@@ -2111,11 +3191,11 @@ class AppSampleData {
           Product(
             category: 'GROCERY',
             imageUrl:
-                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl:
-                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
             id: '02',
             storeDetails: StoreDataModel(
               name: 'Lidl',
@@ -2134,11 +3214,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '03',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'Lidl',
                 steetNo: '2',
@@ -2155,11 +3235,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '04',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'Lidl',
                 steetNo: '2',
@@ -2175,7 +3255,8 @@ class AppSampleData {
         ]),
     PurchaseDetails(
         id: '1',
-        notificationType: NotificationType.shoppingNotification.notificationValue,
+        notificationType: NotificationType.shoppingNotification
+            .notificationValue,
         listName: 'Weekly food',
         paymentOption: PaymentOption(
             title: 'Advance payment'
@@ -2198,7 +3279,7 @@ class AppSampleData {
             zipCode: '50668',
             city: 'Nürnberg',
             imageUrl:
-                'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg'),
+            'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg'),
         quantity: 9,
         time: DateTime.now(),
         products: [
@@ -2207,12 +3288,12 @@ class AppSampleData {
               name: 'Wagyu Beef Ribeye Steak',
               quantity: 2,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               category: 'GROCERY',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               price: 4,
               availableStatus: AvailableStatus.plenty,
               storeDetails: StoreDataModel(
@@ -2228,11 +3309,11 @@ class AppSampleData {
               name: 'Semi Skimmed Milk',
               quantity: 5,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               category: 'GROCERY',
               price: 4,
               availableStatus: AvailableStatus.few,
@@ -2249,12 +3330,12 @@ class AppSampleData {
               name: 'Organic Black Peppercorns',
               quantity: 1,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               price: 3,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               category: 'GROCERY',
               availableStatus: AvailableStatus.runOut,
               storeDetails: StoreDataModel(
@@ -2270,12 +3351,12 @@ class AppSampleData {
               name: 'Red Bull Energy Drink',
               quantity: 1,
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               category: 'GROCERY',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               price: 11,
               availableStatus: AvailableStatus.unknown,
               storeDetails: StoreDataModel(
@@ -2311,7 +3392,7 @@ class AppSampleData {
             zipCode: '50668',
             city: 'Nürnberg',
             imageUrl:
-                'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
+            'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
         quantity: 9,
         time: DateTime.now(),
         products: [
@@ -2319,14 +3400,14 @@ class AppSampleData {
               category: 'GROCERY',
               id: '01',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               name: 'Wagyu Beef Ribeye Steak',
               quantity: 2,
               price: 2,
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               availableStatus: AvailableStatus.few,
               storeDetails: StoreDataModel(
                 steetNo: '2',
@@ -2339,11 +3420,11 @@ class AppSampleData {
           Product(
             category: 'GROCERY',
             imageUrl:
-                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl:
-                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
             id: '02',
             storeDetails: StoreDataModel(
               name: 'Lidl',
@@ -2362,11 +3443,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '03',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'Lidl',
                 steetNo: '2',
@@ -2383,11 +3464,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '04',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 name: 'Lidl',
                 steetNo: '2',
@@ -2404,44 +3485,44 @@ class AppSampleData {
   ];
   static List<StoreDataModel> storeList = [
     StoreDataModel(
-      id: '1',
-      steetNo: '2',
-      name: 'REWE',
-      street: 'Domstrasse 20 ',
-      txtZip: '50668',
-      city: 'Nürnberg',
-      openingTime: '09:00',
-      closingTime: '22:00',
-      webSitUrl: 'https://www.figma.com/file/SRrTkXdntYxOo2HgtBvQWI/Store-Angels-App?node-id=306%3A0',
-      image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-      topList: [
-        UserModel(
+        id: '1',
+        steetNo: '2',
+        name: 'REWE',
+        street: 'Domstrasse 20 ',
+        txtZip: '50668',
+        city: 'Nürnberg',
+        openingTime: '09:00',
+        closingTime: '22:00',
+        webSitUrl: 'https://www.figma.com/file/SRrTkXdntYxOo2HgtBvQWI/Store-Angels-App?node-id=306%3A0',
+        image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+        topList: [
+          UserModel(
             name: 'Vanessa Gantikow-Schröder',
             imageUrl:
             'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg',
-          street: 'Hauptstrasse 6a',
-          city: 'Düsseldorf',
-          zipCode: '56456',),
-        UserModel(
-            id: 'qwerqwerqwer',
-            name: 'Zeny Fisher',
-            imageUrl: 'https://www.ddpch.com/wp-content/uploads/2020/04/89803.jpg',
             street: 'Hauptstrasse 6a',
             city: 'Düsseldorf',
-            zipCode: '56456'),
-      ]
+            zipCode: '56456',),
+          UserModel(
+              id: 'qwerqwerqwer',
+              name: 'Zeny Fisher',
+              imageUrl: 'https://www.ddpch.com/wp-content/uploads/2020/04/89803.jpg',
+              street: 'Hauptstrasse 6a',
+              city: 'Düsseldorf',
+              zipCode: '56456'),
+        ]
     ),
     StoreDataModel(
-      id: '2',
-      steetNo: '2',
-      name: 'LIDL an den Heidelsbergen',
-      street: 'Hauptstrasse 6a',
-      city: 'Düsseldorf',
-      txtZip: '56456',
-      openingTime: '09:00',
-      closingTime: '22:00',
-      webSitUrl: 'https://www.figma.com/file/SRrTkXdntYxOo2HgtBvQWI/Store-Angels-App?node-id=306%3A0',
-      image: 'https://dwkujuq9vpuly.cloudfront.net/news/wp-content/uploads/2019/10/Lidl.jpg',
+        id: '2',
+        steetNo: '2',
+        name: 'LIDL an den Heidelsbergen',
+        street: 'Hauptstrasse 6a',
+        city: 'Düsseldorf',
+        txtZip: '56456',
+        openingTime: '09:00',
+        closingTime: '22:00',
+        webSitUrl: 'https://www.figma.com/file/SRrTkXdntYxOo2HgtBvQWI/Store-Angels-App?node-id=306%3A0',
+        image: 'https://dwkujuq9vpuly.cloudfront.net/news/wp-content/uploads/2019/10/Lidl.jpg',
         topList: [
           UserModel(
             name: 'Vanessa Gantikow-Schröder',
@@ -2486,7 +3567,94 @@ class AppSampleData {
       closingTime: '22:00',
       webSitUrl: 'https://www.figma.com/file/SRrTkXdntYxOo2HgtBvQWI/Store-Angels-App?node-id=306%3A0',
       image:
-          'https://www.supermarketnews.com/sites/supermarketnews.com/files/styles/article_featured_retina/public/Aldi_store-St_Charles_IL.jpg?itok=KEKzGOWh',
+      'https://www.supermarketnews.com/sites/supermarketnews.com/files/styles/article_featured_retina/public/Aldi_store-St_Charles_IL.jpg?itok=KEKzGOWh',
+    ),
+    StoreDataModel(
+      topList: [
+        UserModel(
+          name: 'Vanessa Gantikow-Schröder',
+          imageUrl:
+          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg',
+          street: 'Hauptstrasse 6a',
+          city: 'Düsseldorf',
+          zipCode: '56456',),
+        UserModel(
+            id: 'qwerqwerqwer',
+            name: 'Zeny Fisher',
+            imageUrl: 'https://www.ddpch.com/wp-content/uploads/2020/04/89803.jpg',
+            street: 'Hauptstrasse 6a',
+            city: 'Düsseldorf',
+            zipCode: '56456'),
+      ],
+      id: '4',
+      steetNo: '2',
+      street: '1200 N. Kirk Rd.',
+      name: 'Bäcker',
+      city: 'Batavia',
+      txtZip: '60510',
+      openingTime: '09:00',
+      closingTime: '22:00',
+      webSitUrl: 'https://www.figma.com/file/SRrTkXdntYxOo2HgtBvQWI/Store-Angels-App?node-id=306%3A0',
+      image:
+      'https://media-cdn.tripadvisor.com/media/photo-s/0f/8c/70/cb/cafe-backer-baier-gultstein.jpg',
+    ),
+    StoreDataModel(
+      topList: [
+        UserModel(
+          name: 'Vanessa Gantikow-Schröder',
+          imageUrl:
+          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg',
+          street: 'Hauptstrasse 6a',
+          city: 'Düsseldorf',
+          zipCode: '56456',),
+        UserModel(
+            id: 'qwerqwerqwer',
+            name: 'Zeny Fisher',
+            imageUrl: 'https://www.ddpch.com/wp-content/uploads/2020/04/89803.jpg',
+            street: 'Hauptstrasse 6a',
+            city: 'Düsseldorf',
+            zipCode: '56456'),
+      ],
+      id: '4',
+      steetNo: '2',
+      street: '1200 N. Kirk Rd.',
+      name: 'McKinsey',
+      city: 'Batavia',
+      txtZip: '60510',
+      openingTime: '09:00',
+      closingTime: '22:00',
+      webSitUrl: 'https://www.figma.com/file/SRrTkXdntYxOo2HgtBvQWI/Store-Angels-App?node-id=306%3A0',
+      image:
+      'https://www.mckinsey.com/~/media/McKinsey/Industries/Retail/Our%20Insights/Boosting%20mall%20revenues%20through%20advanced%20analytics/Boosting%20mall%20revenues_1536x1536_200.jpg',
+    ),
+    StoreDataModel(
+      topList: [
+        UserModel(
+          name: 'Vanessa Gantikow-Schröder',
+          imageUrl:
+          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg',
+          street: 'Hauptstrasse 6a',
+          city: 'Düsseldorf',
+          zipCode: '56456',),
+        UserModel(
+            id: 'qwerqwerqwer',
+            name: 'Zeny Fisher',
+            imageUrl: 'https://www.ddpch.com/wp-content/uploads/2020/04/89803.jpg',
+            street: 'Hauptstrasse 6a',
+            city: 'Düsseldorf',
+            zipCode: '56456'),
+      ],
+      id: '4',
+      steetNo: '2',
+      street: '1200 N. Kirk Rd.',
+      name: 'Icon Siam',
+      city: 'Batavia',
+      txtZip: '60510',
+      openingTime: '09:00',
+      closingTime: '22:00',
+      webSitUrl: 'https://www.figma.com/file/SRrTkXdntYxOo2HgtBvQWI/Store-Angels-App?node-id=306%3A0',
+      image:
+      'https://a.cdn-hotels.com/gdcs/production101/d92/923647a7-b0e1-4c9b-a004-f3ae53f688dd.jpg',
     ),
   ];
 
@@ -2529,7 +3697,7 @@ class AppSampleData {
       shopName: 'REWE',
       type: OrderAndPurchaseType.Order,
       orderAmount: 230,
-      status: OrderPurchaseStatus.Pending,
+      status: OrderPurchaseStatus.PlaceAOrder,
       quantity: 11,
       clientDetails: ClientDetails(
         name: 'Jakob Merz',
@@ -2541,9 +3709,11 @@ class AppSampleData {
       purchaseDetails: PurchaseDetails(
 
           paymentOption:
-              PaymentOption(paymentOptionEnum: PaymentOptionEnum.prepayment, title: AppStrings.PREPAYMENT.tr()),
+          PaymentOption(paymentOptionEnum: PaymentOptionEnum.prepayment,
+              title: AppStrings.PREPAYMENT.tr()),
           listName: 'Household',
-          notificationType: NotificationType.shareNotification.notificationValue,
+          notificationType: NotificationType.shareNotification
+              .notificationValue,
           storeDetails: StoreDataModel(
               steetNo: '2',
               image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
@@ -2557,22 +3727,22 @@ class AppSampleData {
           customer: UserModel(
               name: 'Jakob Merz',
               imageUrl:
-                  'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
+              'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
           quantity: 9,
-          time: DateTime.now(),
+          time: DateTime.now().subtract(Duration(minutes: 3)),
           products: [
             Product(
                 category: 'GROCERY',
                 id: '01',
                 name: 'Wagyu Beef Ribeye Steak',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 quantity: 2,
                 price: 2,
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 availableStatus: AvailableStatus.few,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -2586,11 +3756,11 @@ class AppSampleData {
               category: 'GROCERY',
               id: '02',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
@@ -2608,11 +3778,11 @@ class AppSampleData {
                 category: 'GROCERY',
                 id: '03',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 storeDetails: StoreDataModel(
                   steetNo: '2',
                   image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
@@ -2629,11 +3799,11 @@ class AppSampleData {
                 category: 'GROCERY',
                 id: '04',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 storeDetails: StoreDataModel(
                   steetNo: '2',
                   image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
@@ -2651,13 +3821,13 @@ class AppSampleData {
                 id: '01',
                 name: 'Wagyu Beef Ribeye Steak',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 quantity: 2,
                 price: 2,
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 availableStatus: AvailableStatus.few,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -2673,7 +3843,7 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
@@ -2684,7 +3854,7 @@ class AppSampleData {
               ),
               name: 'Semi Skimmed Milk',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               price: 2,
               quantity: 5,
               availableStatus: AvailableStatus.plenty,
@@ -2693,11 +3863,11 @@ class AppSampleData {
                 category: 'GROCERY',
                 id: '03',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 storeDetails: StoreDataModel(
                   steetNo: '2',
                   image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
@@ -2714,11 +3884,11 @@ class AppSampleData {
                 category: 'GROCERY',
                 id: '04',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 storeDetails: StoreDataModel(
                   steetNo: '2',
                   image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
@@ -2736,13 +3906,13 @@ class AppSampleData {
                 id: '01',
                 name: 'Wagyu Beef Ribeye Steak',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 quantity: 2,
                 price: 2,
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 availableStatus: AvailableStatus.few,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -2758,7 +3928,7 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
@@ -2769,7 +3939,7 @@ class AppSampleData {
               ),
               name: 'Semi Skimmed Milk',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               price: 2,
               quantity: 5,
               availableStatus: AvailableStatus.plenty,
@@ -2778,11 +3948,11 @@ class AppSampleData {
                 category: 'GROCERY',
                 id: '03',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 storeDetails: StoreDataModel(
                   steetNo: '2',
                   image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
@@ -2799,11 +3969,11 @@ class AppSampleData {
                 category: 'GROCERY',
                 id: '04',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 storeDetails: StoreDataModel(
                   steetNo: '2',
                   image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
@@ -2831,7 +4001,7 @@ class AppSampleData {
         imageUrl:
         'https://images.unsplash.com/photo-1563122870-6b0b48a0af09?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBtYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
         status: 'Updated',
-      ),CourierCandidate(
+      ), CourierCandidate(
         reviews: 10,
         charge: 12,
         name: 'Vanessa Gantikow-Schröder',
@@ -2841,9 +4011,12 @@ class AppSampleData {
         imageUrl:
         'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg',
         status: 'Updated',
-      )],
+      )
+      ],
       proposalDetails: ProposalDetails(
-          totalProposals: 10, unseenProposal: 7, time: DateTime.now().subtract(new Duration(minutes: 10))),
+          totalProposals: 10,
+          unseenProposal: 7,
+          time: DateTime.now().subtract(new Duration(minutes: 10))),
     ),
     OrderOrPurchases(
       type: OrderAndPurchaseType.Order,
@@ -2857,13 +4030,15 @@ class AppSampleData {
         zip: '50668',
         city: 'Nürnberg',
       ),
-      status: OrderPurchaseStatus.Finished,
+      status: OrderPurchaseStatus.OrderDelivered,
       quantity: 5,
       purchaseDetails: PurchaseDetails(
           paymentOption:
-              PaymentOption(title: AppStrings.NO_PREFERENCES.tr(), paymentOptionEnum: PaymentOptionEnum.prepayment),
+          PaymentOption(title: AppStrings.NO_PREFERENCES.tr(),
+              paymentOptionEnum: PaymentOptionEnum.prepayment),
           listName: 'Household',
-          notificationType: NotificationType.shareNotification.notificationValue,
+          notificationType: NotificationType.shareNotification
+              .notificationValue,
           storeDetails: StoreDataModel(
               steetNo: '2',
               image: 'https://dwkujuq9vpuly.cloudfront.net/news/wp-content/uploads/2019/10/Lidl.jpg',
@@ -2877,22 +4052,22 @@ class AppSampleData {
           customer: UserModel(
               name: 'Jakob Merz',
               imageUrl:
-                  'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7'),
+              'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7'),
           quantity: 9,
-          time: DateTime.now(),
+          time: DateTime.now().subtract(Duration(minutes: 3)),
           products: [
             Product(
                 category: 'GROCERY',
                 id: '01',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 name: 'Wagyu Beef Ribeye Steak',
                 quantity: 2,
                 price: 2,
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 availableStatus: AvailableStatus.few,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -2905,12 +4080,12 @@ class AppSampleData {
             Product(
               category: 'GROCERY',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               id: '02',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 name: 'Lidl',
@@ -2927,12 +4102,12 @@ class AppSampleData {
             Product(
                 category: 'GROCERY',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 id: '03',
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 storeDetails: StoreDataModel(
                   name: 'Lidl',
                   steetNo: '2',
@@ -2949,11 +4124,11 @@ class AppSampleData {
                 category: 'GROCERY',
                 id: '04',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 storeDetails: StoreDataModel(
                   steetNo: '2',
                   name: 'Lidl',
@@ -2970,14 +4145,14 @@ class AppSampleData {
                 category: 'GROCERY',
                 id: '01',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 name: 'Wagyu Beef Ribeye Steak',
                 quantity: 2,
                 price: 2,
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 availableStatus: AvailableStatus.few,
                 storeDetails: StoreDataModel(
                   name: 'Lidl',
@@ -2990,12 +4165,12 @@ class AppSampleData {
             Product(
               category: 'GROCERY',
               imageUrl:
-                  'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
               id: '02',
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               storeDetails: StoreDataModel(
                 steetNo: '2',
                 name: 'Lidl',
@@ -3012,12 +4187,12 @@ class AppSampleData {
             Product(
                 category: 'GROCERY',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 id: '03',
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 storeDetails: StoreDataModel(
                   steetNo: '2',
                   name: 'Lidl',
@@ -3034,11 +4209,11 @@ class AppSampleData {
                 category: 'GROCERY',
                 id: '04',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 storeDetails: StoreDataModel(
                   steetNo: '2',
                   name: 'Lidl',
@@ -3053,33 +4228,36 @@ class AppSampleData {
                 availableStatus: AvailableStatus.unknown),
           ]),
       proposalDetails: ProposalDetails(
-          totalProposals: 9, unseenProposal: 5, time: DateTime.now().subtract(new Duration(minutes: 15))),
+          totalProposals: 9,
+          unseenProposal: 5,
+          time: DateTime.now().subtract(new Duration(minutes: 15))),
       candidates: [
         CourierCandidate(
-        name: 'Vanessa Gantikow-Schröder',
-        stars: 3,
-        verifyStatus: VerifyStatus.Reliable,
-        reliable: true,
-        approved: true,
-        insured: true,
+          name: 'Vanessa Gantikow-Schröder',
+          stars: 3,
+          verifyStatus: VerifyStatus.Reliable,
+          reliable: true,
+          approved: true,
+          insured: true,
           favourite: true,
-        charge: 10,
-        reviews: 12,
-        time: '1 hours ago',
-        imageUrl:
-            'https://images.unsplash.com/photo-1563122870-6b0b48a0af09?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBtYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
-        status: 'Updated',
-      ),CourierCandidate(
-        reviews: 10,
-        charge: 12,
-        name: 'Vanessa Gantikow-Schröder',
-        stars: 3,
-        verifyStatus: VerifyStatus.Reliable,
-        time: '1 hours ago',
-        imageUrl:
-        'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg',
-        status: 'Updated',
-      )],
+          charge: 10,
+          reviews: 12,
+          time: '1 hours ago',
+          imageUrl:
+          'https://images.unsplash.com/photo-1563122870-6b0b48a0af09?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBtYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
+          status: 'Updated',
+        ), CourierCandidate(
+          reviews: 10,
+          charge: 12,
+          name: 'Vanessa Gantikow-Schröder',
+          stars: 3,
+          verifyStatus: VerifyStatus.Reliable,
+          time: '1 hours ago',
+          imageUrl:
+          'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg',
+          status: 'Updated',
+        )
+      ],
     ),
     OrderOrPurchases(
         type: OrderAndPurchaseType.Order,
@@ -3089,14 +4267,16 @@ class AppSampleData {
         status: OrderPurchaseStatus.MoneyTransfer,
         quantity: 5,
         clientDetails: ClientDetails(
-  name: 'Jakob Merz',
-  imageUrl:
-  'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7'
+            name: 'Jakob Merz',
+            imageUrl:
+            'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7'
         ),
 
 
         proposalDetails: ProposalDetails(
-            totalProposals: 9, unseenProposal: 5, time: DateTime.now().subtract(new Duration(minutes: 15))),
+            totalProposals: 9,
+            unseenProposal: 5,
+            time: DateTime.now().subtract(new Duration(minutes: 15))),
         candidates: [ CourierCandidate(
           name: 'Vanessa Gantikow-Schröder',
           stars: 3,
@@ -3111,7 +4291,7 @@ class AppSampleData {
           imageUrl:
           'https://images.unsplash.com/photo-1563122870-6b0b48a0af09?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBtYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
           status: 'Updated',
-        ),CourierCandidate(
+        ), CourierCandidate(
           reviews: 10,
           charge: 12,
           name: 'Vanessa Gantikow-Schröder',
@@ -3121,12 +4301,15 @@ class AppSampleData {
           imageUrl:
           'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg',
           status: 'Updated',
-        )],
+        )
+        ],
         purchaseDetails: PurchaseDetails(
             listName: 'Household',
-            notificationType: NotificationType.shareNotification.notificationValue,
+            notificationType: NotificationType.shareNotification
+                .notificationValue,
             paymentOption: PaymentOption(
-                title: AppStrings.PAYMENT_ON_DELIVERY.tr(), paymentOptionEnum: PaymentOptionEnum.prepayment),
+                title: AppStrings.PAYMENT_ON_DELIVERY.tr(),
+                paymentOptionEnum: PaymentOptionEnum.prepayment),
             storeDetails: StoreDataModel(
                 steetNo: '2',
                 image: 'https://dwkujuq9vpuly.cloudfront.net/news/wp-content/uploads/2019/10/Lidl.jpg',
@@ -3140,15 +4323,15 @@ class AppSampleData {
             customer: UserModel(
                 name: 'Jakob Merz',
                 imageUrl:
-                    'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7'),
+                'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7'),
             quantity: 9,
-            time: DateTime.now(),
+            time: DateTime.now().subtract(Duration(minutes: 3)),
 
             products: [
               Product(
                   category: 'GROCERY',
                   imageUrl:
-                      'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                   id: '01',
                   name: 'Wagyu Beef Ribeye Steak',
                   quantity: 2,
@@ -3156,7 +4339,7 @@ class AppSampleData {
                   createdBy: UserModel(
                       name: 'Vanessa Gantikow-Schröder',
                       imageUrl:
-                          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                   availableStatus: AvailableStatus.few,
                   storeDetails: StoreDataModel(
                     steetNo: '2',
@@ -3170,11 +4353,11 @@ class AppSampleData {
                 category: 'GROCERY',
                 id: '02',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 storeDetails: StoreDataModel(
                   name: 'Lidl',
                   steetNo: '2',
@@ -3193,11 +4376,11 @@ class AppSampleData {
                   category: 'GROCERY',
                   id: '03',
                   imageUrl:
-                      'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                   createdBy: UserModel(
                       name: 'Vanessa Gantikow-Schröder',
                       imageUrl:
-                          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                   storeDetails: StoreDataModel(
                     steetNo: '2',
                     name: 'Lidl',
@@ -3214,11 +4397,11 @@ class AppSampleData {
                   category: 'GROCERY',
                   id: '04',
                   imageUrl:
-                      'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                   createdBy: UserModel(
                       name: 'Vanessa Gantikow-Schröder',
                       imageUrl:
-                          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                   storeDetails: StoreDataModel(
                     steetNo: '2',
                     name: 'Lidl',
@@ -3244,17 +4427,19 @@ class AppSampleData {
           zip: '50668',
           city: 'Nürnberg',
         ),
-        status: OrderPurchaseStatus.Finished,
+        status: OrderPurchaseStatus.OrderDelivered,
         quantity: 5,
         proposalDetails: ProposalDetails(
-            totalProposals: 9, unseenProposal: 5, time: DateTime.now().subtract(new Duration(minutes: 15))),
-        candidates:[ CourierCandidate(
+            totalProposals: 9,
+            unseenProposal: 5,
+            time: DateTime.now().subtract(new Duration(minutes: 15))),
+        candidates: [ CourierCandidate(
           name: 'ack Fisher',
           stars: 4,
           verifyStatus: VerifyStatus.Reliable,
           time: '1 hours ago',
           imageUrl:
-              'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg',
+          'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg',
           status: 'Updated',
         ),
           CourierCandidate(
@@ -3270,7 +4455,7 @@ class AppSampleData {
             imageUrl:
             'https://images.unsplash.com/photo-1563122870-6b0b48a0af09?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBtYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
             status: 'Updated',
-          ),CourierCandidate(
+          ), CourierCandidate(
             reviews: 10,
             charge: 12,
             name: 'Vanessa Gantikow-Schröder',
@@ -3280,12 +4465,15 @@ class AppSampleData {
             imageUrl:
             'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg',
             status: 'Updated',
-          )],
+          )
+        ],
         purchaseDetails: PurchaseDetails(
             paymentOption: PaymentOption(
-                title: AppStrings.PAYMENT_ON_DELIVERY.tr(), paymentOptionEnum: PaymentOptionEnum.prepayment),
+                title: AppStrings.PAYMENT_ON_DELIVERY.tr(),
+                paymentOptionEnum: PaymentOptionEnum.prepayment),
             listName: 'Household',
-            notificationType: NotificationType.shareNotification.notificationValue,
+            notificationType: NotificationType.shareNotification
+                .notificationValue,
             storeDetails: StoreDataModel(
                 steetNo: '2',
                 image: 'https://dwkujuq9vpuly.cloudfront.net/news/wp-content/uploads/2019/10/Lidl.jpg',
@@ -3299,14 +4487,14 @@ class AppSampleData {
             customer: UserModel(
                 name: 'Jakob Merz',
                 imageUrl:
-                    'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7'),
+                'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7'),
             quantity: 9,
-            time: DateTime.now(),
+            time: DateTime.now().subtract(Duration(minutes: 3)),
             products: [
               Product(
                   category: 'GROCERY',
                   imageUrl:
-                      'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                  'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                   id: '01',
                   name: 'Wagyu Beef Ribeye Steak',
                   quantity: 2,
@@ -3314,7 +4502,7 @@ class AppSampleData {
                   createdBy: UserModel(
                       name: 'Vanessa Gantikow-Schröder',
                       imageUrl:
-                          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                   availableStatus: AvailableStatus.few,
                   storeDetails: StoreDataModel(
                     steetNo: '2',
@@ -3328,11 +4516,11 @@ class AppSampleData {
                 category: 'GROCERY',
                 id: '02',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 storeDetails: StoreDataModel(
                   steetNo: '2',
                   name: 'Lidl',
@@ -3350,11 +4538,11 @@ class AppSampleData {
                   category: 'GROCERY',
                   id: '03',
                   imageUrl:
-                      'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                  'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                   createdBy: UserModel(
                       name: 'Vanessa Gantikow-Schröder',
                       imageUrl:
-                          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                   storeDetails: StoreDataModel(
                     steetNo: '2',
                     name: 'Lidl',
@@ -3371,11 +4559,11 @@ class AppSampleData {
                   category: 'GROCERY',
                   id: '04',
                   imageUrl:
-                      'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                  'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                   createdBy: UserModel(
                       name: 'Vanessa Gantikow-Schröder',
                       imageUrl:
-                          'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                   storeDetails: StoreDataModel(
                     steetNo: '2',
                     name: 'Lidl',
@@ -3411,7 +4599,13 @@ class AppSampleData {
     OrderOrPurchases(
         orderID: 'asdfasdf',
         paid: false,
-        selectedDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 2),
+        selectedDate: DateTime(DateTime
+            .now()
+            .year, DateTime
+            .now()
+            .month, DateTime
+            .now()
+            .day + 2),
         paymentMethod: 'PayPal',
         deliveredAt: DateTime.now(),
         postedAt: DateTime.now().subtract(Duration(hours: 2)),
@@ -3419,20 +4613,31 @@ class AppSampleData {
         status: OrderPurchaseStatus.MoneyTransfer,
         comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
         orderAmount: 230,
+
         orderPayment: 'Prepayment',
         purchaseDetails: PurchaseDetails(
-          paymentOption: PaymentOption(paymentOptionEnum: PaymentOptionEnum.payment_on_delivery),
+          storeDetails: StoreDataModel(
+              steetNo: '2',
+              name: 'REWE',
+              image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+              city: 'Nürnberg',
+              txtZip: '93432',
+              street: 'Hauptstrasse 12'),
+          listName: 'House hold',
+          paymentOption: PaymentOption(
+              paymentOptionEnum: PaymentOptionEnum.payment_on_delivery),
+          customer: UserModel(),
           products: [
             Product(
                 id: 'sadfsdf',
                 name: 'Wagyu Beef Ribeye Steak',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 quantity: 2,
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 price: 3,
                 availableStatus: AvailableStatus.plenty,
                 storeDetails: StoreDataModel(
@@ -3446,13 +4651,13 @@ class AppSampleData {
                 id: 'sadfasqsdf',
                 name: 'Semi Skimmed Milk',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 quantity: 10,
                 price: 2,
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 availableStatus: AvailableStatus.few,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3470,9 +4675,9 @@ class AppSampleData {
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 availableStatus: AvailableStatus.runOut,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3490,11 +4695,11 @@ class AppSampleData {
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
 
                 /////
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/7c19969c-d5be-4351-9061-54e00a6320c8_1.cf68e0ecc361dba9d1d5cf9730ede7fa.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/7c19969c-d5be-4351-9061-54e00a6320c8_1.cf68e0ecc361dba9d1d5cf9730ede7fa.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 availableStatus: AvailableStatus.unknown,
                 storeDetails: StoreDataModel(
                   name: 'REWE',
@@ -3512,9 +4717,9 @@ class AppSampleData {
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 availableStatus: AvailableStatus.few,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3532,9 +4737,9 @@ class AppSampleData {
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/5b27d3f9-1fcc-4300-b96b-ae576f6d184b_2.7999df8a262568356848e28ed7009150.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/5b27d3f9-1fcc-4300-b96b-ae576f6d184b_2.7999df8a262568356848e28ed7009150.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 availableStatus: AvailableStatus.runOut,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3551,9 +4756,9 @@ class AppSampleData {
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/1d85298d-3334-4ed3-8fe9-b6e2a9954076_1.7da524438875fb3e3089e9cc361ff3ac.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/1d85298d-3334-4ed3-8fe9-b6e2a9954076_1.7da524438875fb3e3089e9cc361ff3ac.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 availableStatus: AvailableStatus.plenty,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3571,9 +4776,9 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.plenty,
             ),
           ],
@@ -3585,7 +4790,7 @@ class AppSampleData {
             city: 'Nürnberg',
             zip: '92323',
             imageUrl:
-                'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
+            'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
         candidates: candidatesList,
         clientlist: [
           UserModel(
@@ -3595,7 +4800,7 @@ class AppSampleData {
               city: 'Feenstadt',
               zipCode: '89456',
               imageUrl:
-                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
           UserModel(
               id: 'qwerqwerqwer',
               name: 'Zeny Fisher',
@@ -3604,42 +4809,51 @@ class AppSampleData {
               id: 'weörjqwerjöqwkerj',
               name: 'Emma Fisher',
               imageUrl:
-                  'https://elements-video-cover-images-0.imgix.net/files/57f64821-c5df-4f31-b194-6226ffd7cb3d/inline_image_preview.jpg?auto=compress&crop=edges&fit=crop&fm=jpeg&h=800&w=1200&s=df032e394df4c7dc78be2ce26d1caf33'),
+              'https://elements-video-cover-images-0.imgix.net/files/57f64821-c5df-4f31-b194-6226ffd7cb3d/inline_image_preview.jpg?auto=compress&crop=edges&fit=crop&fm=jpeg&h=800&w=1200&s=df032e394df4c7dc78be2ce26d1caf33'),
         ],
-        storeDetails: StoreDataModel(
-          steetNo: '2',
-          name: 'REWE',
-          id: 'asdfökasdjöf',
-          image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-          street: 'Domstrasse 20 ',
-          txtZip: '50668',
-          city: 'Nürnberg',
-        ),
+        storeDetails: storeList[0],
         quantity: 10,
         alreadyDone: 1),
     OrderOrPurchases(
         orderID: 'asdfasdf',
         paid: true,
-        selectedDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 2),
+        selectedDate: DateTime(DateTime
+            .now()
+            .year, DateTime
+            .now()
+            .month, DateTime
+            .now()
+            .day + 2),
         timeDuration: '17:00 - 20:00',
-        status: OrderPurchaseStatus.Proposal,
+        status: OrderPurchaseStatus.OrderPlaced,
         postedAt: DateTime.now().subtract(Duration(hours: 2)),
         comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
         orderAmount: 140,
         candidates: candidatesList,
         deliveredAt: DateTime.now(),
         purchaseDetails: PurchaseDetails(
+          storeDetails: StoreDataModel(
+            steetNo: '2',
+            name: 'REWE',
+            id: 'asdfökasdjöf',
+            image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+            street: 'Domstrasse 20 ',
+            txtZip: '50668',
+            city: 'Nürnberg',
+          ),
+          listName: 'House hold',
+          customer: UserModel(),
           products: [
             Product(
                 id: 'sadfsdf',
                 name: 'Wagyu Beef Ribeye Steak',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 quantity: 2,
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 price: 3,
                 availableStatus: AvailableStatus.plenty,
                 storeDetails: StoreDataModel(
@@ -3654,13 +4868,13 @@ class AppSampleData {
                 id: 'sadfasqsdf',
                 name: 'Semi Skimmed Milk',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 quantity: 10,
                 price: 2,
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 availableStatus: AvailableStatus.few,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3678,9 +4892,9 @@ class AppSampleData {
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 availableStatus: AvailableStatus.runOut,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3698,9 +4912,9 @@ class AppSampleData {
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/7c19969c-d5be-4351-9061-54e00a6320c8_1.cf68e0ecc361dba9d1d5cf9730ede7fa.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/7c19969c-d5be-4351-9061-54e00a6320c8_1.cf68e0ecc361dba9d1d5cf9730ede7fa.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 availableStatus: AvailableStatus.unknown,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3711,7 +4925,8 @@ class AppSampleData {
                   city: 'Nürnberg',
                 )),
           ],
-          paymentOption: PaymentOption(paymentOptionEnum: PaymentOptionEnum.prepayment),
+          paymentOption: PaymentOption(
+              paymentOptionEnum: PaymentOptionEnum.prepayment),
         ),
         orderPayment: 'Prepayment',
         clientDetails: ClientDetails(
@@ -3721,7 +4936,7 @@ class AppSampleData {
             city: 'Nürnberg',
             zip: '92323',
             imageUrl:
-                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+            'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
         clientlist: [
           UserModel(
               id: 'asdfsdfdsf',
@@ -3730,7 +4945,7 @@ class AppSampleData {
               city: 'Feenstadt',
               zipCode: '89456',
               imageUrl:
-                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
           UserModel(
               id: 'qwerqwerqwer',
               name: 'Zeny Fisher',
@@ -3739,17 +4954,299 @@ class AppSampleData {
               id: 'weörjqwerjöqwkerj',
               name: 'Emma Fisher',
               imageUrl:
-                  'https://elements-video-cover-images-0.imgix.net/files/57f64821-c5df-4f31-b194-6226ffd7cb3d/inline_image_preview.jpg?auto=compress&crop=edges&fit=crop&fm=jpeg&h=800&w=1200&s=df032e394df4c7dc78be2ce26d1caf33'),
+              'https://elements-video-cover-images-0.imgix.net/files/57f64821-c5df-4f31-b194-6226ffd7cb3d/inline_image_preview.jpg?auto=compress&crop=edges&fit=crop&fm=jpeg&h=800&w=1200&s=df032e394df4c7dc78be2ce26d1caf33'),
         ],
-        storeDetails: StoreDataModel(
-          steetNo: '2',
-          name: 'REWE',
-          id: 'asdfökasdjöf',
-          image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-          street: 'Domstrasse 20 ',
-          txtZip: '50668',
-          city: 'Nürnberg',
+        storeDetails: storeList[1],
+        quantity: 10,
+        alreadyDone: 1),
+    OrderOrPurchases(
+        orderID: 'asdfasdf',
+        paid: true,
+        selectedDate: DateTime(DateTime
+            .now()
+            .year, DateTime
+            .now()
+            .month, DateTime
+            .now()
+            .day + 2),
+        timeDuration: '17:00 - 20:00',
+        status: OrderPurchaseStatus.OrderPlaced,
+        postedAt: DateTime.now().subtract(Duration(hours: 2)),
+        comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
+        orderAmount: 140,
+        candidates: candidatesList,
+        deliveredAt: DateTime.now(),
+        purchaseDetails: PurchaseDetails(
+          storeDetails: StoreDataModel(
+            steetNo: '2',
+            name: 'REWE',
+            id: 'asdfökasdjöf',
+            image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+            street: 'Domstrasse 20 ',
+            txtZip: '50668',
+            city: 'Nürnberg',
+          ),
+          listName: 'House hold',
+          customer: UserModel(),
+          products: [
+            Product(
+                id: 'sadfsdf',
+                name: 'Wagyu Beef Ribeye Steak',
+                imageUrl:
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                quantity: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                price: 3,
+                availableStatus: AvailableStatus.plenty,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadfasqsdf',
+                name: 'Semi Skimmed Milk',
+                imageUrl:
+                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                quantity: 10,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                availableStatus: AvailableStatus.few,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadfyxaxsdf',
+                name: 'Orangic Black Peppercorns',
+                quantity: 1,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.runOut,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadfsvvevedf',
+                name: 'Red Bull Energy Drink',
+                quantity: 1,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/7c19969c-d5be-4351-9061-54e00a6320c8_1.cf68e0ecc361dba9d1d5cf9730ede7fa.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.unknown,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+          ],
+          paymentOption: PaymentOption(
+              paymentOptionEnum: PaymentOptionEnum.prepayment),
         ),
+        orderPayment: 'Prepayment',
+        clientDetails: ClientDetails(
+            streetNo: '3',
+            name: 'Smrith',
+            street: 'Knesebeckstrasse 76',
+            city: 'Nürnberg',
+            zip: '92323',
+            imageUrl:
+            'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+        clientlist: [
+          UserModel(
+              id: 'asdfsdfdsf',
+              name: 'Vanessa Gantikow-Schröder',
+              street: 'Mondblumenstraße 4',
+              city: 'Feenstadt',
+              zipCode: '89456',
+              imageUrl:
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+          UserModel(
+              id: 'qwerqwerqwer',
+              name: 'Zeny Fisher',
+              imageUrl: 'https://www.ddpch.com/wp-content/uploads/2020/04/89803.jpg'),
+          UserModel(
+              id: 'weörjqwerjöqwkerj',
+              name: 'Emma Fisher',
+              imageUrl:
+              'https://elements-video-cover-images-0.imgix.net/files/57f64821-c5df-4f31-b194-6226ffd7cb3d/inline_image_preview.jpg?auto=compress&crop=edges&fit=crop&fm=jpeg&h=800&w=1200&s=df032e394df4c7dc78be2ce26d1caf33'),
+        ],
+        storeDetails: storeList[2],
+        quantity: 10,
+        alreadyDone: 1),
+    OrderOrPurchases(
+        orderID: 'asdfasdf',
+        paid: true,
+        selectedDate: DateTime(DateTime
+            .now()
+            .year, DateTime
+            .now()
+            .month, DateTime
+            .now()
+            .day + 2),
+        timeDuration: '17:00 - 20:00',
+        status: OrderPurchaseStatus.OrderPlaced,
+        postedAt: DateTime.now().subtract(Duration(hours: 2)),
+        comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
+        orderAmount: 140,
+        candidates: candidatesList,
+        deliveredAt: DateTime.now(),
+        purchaseDetails: PurchaseDetails(
+          storeDetails: StoreDataModel(
+            steetNo: '2',
+            name: 'REWE',
+            id: 'asdfökasdjöf',
+            image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+            street: 'Domstrasse 20 ',
+            txtZip: '50668',
+            city: 'Nürnberg',
+          ),
+          listName: 'House hold',
+          customer: UserModel(),
+          products: [
+            Product(
+                id: 'sadfsdf',
+                name: 'Wagyu Beef Ribeye Steak',
+                imageUrl:
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                quantity: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                price: 3,
+                availableStatus: AvailableStatus.plenty,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadfasqsdf',
+                name: 'Semi Skimmed Milk',
+                imageUrl:
+                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                quantity: 10,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                availableStatus: AvailableStatus.few,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadfyxaxsdf',
+                name: 'Orangic Black Peppercorns',
+                quantity: 1,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.runOut,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadfsvvevedf',
+                name: 'Red Bull Energy Drink',
+                quantity: 1,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/7c19969c-d5be-4351-9061-54e00a6320c8_1.cf68e0ecc361dba9d1d5cf9730ede7fa.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.unknown,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+          ],
+          paymentOption: PaymentOption(
+              paymentOptionEnum: PaymentOptionEnum.prepayment),
+        ),
+        orderPayment: 'Prepayment',
+        clientDetails: ClientDetails(
+            streetNo: '3',
+            name: 'Smrith',
+            street: 'Knesebeckstrasse 76',
+            city: 'Nürnberg',
+            zip: '92323',
+            imageUrl:
+            'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+        clientlist: [
+          UserModel(
+              id: 'asdfsdfdsf',
+              name: 'Vanessa Gantikow-Schröder',
+              street: 'Mondblumenstraße 4',
+              city: 'Feenstadt',
+              zipCode: '89456',
+              imageUrl:
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+          UserModel(
+              id: 'qwerqwerqwer',
+              name: 'Zeny Fisher',
+              imageUrl: 'https://www.ddpch.com/wp-content/uploads/2020/04/89803.jpg'),
+          UserModel(
+              id: 'weörjqwerjöqwkerj',
+              name: 'Emma Fisher',
+              imageUrl:
+              'https://elements-video-cover-images-0.imgix.net/files/57f64821-c5df-4f31-b194-6226ffd7cb3d/inline_image_preview.jpg?auto=compress&crop=edges&fit=crop&fm=jpeg&h=800&w=1200&s=df032e394df4c7dc78be2ce26d1caf33'),
+        ],
+        storeDetails: storeList[3],
         quantity: 10,
         alreadyDone: 1),
   ];
@@ -3758,33 +5255,42 @@ class AppSampleData {
     OrderOrPurchases(
         orderID: 'asdfasdf',
         paid: false,
-        selectedDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 2),
+        selectedDate: DateTime(DateTime
+            .now()
+            .year, DateTime
+            .now()
+            .month, DateTime
+            .now()
+            .day + 2),
         paymentMethod: 'PayPal',
         deliveredAt: DateTime.now(),
         postedAt: DateTime.now().subtract(Duration(hours: 2)),
         timeDuration: '17:00 - 20:00',
-        status: OrderPurchaseStatus.Proposal,
+        status: OrderPurchaseStatus.OrderPlaced,
         comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
         orderAmount: 230,
         orderPayment: 'Prepayment',
+
         purchaseDetails: PurchaseDetails(
           customer: UserModel(
-            name: 'Bereit zum Einkauf',
-            imageUrl: 'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'
+              name: 'Bereit zum Einkauf',
+              imageUrl: 'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'
 
           ),
+          storeDetails: storeList.first,
+
           paymentOption: purchaseDetails.paymentOption,
           products: [
             Product(
                 id: 'sadfsdf',
                 name: 'Wagyu Beef Ribeye Steak',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 quantity: 2,
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 price: 3,
                 availableStatus: AvailableStatus.plenty,
                 storeDetails: StoreDataModel(
@@ -3798,13 +5304,13 @@ class AppSampleData {
                 id: 'sadfasqsdf',
                 name: 'Semi Skimmed Milk',
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
                 quantity: 10,
                 price: 2,
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 availableStatus: AvailableStatus.few,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3822,9 +5328,9 @@ class AppSampleData {
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 availableStatus: AvailableStatus.runOut,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3842,9 +5348,9 @@ class AppSampleData {
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/7c19969c-d5be-4351-9061-54e00a6320c8_1.cf68e0ecc361dba9d1d5cf9730ede7fa.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/7c19969c-d5be-4351-9061-54e00a6320c8_1.cf68e0ecc361dba9d1d5cf9730ede7fa.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 availableStatus: AvailableStatus.unknown,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3862,9 +5368,9 @@ class AppSampleData {
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 availableStatus: AvailableStatus.few,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3882,9 +5388,9 @@ class AppSampleData {
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/5b27d3f9-1fcc-4300-b96b-ae576f6d184b_2.7999df8a262568356848e28ed7009150.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/5b27d3f9-1fcc-4300-b96b-ae576f6d184b_2.7999df8a262568356848e28ed7009150.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 availableStatus: AvailableStatus.runOut,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3901,9 +5407,9 @@ class AppSampleData {
                 createdBy: UserModel(
                     name: 'Vanessa Gantikow-Schröder',
                     imageUrl:
-                        'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
                 imageUrl:
-                    'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
                 availableStatus: AvailableStatus.plenty,
                 storeDetails: StoreDataModel(
                   steetNo: '2',
@@ -3921,9 +5427,9 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.plenty,
             ),
             Product(
@@ -3934,9 +5440,9 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.plenty,
             ),
             Product(
@@ -3947,9 +5453,9 @@ class AppSampleData {
               createdBy: UserModel(
                   name: 'Vanessa Gantikow-Schröder',
                   imageUrl:
-                      'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
               imageUrl:
-                  'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
               availableStatus: AvailableStatus.plenty,
             ),
           ],
@@ -3961,7 +5467,7 @@ class AppSampleData {
             city: 'Nürnberg',
             zip: '92323',
             imageUrl:
-                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+            'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
         candidates: candidatesList,
         clientlist: [
           UserModel(
@@ -3971,35 +5477,33 @@ class AppSampleData {
               city: 'Feenstadt',
               zipCode: '89456',
               imageUrl:
-                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
           UserModel(
               id: 'qwerqwerqwer',
               name: 'Vanessa Gantikow-Schröder',
               imageUrl:
-                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
           UserModel(
               id: 'weörjqwerjöqwkerj',
               name: 'Vanessa Gantikow-Schröder',
               imageUrl:
-                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
         ],
-        storeDetails: StoreDataModel(
-          steetNo: '2',
-          name: 'REWE',
-          id: 'asdfökasdjöf',
-          image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-          street: 'Domstrasse 20 ',
-          txtZip: '50668',
-          city: 'Nürnberg',
-        ),
+        storeDetails: storeList[0],
         quantity: 10,
         alreadyDone: 1),
     OrderOrPurchases(
         orderID: 'asdfasdf',
         paid: true,
-        selectedDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 2),
+        selectedDate: DateTime(DateTime
+            .now()
+            .year, DateTime
+            .now()
+            .month, DateTime
+            .now()
+            .day + 2),
         timeDuration: '17:00 - 20:00',
-        status: OrderPurchaseStatus.Proposal,
+        status: OrderPurchaseStatus.OrderPlaced,
         comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
         orderAmount: 140,
         deliveredAt: DateTime.now(),
@@ -4010,87 +5514,87 @@ class AppSampleData {
 
             ),
             products: [
-          Product(
-              id: 'sadfsdf',
-              name: 'Wagyu Beef Ribeye Steak',
-              imageUrl:
+              Product(
+                  id: 'sadfsdf',
+                  name: 'Wagyu Beef Ribeye Steak',
+                  imageUrl:
                   'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
-              quantity: 2,
-              createdBy: UserModel(
-                  name: 'Vanessa Gantikow-Schröder',
-                  imageUrl:
+                  quantity: 2,
+                  createdBy: UserModel(
+                      name: 'Vanessa Gantikow-Schröder',
+                      imageUrl:
                       'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
-              price: 3,
-              availableStatus: AvailableStatus.plenty,
-              storeDetails: StoreDataModel(
-                name: 'REWE',
-                steetNo: '2',
-                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-                street: 'Domstrasse 20 ',
-                txtZip: '50668',
-                city: 'Nürnberg',
-              )),
-          Product(
-              id: 'sadfasqsdf',
-              name: 'Semi Skimmed Milk',
-              imageUrl:
+                  price: 3,
+                  availableStatus: AvailableStatus.plenty,
+                  storeDetails: StoreDataModel(
+                    name: 'REWE',
+                    steetNo: '2',
+                    image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                    street: 'Domstrasse 20 ',
+                    txtZip: '50668',
+                    city: 'Nürnberg',
+                  )),
+              Product(
+                  id: 'sadfasqsdf',
+                  name: 'Semi Skimmed Milk',
+                  imageUrl:
                   'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
-              quantity: 10,
-              price: 2,
-              createdBy: UserModel(
-                  name: 'Vanessa Gantikow-Schröder',
-                  imageUrl:
+                  quantity: 10,
+                  price: 2,
+                  createdBy: UserModel(
+                      name: 'Vanessa Gantikow-Schröder',
+                      imageUrl:
                       'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
-              availableStatus: AvailableStatus.few,
-              storeDetails: StoreDataModel(
-                name: 'REWE',
-                steetNo: '2',
-                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-                street: 'Domstrasse 20 ',
-                txtZip: '50668',
-                city: 'Nürnberg',
-              )),
-          Product(
-              id: 'sadfyxaxsdf',
-              name: 'Orangic Black Peppercorns',
-              quantity: 1,
-              price: 2,
-              createdBy: UserModel(
-                  name: 'Vanessa Gantikow-Schröder',
-                  imageUrl:
+                  availableStatus: AvailableStatus.few,
+                  storeDetails: StoreDataModel(
+                    name: 'REWE',
+                    steetNo: '2',
+                    image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                    street: 'Domstrasse 20 ',
+                    txtZip: '50668',
+                    city: 'Nürnberg',
+                  )),
+              Product(
+                  id: 'sadfyxaxsdf',
+                  name: 'Orangic Black Peppercorns',
+                  quantity: 1,
+                  price: 2,
+                  createdBy: UserModel(
+                      name: 'Vanessa Gantikow-Schröder',
+                      imageUrl:
                       'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
-              imageUrl:
+                  imageUrl:
                   'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
-              availableStatus: AvailableStatus.runOut,
-              storeDetails: StoreDataModel(
-                name: 'REWE',
-                steetNo: '2',
-                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-                street: 'Domstrasse 20 ',
-                txtZip: '50668',
-                city: 'Nürnberg',
-              )),
-          Product(
-              id: 'sadfsvvevedf',
-              name: 'Red Bull Energy Drink',
-              quantity: 1,
-              price: 2,
-              createdBy: UserModel(
-                  name: 'Vanessa Gantikow-Schröder',
-                  imageUrl:
+                  availableStatus: AvailableStatus.runOut,
+                  storeDetails: StoreDataModel(
+                    name: 'REWE',
+                    steetNo: '2',
+                    image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                    street: 'Domstrasse 20 ',
+                    txtZip: '50668',
+                    city: 'Nürnberg',
+                  )),
+              Product(
+                  id: 'sadfsvvevedf',
+                  name: 'Red Bull Energy Drink',
+                  quantity: 1,
+                  price: 2,
+                  createdBy: UserModel(
+                      name: 'Vanessa Gantikow-Schröder',
+                      imageUrl:
                       'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
-              imageUrl:
+                  imageUrl:
                   'https://i5.walmartimages.com/asr/7c19969c-d5be-4351-9061-54e00a6320c8_1.cf68e0ecc361dba9d1d5cf9730ede7fa.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
-              availableStatus: AvailableStatus.unknown,
-              storeDetails: StoreDataModel(
-                name: 'REWE',
-                steetNo: '2',
-                image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-                street: 'Domstrasse 20 ',
-                txtZip: '50668',
-                city: 'Nürnberg',
-              )),
-        ], paymentOption: purchaseDetails.paymentOption),
+                  availableStatus: AvailableStatus.unknown,
+                  storeDetails: StoreDataModel(
+                    name: 'REWE',
+                    steetNo: '2',
+                    image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                    street: 'Domstrasse 20 ',
+                    txtZip: '50668',
+                    city: 'Nürnberg',
+                  )),
+            ], paymentOption: purchaseDetails.paymentOption),
         orderPayment: 'Payment on delivery',
         clientDetails: ClientDetails(
             streetNo: '3',
@@ -4099,33 +5603,506 @@ class AppSampleData {
             city: 'Nürnberg',
             zip: '92323',
             imageUrl:
-                'https://enlightenedwomen.org/wp-content/uploads/2018/02/CDT-headshot-1024x1024.jpg'),
+            'https://enlightenedwomen.org/wp-content/uploads/2018/02/CDT-headshot-1024x1024.jpg'),
         clientlist: [
           UserModel(
               id: 'asdfsdfdsf',
               name: 'Vanessa Gantikow-Schröder',
               imageUrl:
-                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
           UserModel(
               id: 'qwerqwerqwer',
               name: 'Vanessa Gantikow-Schröder',
               imageUrl:
-                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
           UserModel(
               id: 'weörjqwerjöqwkerj',
               name: 'Vanessa Gantikow-Schröder',
               imageUrl:
-                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
         ],
-        storeDetails: StoreDataModel(
-          name: 'REWE',
-          id: 'asdfökasdjöf',
-          steetNo: '2',
-          image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
-          street: 'Domstrasse 20 ',
-          txtZip: '50668',
-          city: 'Nürnberg',
+        storeDetails: storeList[1],
+        quantity: 10,
+        alreadyDone: 1),
+    OrderOrPurchases(
+        orderID: 'asdfasdf',
+        paid: false,
+        selectedDate: DateTime(DateTime
+            .now()
+            .year, DateTime
+            .now()
+            .month, DateTime
+            .now()
+            .day + 2),
+        paymentMethod: 'PayPal',
+        deliveredAt: DateTime.now(),
+        postedAt: DateTime.now().subtract(Duration(hours: 2)),
+        timeDuration: '17:00 - 20:00',
+        status: OrderPurchaseStatus.OrderPlaced,
+        comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
+        orderAmount: 230,
+        orderPayment: 'Prepayment',
+
+        purchaseDetails: PurchaseDetails(
+          customer: UserModel(
+              name: 'Bereit zum Einkauf',
+              imageUrl: 'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'
+
+          ),
+          storeDetails: storeList.first,
+
+          paymentOption: purchaseDetails.paymentOption,
+          products: [
+            Product(
+                id: 'sadfsdf',
+                name: 'Wagyu Beef Ribeye Steak',
+                imageUrl:
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                quantity: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                price: 3,
+                availableStatus: AvailableStatus.plenty,
+                storeDetails: StoreDataModel(
+                    steetNo: '2',
+                    name: 'REWE',
+                    image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                    city: 'Nürnberg',
+                    txtZip: '93432',
+                    street: 'Hauptstrasse 12')),
+            Product(
+                id: 'sadfasqsdf',
+                name: 'Semi Skimmed Milk',
+                imageUrl:
+                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                quantity: 10,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                availableStatus: AvailableStatus.few,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadfyxaxsdf',
+                name: 'Orangic Black Peppercorns',
+                quantity: 1,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.runOut,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadfsvvevedf',
+                name: 'Red Bull Energy Drink',
+                quantity: 1,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/7c19969c-d5be-4351-9061-54e00a6320c8_1.cf68e0ecc361dba9d1d5cf9730ede7fa.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.unknown,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadfsdxsf',
+                name: 'Mizani 25 Miracle Milk leave',
+                quantity: 2,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.few,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadewfsdf',
+                name: 'Great Value Original Soymilk',
+                quantity: 10,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/5b27d3f9-1fcc-4300-b96b-ae576f6d184b_2.7999df8a262568356848e28ed7009150.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.runOut,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadqwfsdf',
+                name: 'Short-grain rice',
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.plenty,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+              id: 'sadrfsdf',
+              name: 'Organic Black Peppercorns',
+              quantity: 1,
+              price: 5,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.plenty,
+            ),
+            Product(
+              id: 'sadfesdf',
+              name: 'Organic Black Peppercorns',
+              quantity: 1,
+              price: 5,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.plenty,
+            ),
+            Product(
+              id: 'sadfdsdf',
+              name: 'Organic Black Peppercorns',
+              quantity: 1,
+              price: 5,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.plenty,
+            ),
+          ],
         ),
+        clientDetails: ClientDetails(
+            streetNo: '3',
+            name: 'Jakob Merz',
+            street: 'Knesebeckstrasse 76',
+            city: 'Nürnberg',
+            zip: '92323',
+            imageUrl:
+            'https://ath2.unileverservices.com/wp-content/uploads/sites/8/2019/09/hairstyles-for-men-with-round-faces-side-part.jpg'),
+        candidates: candidatesList,
+        clientlist: [
+          UserModel(
+              id: 'asdfsdfdsf',
+              name: 'Vanessa Gantikow-Schröder',
+              street: 'Mondblumenstraße 4',
+              city: 'Feenstadt',
+              zipCode: '89456',
+              imageUrl:
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+          UserModel(
+              id: 'qwerqwerqwer',
+              name: 'Vanessa Gantikow-Schröder',
+              imageUrl:
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+          UserModel(
+              id: 'weörjqwerjöqwkerj',
+              name: 'Vanessa Gantikow-Schröder',
+              imageUrl:
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+        ],
+        storeDetails: storeList[2],
+        quantity: 10,
+        alreadyDone: 1),
+    OrderOrPurchases(
+        orderID: 'asdfasdf',
+        paid: false,
+        selectedDate: DateTime(DateTime
+            .now()
+            .year, DateTime
+            .now()
+            .month, DateTime
+            .now()
+            .day + 2),
+        paymentMethod: 'PayPal',
+        deliveredAt: DateTime.now(),
+        postedAt: DateTime.now().subtract(Duration(hours: 2)),
+        timeDuration: '17:00 - 20:00',
+        status: OrderPurchaseStatus.OrderPlaced,
+        comment: 'When you deliver, please do not ring the bell. My baby can sleep. Just call me and I’ll meet you.',
+        orderAmount: 230,
+        orderPayment: 'Prepayment',
+
+        purchaseDetails: PurchaseDetails(
+          customer: UserModel(
+              name: 'Bereit zum Einkauf',
+              imageUrl: 'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'
+
+          ),
+          storeDetails: storeList.first,
+
+          paymentOption: purchaseDetails.paymentOption,
+          products: [
+            Product(
+                id: 'sadfsdf',
+                name: 'Wagyu Beef Ribeye Steak',
+                imageUrl:
+                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                quantity: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                price: 3,
+                availableStatus: AvailableStatus.plenty,
+                storeDetails: StoreDataModel(
+                    steetNo: '2',
+                    name: 'REWE',
+                    image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                    city: 'Nürnberg',
+                    txtZip: '93432',
+                    street: 'Hauptstrasse 12')),
+            Product(
+                id: 'sadfasqsdf',
+                name: 'Semi Skimmed Milk',
+                imageUrl:
+                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+                quantity: 10,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                availableStatus: AvailableStatus.few,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadfyxaxsdf',
+                name: 'Orangic Black Peppercorns',
+                quantity: 1,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/dd80f1d3-6347-4cff-a3f5-89333367f804.c16c18b1bf6febd8fc208e4033d59e15.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.runOut,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadfsvvevedf',
+                name: 'Red Bull Energy Drink',
+                quantity: 1,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/7c19969c-d5be-4351-9061-54e00a6320c8_1.cf68e0ecc361dba9d1d5cf9730ede7fa.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.unknown,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadfsdxsf',
+                name: 'Mizani 25 Miracle Milk leave',
+                quantity: 2,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.few,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadewfsdf',
+                name: 'Great Value Original Soymilk',
+                quantity: 10,
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/5b27d3f9-1fcc-4300-b96b-ae576f6d184b_2.7999df8a262568356848e28ed7009150.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.runOut,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+                id: 'sadqwfsdf',
+                name: 'Short-grain rice',
+                price: 2,
+                createdBy: UserModel(
+                    name: 'Vanessa Gantikow-Schröder',
+                    imageUrl:
+                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                imageUrl:
+                'https://i5.walmartimages.com/asr/c95d86a3-43de-4a29-b887-696c4b2f7ff7_1.7d76071a15118dad24256c201aebd915.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+                availableStatus: AvailableStatus.plenty,
+                storeDetails: StoreDataModel(
+                  steetNo: '2',
+                  name: 'REWE',
+                  image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
+                  street: 'Domstrasse 20 ',
+                  txtZip: '50668',
+                  city: 'Nürnberg',
+                )),
+            Product(
+              id: 'sadrfsdf',
+              name: 'Organic Black Peppercorns',
+              quantity: 1,
+              price: 5,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.plenty,
+            ),
+            Product(
+              id: 'sadfesdf',
+              name: 'Organic Black Peppercorns',
+              quantity: 1,
+              price: 5,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.plenty,
+            ),
+            Product(
+              id: 'sadfdsdf',
+              name: 'Organic Black Peppercorns',
+              quantity: 1,
+              price: 5,
+              createdBy: UserModel(
+                  name: 'Vanessa Gantikow-Schröder',
+                  imageUrl:
+                  'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+              imageUrl:
+              'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+              availableStatus: AvailableStatus.plenty,
+            ),
+          ],
+        ),
+        clientDetails: ClientDetails(
+          streetNo: '3',
+          name: 'Zeny Fisher',
+          street: 'Knesebeckstrasse 76',
+          city: 'Nürnberg',
+          zip: '92323',
+          imageUrl:
+          'https://www.ddpch.com/wp-content/uploads/2020/04/89803.jpg',
+        ),
+        candidates: candidatesList,
+        clientlist: [
+          UserModel(
+              id: 'asdfsdfdsf',
+              name: 'Vanessa Gantikow-Schröder',
+              street: 'Mondblumenstraße 4',
+              city: 'Feenstadt',
+              zipCode: '89456',
+              imageUrl:
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+          UserModel(
+              id: 'qwerqwerqwer',
+              name: 'Vanessa Gantikow-Schröder',
+              imageUrl:
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+          UserModel(
+              id: 'weörjqwerjöqwkerj',
+              name: 'Vanessa Gantikow-Schröder',
+              imageUrl:
+              'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+        ],
+        storeDetails: storeList[3],
         quantity: 10,
         alreadyDone: 1),
 
@@ -4137,7 +6114,7 @@ class AppSampleData {
       name: 'Carlos San Diago',
       id: 'wekfjawkelfjökwefjawkelfjjweklf',
       imageUrl:
-          'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+      'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
       userType: 'Consumer',
       status: ShareStatus.Unknown,
       firstName: 'Ferdinand',
@@ -4151,7 +6128,10 @@ class AppSampleData {
 //    {'imageUrl': AssetsPath.amazon_pay, "title": AppPaymentMethods.amazonPay},
     {'imageUrl': AssetsPath.googleLogo, "title": AppPaymentMethods.googlePay},
     {'imageUrl': AssetsPath.applePay, "title": AppPaymentMethods.applePay},
-    {'imageUrl': AssetsPath.sofortueberweisung, "title": AppPaymentMethods.sofortPay},
+    {
+      'imageUrl': AssetsPath.sofortueberweisung,
+      "title": AppPaymentMethods.sofortPay
+    },
     {'imageUrl': AssetsPath.creditCard, "title": AppPaymentMethods.cardPay},
   ];
 
@@ -4160,14 +6140,18 @@ class AppSampleData {
 //    {'imageUrl': AssetsPath.amazon_pay, "title": AppPaymentMethods.amazonPay},
     {'imageUrl': AssetsPath.googleLogo, "title": AppPaymentMethods.googlePay},
     {'imageUrl': AssetsPath.applePay, "title": AppPaymentMethods.applePay},
-    {'imageUrl': AssetsPath.sofortueberweisung, "title": AppPaymentMethods.sofortPay},
+    {
+      'imageUrl': AssetsPath.sofortueberweisung,
+      "title": AppPaymentMethods.sofortPay
+    },
     {'imageUrl': AssetsPath.creditCard, "title": AppPaymentMethods.cardPay},
     {'imageUrl': AssetsPath.money, "title": "Cash on Delivery"}
   ];
 
   static PurchaseDetails purchaseDetails = PurchaseDetails(
       id: '1',
-      paymentOption: PaymentOption(paymentOptionEnum: PaymentOptionEnum.prepayment),
+      paymentOption: PaymentOption(
+          paymentOptionEnum: PaymentOptionEnum.prepayment),
       notificationType: NotificationType.shoppingNotification.notificationValue,
       listName: 'Weekly food',
       storeDetails: StoreDataModel(
@@ -4183,14 +6167,14 @@ class AppSampleData {
       customer: UserModel(
           name: 'Jakob Merz',
           imageUrl:
-              'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7'),
+          'https://firebasestorage.googleapis.com/v0/b/gpat-test.appspot.com/o/sample_profile.png?alt=media&token=5bbcd983-45aa-4c98-8487-1b8a79650ac7'),
       quantity: 9,
       time: DateTime.now(),
       products: [
         Product(
             category: 'GROCERY',
             imageUrl:
-                'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/600b3ccf-8ac8-4ae9-aef3-98297d811c22.25df701727c94821224d691001902711.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
             id: 'g1',
             name: 'Wagyu Beef Ribeye Steak',
             quantity: 2,
@@ -4198,7 +6182,7 @@ class AppSampleData {
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl:
-                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
             availableStatus: AvailableStatus.plenty,
             storeDetails: StoreDataModel(
               name: 'REWE',
@@ -4212,14 +6196,14 @@ class AppSampleData {
             category: 'GROCERY',
             id: 'g2',
             imageUrl:
-                'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/11cddf33-e7d7-4946-9580-578d7136a0a7_1.8e96101312ffe08a9d74f2709255173c.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff',
             name: 'Semi Skimmed Milk',
             quantity: 5,
             price: 4,
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl:
-                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
             availableStatus: AvailableStatus.few,
             storeDetails: StoreDataModel(
               name: 'REWE',
@@ -4233,14 +6217,14 @@ class AppSampleData {
             category: 'GROCERY',
             id: 'g3',
             imageUrl:
-                'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/4bb31ba4-a4bb-4128-b91f-a73ce6b3ae0f.e6c886b8fa63485a5f768128643af220.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
             name: 'Organic Black Peppercorns',
             quantity: 1,
             price: 3,
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl:
-                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
             availableStatus: AvailableStatus.runOut,
             storeDetails: StoreDataModel(
               name: 'REWE',
@@ -4254,14 +6238,14 @@ class AppSampleData {
             category: 'GROCERY',
             id: 'g4',
             imageUrl:
-                'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
+            'https://i5.walmartimages.com/asr/5cceddef-e369-4187-a317-0d1a8dedc565_1.138b9a1b8c7db968e875b618df098d10.png?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
             name: 'Red Bull Energy Drink',
             quantity: 1,
             price: 11,
             createdBy: UserModel(
                 name: 'Vanessa Gantikow-Schröder',
                 imageUrl:
-                    'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
+                'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg'),
             availableStatus: AvailableStatus.unknown,
             storeDetails: StoreDataModel(
               name: 'REWE',
@@ -4278,11 +6262,11 @@ class AppSampleData {
     ChatMessage(
         sendBy: UserModel(id: 'a'),
         message:
-            'Die Bio Birnen sind aus. Soll ich Ihnen normale kaufen?',
+        'Die Bio Birnen sind aus. Soll ich Ihnen normale kaufen?',
         createdAt: DateTime(2020, 9, 2, 16, 55)),
     ChatMessage(
         message:
-            "Ja bitte!",
+        "Ja bitte!",
         sendBy: UserModel(id: 'b'),
         createdAt: DateTime(2020, 9, 2, 14,
             44)), /*
@@ -4455,7 +6439,7 @@ class AppSampleData {
         message: 'You simply need to push the button and move to the top of the screen. Then you are able to see all payments and are also able to accept them if you need some more help. It’s really not complicated. Try to get to this point and you can fix your issue with no problem.'
         ,createdAt: DateTime(2020,9,2,16,55)),*/
   ];
-  static List<Product>productList=[
+  static List<Product>productList = [
     Product(
         id: 'sadfsdf',
         name: 'Wagyu Beef Ribeye Steak',
@@ -4716,7 +6700,7 @@ class AppSampleData {
       shopName: 'REWE',
       type: OrderAndPurchaseType.Order,
       orderAmount: 230,
-      status: OrderPurchaseStatus.Finished,
+      status: OrderPurchaseStatus.OrderDelivered,
       quantity: 11,
       clientDetails: ClientDetails(
         name: 'Jakob Merz',
@@ -4728,9 +6712,11 @@ class AppSampleData {
       purchaseDetails: PurchaseDetails(
 
           paymentOption:
-          PaymentOption(paymentOptionEnum: PaymentOptionEnum.prepayment, title: AppStrings.PREPAYMENT.tr()),
+          PaymentOption(paymentOptionEnum: PaymentOptionEnum.prepayment,
+              title: AppStrings.PREPAYMENT.tr()),
           listName: 'Household',
-          notificationType: NotificationType.shareNotification.notificationValue,
+          notificationType: NotificationType.shareNotification
+              .notificationValue,
           storeDetails: StoreDataModel(
               steetNo: '2',
               image: 'https://www.strategeast.org/wp-content/uploads/2018/11/Rewe.jpg',
@@ -5018,7 +7004,7 @@ class AppSampleData {
         imageUrl:
         'https://images.unsplash.com/photo-1563122870-6b0b48a0af09?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBtYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
         status: 'Updated',
-      ),CourierCandidate(
+      ), CourierCandidate(
         reviews: 10,
         charge: 12,
         name: 'Vanessa Gantikow-Schröder',
@@ -5028,9 +7014,12 @@ class AppSampleData {
         imageUrl:
         'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg',
         status: 'Updated',
-      )],
+      )
+      ],
       proposalDetails: ProposalDetails(
-          totalProposals: 10, unseenProposal: 7, time: DateTime.now().subtract(new Duration(minutes: 10))),
+          totalProposals: 10,
+          unseenProposal: 7,
+          time: DateTime.now().subtract(new Duration(minutes: 10))),
     ),
     OrderOrPurchases(
       type: OrderAndPurchaseType.Order,
@@ -5044,13 +7033,15 @@ class AppSampleData {
         zip: '50668',
         city: 'Nürnberg',
       ),
-      status: OrderPurchaseStatus.Finished,
+      status: OrderPurchaseStatus.OrderDelivered,
       quantity: 5,
       purchaseDetails: PurchaseDetails(
           paymentOption:
-          PaymentOption(title: AppStrings.NO_PREFERENCES.tr(), paymentOptionEnum: PaymentOptionEnum.prepayment),
+          PaymentOption(title: AppStrings.NO_PREFERENCES.tr(),
+              paymentOptionEnum: PaymentOptionEnum.prepayment),
           listName: 'Household',
-          notificationType: NotificationType.shareNotification.notificationValue,
+          notificationType: NotificationType.shareNotification
+              .notificationValue,
           storeDetails: StoreDataModel(
               steetNo: '2',
               image: 'https://dwkujuq9vpuly.cloudfront.net/news/wp-content/uploads/2019/10/Lidl.jpg',
@@ -5240,7 +7231,9 @@ class AppSampleData {
                 availableStatus: AvailableStatus.unknown),
           ]),
       proposalDetails: ProposalDetails(
-          totalProposals: 9, unseenProposal: 5, time: DateTime.now().subtract(new Duration(minutes: 15))),
+          totalProposals: 9,
+          unseenProposal: 5,
+          time: DateTime.now().subtract(new Duration(minutes: 15))),
       candidates: [
         CourierCandidate(
           name: 'Vanessa Gantikow-Schröder',
@@ -5256,7 +7249,7 @@ class AppSampleData {
           imageUrl:
           'https://images.unsplash.com/photo-1563122870-6b0b48a0af09?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBtYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
           status: 'Updated',
-        ),CourierCandidate(
+        ), CourierCandidate(
           reviews: 10,
           charge: 12,
           name: 'Vanessa Gantikow-Schröder',
@@ -5266,14 +7259,15 @@ class AppSampleData {
           imageUrl:
           'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg',
           status: 'Updated',
-        )],
+        )
+      ],
     ),
     OrderOrPurchases(
         type: OrderAndPurchaseType.Order,
         productName: 'White chocolate light',
         shopName: 'Lidl',
         orderAmount: 130,
-        status: OrderPurchaseStatus.Finished,
+        status: OrderPurchaseStatus.OrderDelivered,
         quantity: 5,
         clientDetails: ClientDetails(
             name: 'Jakob Merz',
@@ -5283,7 +7277,9 @@ class AppSampleData {
 
 
         proposalDetails: ProposalDetails(
-            totalProposals: 9, unseenProposal: 5, time: DateTime.now().subtract(new Duration(minutes: 15))),
+            totalProposals: 9,
+            unseenProposal: 5,
+            time: DateTime.now().subtract(new Duration(minutes: 15))),
         candidates: [ CourierCandidate(
           name: 'Vanessa Gantikow-Schröder',
           stars: 3,
@@ -5298,7 +7294,7 @@ class AppSampleData {
           imageUrl:
           'https://images.unsplash.com/photo-1563122870-6b0b48a0af09?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBtYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
           status: 'Updated',
-        ),CourierCandidate(
+        ), CourierCandidate(
           reviews: 10,
           charge: 12,
           name: 'Vanessa Gantikow-Schröder',
@@ -5308,12 +7304,15 @@ class AppSampleData {
           imageUrl:
           'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg',
           status: 'Updated',
-        )],
+        )
+        ],
         purchaseDetails: PurchaseDetails(
             listName: 'Household',
-            notificationType: NotificationType.shareNotification.notificationValue,
+            notificationType: NotificationType.shareNotification
+                .notificationValue,
             paymentOption: PaymentOption(
-                title: AppStrings.PAYMENT_ON_DELIVERY.tr(), paymentOptionEnum: PaymentOptionEnum.prepayment),
+                title: AppStrings.PAYMENT_ON_DELIVERY.tr(),
+                paymentOptionEnum: PaymentOptionEnum.prepayment),
             storeDetails: StoreDataModel(
                 steetNo: '2',
                 image: 'https://dwkujuq9vpuly.cloudfront.net/news/wp-content/uploads/2019/10/Lidl.jpg',
@@ -5431,11 +7430,13 @@ class AppSampleData {
           zip: '50668',
           city: 'Nürnberg',
         ),
-        status: OrderPurchaseStatus.Finished,
+        status: OrderPurchaseStatus.OrderDelivered,
         quantity: 5,
         proposalDetails: ProposalDetails(
-            totalProposals: 9, unseenProposal: 5, time: DateTime.now().subtract(new Duration(minutes: 15))),
-        candidates:[ CourierCandidate(
+            totalProposals: 9,
+            unseenProposal: 5,
+            time: DateTime.now().subtract(new Duration(minutes: 15))),
+        candidates: [ CourierCandidate(
           name: 'ack Fisher',
           stars: 4,
           verifyStatus: VerifyStatus.Reliable,
@@ -5457,7 +7458,7 @@ class AppSampleData {
             imageUrl:
             'https://images.unsplash.com/photo-1563122870-6b0b48a0af09?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBtYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
             status: 'Updated',
-          ),CourierCandidate(
+          ), CourierCandidate(
             reviews: 10,
             charge: 12,
             name: 'Vanessa Gantikow-Schröder',
@@ -5467,13 +7468,16 @@ class AppSampleData {
             imageUrl:
             'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg',
             status: 'Updated',
-          )],
+          )
+        ],
         purchaseDetails: PurchaseDetails(
 
             paymentOption: PaymentOption(
-                title: AppStrings.PAYMENT_ON_DELIVERY.tr(), paymentOptionEnum: PaymentOptionEnum.prepayment),
+                title: AppStrings.PAYMENT_ON_DELIVERY.tr(),
+                paymentOptionEnum: PaymentOptionEnum.prepayment),
             listName: 'Household',
-            notificationType: NotificationType.shareNotification.notificationValue,
+            notificationType: NotificationType.shareNotification
+                .notificationValue,
             storeDetails: StoreDataModel(
                 steetNo: '2',
                 image: 'https://dwkujuq9vpuly.cloudfront.net/news/wp-content/uploads/2019/10/Lidl.jpg',
@@ -5578,4 +7582,5 @@ class AppSampleData {
                   availableStatus: AvailableStatus.unknown),
             ])),
   ];
+
 }

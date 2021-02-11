@@ -1,11 +1,10 @@
 enum OrderPurchaseStatus {
-  Pending,
-  Rejected,
-  Proposal,
-  MoneyTransfer,
-  PriceCheck,
-  OrderAccepted,
+  PlaceAOrder,
+  InOrder,
+  OrderPlaced,
+  Purchasing,
   OrderRunning,
+  MoneyTransfer,
   OrderDelivered,
-  Finished
+  Rejected
 }

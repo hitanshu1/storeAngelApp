@@ -22,17 +22,20 @@ class SearchTextFieldWidget extends StatelessWidget {
 
         ),
         child: TextField(
+
           controller: controller,
           style: AppStyles.BlackStyleFont_20(context),
           onChanged: onChange,
           onSubmitted: onSubmit,
           textAlignVertical: TextAlignVertical.center,
           decoration:InputDecoration(
+              border: InputBorder.none,
             hintText: hintText??'',
-            suffixIcon:scan?IconButton(icon:  Icon(StoreangelIcons.scan,color:  Theme.of(context).focusColor,),
+            hintStyle: TextStyle(fontStyle: FontStyle.italic,color:  Theme.of(context).focusColor),
+            suffixIcon:scan?IconButton(icon:  Icon(StoreangelIcons.scan,color:  Theme.of(context).focusColor,size: SizeConfig.iconSize,),
             onPressed: onScan,):null,
             prefixIcon: IconButton(
-              icon: Icon(StoreangelIcons.search,color: Theme.of(context).focusColor),
+              icon: Icon(StoreangelIcons.search,color: Theme.of(context).focusColor,size: SizeConfig.iconSize,),
               onPressed: (){
 
               },

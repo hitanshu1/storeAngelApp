@@ -17,7 +17,7 @@ class PurchaseDetails {
 
 
   DateTime time;
-  UserModel customer;
+  UserModel customer=UserModel();
   List<Product> products;
 
   PurchaseDetails(

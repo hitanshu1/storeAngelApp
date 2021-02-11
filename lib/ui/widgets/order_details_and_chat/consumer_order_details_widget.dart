@@ -68,7 +68,7 @@ class ConsumerOrderDetailsWidget extends StatelessWidget {
           tradingText: orPurchases.purchaseDetails.paymentOption.title,
         ),
       ),
-      SizeConfig.verticalSliverSmallSpace(),
+      SizeConfig.verticalSliverMediumSpace(),
       EstimateBudgetWidget(products: orPurchases.purchaseDetails.products,),
       SizeConfig.verticalSliverSmallSpace(),
       SliverToBoxAdapter(
@@ -99,7 +99,7 @@ class ConsumerOrderDetailsWidget extends StatelessWidget {
           tradingText:AppStrings.euroSymbol+ NumberService.priceAfterConvert(totalPrice, context),
         ),
       ),
-      SizeConfig.verticalSliverSmallSpace(),
+      SizeConfig.verticalSliverMediumSpace(),
       SliverToBoxAdapter(
         child: CustomTile(
           isFixLeading: true,
@@ -108,7 +108,7 @@ class ConsumerOrderDetailsWidget extends StatelessWidget {
           subtitle: orPurchases.comment,
         ),
       ),
-      SizeConfig.verticalSliverSmallSpace(),
+      SizeConfig.verticalSliverMediumSpace(),
       SliverToBoxAdapter(
         child: CustomTile(
           isFixLeading: true,
@@ -126,7 +126,7 @@ class ConsumerOrderDetailsWidget extends StatelessWidget {
           tradingText: '345678',
         ),
       ),
-      SizeConfig.verticalSliverMediumSpace(),
+      SizeConfig.verticalSliverLargeSpace(),
 
 
 

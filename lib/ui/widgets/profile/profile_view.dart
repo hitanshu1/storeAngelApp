@@ -13,6 +13,7 @@ import 'package:storeangelApp/core/viewmodel/viewmodel_profile.dart';
 import 'package:storeangelApp/ui/screens/consumer/landing_Screen.dart';
 import 'package:storeangelApp/ui/screens/courier/courier_signup_screen.dart';
 import 'package:storeangelApp/ui/screens/premiumScreen.dart';
+import 'package:storeangelApp/ui/screens/premium_first_screen.dart';
 import 'package:storeangelApp/ui/shared/base_model.dart';
 import 'package:storeangelApp/ui/shared/customScaffold.dart';
 import 'package:storeangelApp/ui/shared/custom_tile_with_image.dart';
@@ -55,6 +56,7 @@ class _ProfileViewState extends State<ProfileView> {
                     child: CustomTileWithIcon(
                       iconData: StoreangelIcons.user,
                       titleText: AppStrings.PERSONAL.tr(),
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       iconColor: AppColors.primaryColor,
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.personalInfo);
@@ -67,6 +69,7 @@ class _ProfileViewState extends State<ProfileView> {
                     child: CustomTileWithIcon(
                       iconData: StoreangelIcons.location_pin_full,
                       iconColor: AppColors.primaryColor,
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       titleText: AppStrings.DELIVERY_ADDRESSES.tr(),
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.myAddress);
@@ -78,6 +81,7 @@ class _ProfileViewState extends State<ProfileView> {
                     child: CustomTileWithIcon(
                       iconData: StoreangelIcons.settings_icon,
                       iconColor: AppColors.primaryColor,
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       titleText: AppStrings.SETTINGS.tr(),
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.setting);
@@ -90,10 +94,11 @@ class _ProfileViewState extends State<ProfileView> {
                       iconData: StoreangelIcons.diamond_full,
 
                       iconColor: AppColors.primaryColor,
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       titleText: AppStrings.PREMIUM_UPGRADE.tr(),
                       onTap: ()async{
                         profileViewModel.changeView(ProfilePageView.premium);
-                        await profileViewModel.navigateToScreen(PremiumScreen.routeName);
+                        await profileViewModel.navigateToScreen(PremiumFirstScreen.routeName);
                         profileViewModel.changeView(ProfilePageView.home);
                       },
                     ),
@@ -104,6 +109,7 @@ class _ProfileViewState extends State<ProfileView> {
                       iconData: StoreangelIcons.profile_consumer_tab,
 
                       iconColor: AppColors.primaryColor,
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       titleText: AppStrings.CONTACT_AND_HELP.tr(),
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.feedback);
@@ -117,6 +123,7 @@ class _ProfileViewState extends State<ProfileView> {
                       iconData: StoreangelIcons.notifications_icon,
                       iconColor: AppColors.primaryColor,
                       titleText: AppStrings.NOTIFICATIONS.tr(),
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.notifications);
                       },
@@ -128,19 +135,20 @@ class _ProfileViewState extends State<ProfileView> {
                       iconData: StoreangelIcons.password_icon,
                       iconColor: AppColors.primaryColor,
                       titleText: AppStrings.PRIVACY.tr(),
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.privacy);
                       },
                     ),
                   ),
 
-                  SizeConfig.verticalSliverSmallSpace(),
+                  SizeConfig.verticalSliverMediumSpace(),
                   SliverToBoxAdapter(
                     child: Padding(
                       padding: SizeConfig.sidepadding,
                       child: Text(AppStrings.SWITCH_TO_SUPPLIER_MODE.tr(),
                         style: AppStyles.BlackStyleFont_20(context),
-                        textAlign: TextAlign.center,),
+                        textAlign: TextAlign.start,),
                     ),
                   ),
 
@@ -150,6 +158,7 @@ class _ProfileViewState extends State<ProfileView> {
                     child: CustomTileWithIcon(
                       iconData: StoreangelIcons.user,
                       titleText: AppStrings.PERSONAL.tr(),
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       iconColor: AppColors.primaryColor,
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.personalInfo);
@@ -161,6 +170,7 @@ class _ProfileViewState extends State<ProfileView> {
                     child: CustomTileWithIcon(
                       iconData: StoreangelIcons.credit_card_order_flow_icon_full,
                       titleText: AppStrings.PAYMENT_METHOD.tr(),
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       iconColor: AppColors.primaryColor,
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.paymentOptions);
@@ -172,12 +182,12 @@ class _ProfileViewState extends State<ProfileView> {
                   SliverToBoxAdapter(
                     child: CustomTileWithIcon(
                       iconData: StoreangelIcons.diamond_full,
-
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       iconColor: AppColors.primaryColor,
                       titleText: AppStrings.PREMIUM_UPGRADE.tr(),
                       onTap: ()async{
                         profileViewModel.changeView(ProfilePageView.premium);
-                        await profileViewModel.navigateToScreen(PremiumScreen.routeName);
+                        await profileViewModel.navigateToScreen(PremiumFirstScreen.routeName);
                         profileViewModel.changeView(ProfilePageView.home);
                       },
                     ),
@@ -187,8 +197,10 @@ class _ProfileViewState extends State<ProfileView> {
                   SliverToBoxAdapter(
                     child: CustomTileWithIcon(
                       iconData: StoreangelIcons.settings_icon,
+
                       iconColor: AppColors.primaryColor,
                       titleText: AppStrings.SETTINGS.tr(),
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.setting);
                       },
@@ -199,6 +211,7 @@ class _ProfileViewState extends State<ProfileView> {
                     child: CustomTileWithIcon(
                       iconData: StoreangelIcons.notifications_icon,
                       iconColor: AppColors.primaryColor,
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       titleText: AppStrings.NOTIFICATIONS.tr(),
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.notifications);
@@ -211,6 +224,7 @@ class _ProfileViewState extends State<ProfileView> {
                       iconData: StoreangelIcons.profile_consumer_tab,
 
                       iconColor: AppColors.primaryColor,
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       titleText: AppStrings.CONTACT_AND_HELP.tr(),
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.feedback);
@@ -224,6 +238,7 @@ class _ProfileViewState extends State<ProfileView> {
                     child: CustomTileWithIcon(
                       iconData: StoreangelIcons.password_icon,
                       iconColor: AppColors.primaryColor,
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       titleText: AppStrings.PRIVACY.tr(),
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.privacy);
@@ -235,10 +250,20 @@ class _ProfileViewState extends State<ProfileView> {
                     child: CustomTileWithIcon(
                       iconData: StoreangelIcons.insurance_icon,
                       iconColor: AppColors.primaryColor,
+                      style: AppStyles.BlackStyleFontWeight400_24(context),
                       titleText: AppStrings.ASSURE.tr(),
                       onTap: (){
                         profileViewModel.changeView(ProfilePageView.assure);
                       },
+                    ),
+                  ),
+                  SizeConfig.verticalSliverMediumSpace(),
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: SizeConfig.sidepadding,
+                      child: Text(AppStrings.SWITCH_TO_CUSTOMER_MODE_AND_LET_A_STOREANGEL_DO_YOUR_SHOPPING.tr(),
+                        style: AppStyles.BlackStyleFont_20(context),
+                        textAlign: TextAlign.start,),
                     ),
                   ),
 
@@ -257,7 +282,7 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
                 
 
-                SizeConfig.verticalSliverSmallSpace(),
+                SizeConfig.verticalSliverMediumSpace(),
                 SliverToBoxAdapter(
                   child: PremiumWidget(),
                 ),

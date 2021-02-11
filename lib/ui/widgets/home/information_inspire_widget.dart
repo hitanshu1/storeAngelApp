@@ -122,9 +122,12 @@ class InFormationInspireWidget extends StatelessWidget {
                         },
                       );
                     }),
-              ):Text(AppStrings.THERE_ARE_NO_PURCHASES_ON.tr(),
-                style: AppStyles.WhiteStyle_Font20,
-                textAlign: TextAlign.center,),
+              ):Padding(
+                padding: SizeConfig.padding,
+                child: Text(AppStrings.THERE_ARE_NO_PURCHASES_ON.tr(),
+                  style: AppStyles.WhiteStyle_Font20,
+                  textAlign: TextAlign.center,),
+              ),
               model.inspireList.length>0?Container(
                 height: 30,
                 child: Row(
@@ -145,6 +148,7 @@ class InFormationInspireWidget extends StatelessWidget {
                   }).toList(),
                 ),
               ):Container(),
+              SizeConfig.verticalSpaceSmall(),
             ],
           ),
         ),

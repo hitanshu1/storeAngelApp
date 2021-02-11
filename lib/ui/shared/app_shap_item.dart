@@ -5,13 +5,13 @@ import 'package:storeangelApp/core/consts/sizeConfig.dart';
 class AppShapeItem extends StatelessWidget {
   final Widget child;
   final Color color;
-  final bool isReverse;
-  AppShapeItem({this.child,this.color,this.isReverse:false});
+  final BorderRadius borderRadius;
+  AppShapeItem({this.child,this.color,this.borderRadius});
   @override
   Widget build(BuildContext context) {
 
     return ClipRRect(
-      borderRadius: isReverse?SizeConfig.appReverseItemShapeRadius:SizeConfig.appItemShapeRadius,
+      borderRadius: borderRadius!=null?borderRadius:SizeConfig.appItemShapeRadius,
       child: Container(
         child: Material(
         type: MaterialType.card,

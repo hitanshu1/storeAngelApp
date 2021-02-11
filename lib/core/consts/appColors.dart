@@ -8,6 +8,7 @@ import 'package:storeangelApp/core/viewmodel/apptheme_viewmodel.dart';
 import 'apptheme.dart';
 
 
+
 class AppColors {
 
   static const Color primaryColor = Color(0xFF27BB8B);
@@ -38,6 +39,8 @@ class AppColors {
   static final Color otherTextMessageColor = Colors.grey[300];
   static final Color blueVerifyColor = Color(0xFF1787E0);
   static final Color textBackgroundColor=Color(0XFFFFFFFF).withOpacity(.5);
+  static final Color cardColor=Color(0XFFFFFF).withOpacity(.5);
+  static final Color grayLight=Color(0XFF878787);
 
 
   static  Color dividerColor(BuildContext context)=>
@@ -91,10 +94,37 @@ class AppColors {
       begin: const FractionalOffset(0.0, 0.0),
       end: const FractionalOffset(1.0, 0.0),
       tileMode: TileMode.clamp);
+  static const LinearGradient yellowGradient= LinearGradient(
+      colors: [
+        Color(0xFFFcd303),
+        Color(0xFFFcd303)
+      ],
+      stops: [0.0, 1.0],
+      begin: const FractionalOffset(0.0, 0.0),
+      end: const FractionalOffset(1.0, 0.0),
+      tileMode: TileMode.clamp);
   static const LinearGradient blueGradient= LinearGradient(
       colors: [
         Color(0xFF1478B9),
         Color(0xFF1496B9),
+      ],
+      stops: [0.0, 1.0],
+      begin: const FractionalOffset(0.0, 0.0),
+      end: const FractionalOffset(1.0, 0.0),
+      tileMode: TileMode.clamp);
+  static const LinearGradient grayGradient= LinearGradient(
+      colors: [
+        Color(0xFFF6F6F6),
+        Color(0xFFDDDDDD),
+      ],
+      stops: [0.0, 1.0],
+      begin: const FractionalOffset(0.0, 0.0),
+      end: const FractionalOffset(1.0, 0.0),
+      tileMode: TileMode.clamp);
+  static const LinearGradient grayMediumGradient= LinearGradient(
+      colors: [
+        Color(0xFFC4C4C4),
+        Color(0xFFD8D8D8),
       ],
       stops: [0.0, 1.0],
       begin: const FractionalOffset(0.0, 0.0),
@@ -109,9 +139,18 @@ class AppColors {
       begin: const FractionalOffset(0.0, 0.0),
       end: const FractionalOffset(1.0, 0.0),
       tileMode: TileMode.clamp);
+  static const LinearGradient whiteGradient= LinearGradient(
+      colors: [
+        Color(0xFFFFFFFF),
+        Color(0xFFF0EBE6),
+      ],
+      stops: [0.0, 1.0],
+      begin: const FractionalOffset(0.0, 0.0),
+      end: const FractionalOffset(1.0, 0.0),
+      tileMode: TileMode.clamp);
 
   static LinearGradient getStatusColor(OrderPurchaseStatus status){
-    if(status==OrderPurchaseStatus.Pending){
+    if(status==OrderPurchaseStatus.PlaceAOrder){
       return amberGradient;
     }
     return blueGradient;

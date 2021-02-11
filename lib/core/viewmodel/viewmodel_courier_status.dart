@@ -25,7 +25,7 @@ class CourierStatusViewModel extends BaseModel{
     navigationService.pushNamedAndRemoveUntil(routeName, arguments: arguments);
   }
 
-  OrderPurchaseStatus status=OrderPurchaseStatus.Proposal;
+  OrderPurchaseStatus status=OrderPurchaseStatus.OrderPlaced;
 
   Stream<List<ChatMessage>> getMessages(){
     return _myFirebaseServices.getMessageList();

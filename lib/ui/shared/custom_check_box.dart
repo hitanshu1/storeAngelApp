@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:storeangelApp/core/consts/appColors.dart';
-import 'package:storeangelApp/core/enums/available_status.dart';
 
 class CustomCheckBox extends StatefulWidget {
   final double size;
@@ -20,7 +19,7 @@ class CustomCheckBox extends StatefulWidget {
 }
 
 class _CustomCheckBoxState extends State<CustomCheckBox> with TickerProviderStateMixin {
-  Color _iconColor;
+
 
   Color get _activeBackgroundColor {
     switch (widget.value) {
@@ -34,10 +33,9 @@ class _CustomCheckBoxState extends State<CustomCheckBox> with TickerProviderStat
   Border get _activeBorder {
     switch (widget.value) {
       case true:
-        _iconColor = AppColors.green;
+
         return Border.all(color: AppColors.green, width: 3);
       default:
-        _iconColor = AppColors.whiteColor;
         return null;
     }
   }

@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:storeangelApp/core/consts/appColors.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
-import 'package:storeangelApp/core/consts/storeangel_icons_icons.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/models/order_by_store.dart';
 import 'package:storeangelApp/core/services/numberService.dart';
+import 'package:storeangelApp/core/services/string_service.dart';
 import 'package:storeangelApp/core/services/time_ago_service.dart';
 import 'package:storeangelApp/ui/shared/custom_five_widgets_tile.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:storeangelApp/ui/shared/view_order_status.dart';
 import 'cantidant_rating_widget.dart';
 
 class  StoreOrderDetailsWidget extends StatelessWidget {
@@ -18,10 +19,18 @@ class  StoreOrderDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomFiveWidgetsTile(
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(.2),
+          blurRadius: 5.0,
+          spreadRadius: 0.0,
+          offset: Offset(0.0, 5.0), // shadow direction: bottom right
+        )
+      ],
+
       trailingOneBackGroundColor: AppColors.blueGradient,
         trailingTwoBackGroundColor: AppColors.blueGradient,
-        trailingOne: Center(child: Icon(StoreangelIcons.card,
-          color: AppColors.whiteColor,size: SizeConfig.mediumIcon*.8,)),
+        trailingOne: ViewOrderStatusWidget(status: orderByStore.status,),
         trailingTwo: FittedBox(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,14 +48,14 @@ class  StoreOrderDetailsWidget extends StatelessWidget {
             SizeConfig.verticalSpaceSmall(),
             Row(
               children: [
-                Expanded(child: Text(AppStrings.ASSIGNMENTS.tr(),style: AppStyles.BlackStyleFont16Light(context),)),
+                Expanded(child: Text(AppStrings.ORDER.tr(),style: AppStyles.BlackStyleFont16Light(context),)),
                 Text(TimeAgoService.timeAgoSinceDate(orderByStore.orderTime, context),
                   style: AppStyles.GrayStyleItalicFont16(context),),
 
               ],
             ),
             SizeConfig.verticalSpaceSmall(),
-            Text(orderByStore.status,style: AppStyles.BlackStyleWithBold800Font_24(context),),
+            Text(StringService.orderStatus(orderByStore.status),style: AppStyles.BlackStyleWithBold800Font_24(context),),
             SizeConfig.verticalSpaceSmall(),
             Text(AppStrings.euroSymbol+' ${NumberService.priceAfterConvert(orderByStore.orderAmount, context)}'+' | '+'${orderByStore.products.length} '+AppStrings.ARTICLES.tr(),
               style: AppStyles.BlackStyleFont20W300(context),),

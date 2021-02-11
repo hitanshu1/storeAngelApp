@@ -51,7 +51,7 @@ class ConsumerPaymentMethodScreen extends StatelessWidget {
                     candidate: arguments.candidate,),
                 ),
               ),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
               SliverToBoxAdapter(
                 child: Padding(
                   padding: SizeConfig.sidepadding,
@@ -60,7 +60,7 @@ class ConsumerPaymentMethodScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizeConfig.verticalSliverSmallSpace(),
+//              SizeConfig.verticalSliverSmallSpace(),
               PaymentOptionWidget(orPurchases: arguments.orPurchases,
                candidate: arguments.candidate,),
 

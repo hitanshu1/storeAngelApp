@@ -53,7 +53,7 @@ class CourierCandidateHeader extends StatelessWidget {
                     options: CarouselOptions(
                         autoPlay: true,
                         autoPlayInterval: Duration(seconds: 10),
-                        height: 150,
+                        height: SizeConfig.screenHeight*.24,
                         viewportFraction: 1,
                         enlargeCenterPage: false,
                         onPageChanged: (index, reason) {
@@ -67,10 +67,12 @@ class CourierCandidateHeader extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizeConfig.verticalSpaceSmall(),
+                            SizeConfig.verticalSpaceBigMedium(),
                             Padding(
                               padding: SizeConfig.sidepadding,
-                              child: Text(model.currentCandidate.name,style: AppStyles.BlackStyleWithBold800Font_20(context),),
+                              child: Text(model.currentCandidate.name,
+                                style: AppStyles.BlackStyleWithBold800Font_24(context),
+                              ),
                             ),
                             SizeConfig.verticalSpaceSmall(),
                             Padding(
@@ -122,7 +124,8 @@ class CourierCandidateHeader extends StatelessWidget {
                       );
                     }).toList(),
                   ),
-                )
+                ),
+                SizeConfig.verticalSpaceSmall(),
 
               ],
             ),

@@ -1,12 +1,16 @@
 import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:storeangelApp/core/consts/appColors.dart';
 import 'package:storeangelApp/core/consts/appConstants.dart';
 import 'package:storeangelApp/core/consts/assetsPath.dart';
+import 'package:storeangelApp/core/consts/sizeConfig.dart';
+import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/ui/shared/base_model.dart';
 
 class ViewAppImage extends StatelessWidget {
   final String imageUrl;
+  final String emptyText;
   final File fileImage;
   final double height;
   final double width;
@@ -19,6 +23,7 @@ class ViewAppImage extends StatelessWidget {
 
   ViewAppImage(
       {this.imageUrl,
+        this.emptyText,
         this.color,
       this.width,
       this.height,
@@ -26,6 +31,7 @@ class ViewAppImage extends StatelessWidget {
       this.fileImage,
       this.state,
       this.boxFit: BoxFit.cover,this.assetUrl,this.borderRadius});
+
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +64,16 @@ class ViewAppImage extends StatelessWidget {
           ),
         );
       } else {
+        if(emptyText!=null){
+          return Padding(
+            padding: SizeConfig.padding,
+            child: Center(child: Text(emptyText,
+            style: AppStyles.GrayStyleFontWeight500_d24(context).copyWith(
+              color: AppColors.black
+            ),
+            textAlign: TextAlign.center,)),
+          );
+        }
         return Image.asset(
          assetUrl??AssetsPath.noImage,
           color: color,

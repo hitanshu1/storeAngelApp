@@ -40,7 +40,7 @@ class ButtonWidget extends StatelessWidget {
           height: SizeConfig.buttonHeight,
           width: width != null ? width : SizeConfig.screenWidth,
           decoration: BoxDecoration(
-              gradient:gradient
+              gradient:gradient??AppColors.primaryGradient
           ),
           child: child != null ? child : Padding(
             padding: SizeConfig.sidepadding,
@@ -48,7 +48,7 @@ class ButtonWidget extends StatelessWidget {
               child: Text(
                 buttonText,
                 maxLines: 1,
-                style: TextStyle(color: textColor ?? AppColors.whiteColor, fontSize: fontSize ?? SizeConfig.fontSizeSmall,
+                style: TextStyle(color: textColor ?? AppColors.whiteColor, fontSize: fontSize ?? SizeConfig.fontSizeLarge,
                     fontWeight: fontWeight ?? fontWeight),
               ),
             ),

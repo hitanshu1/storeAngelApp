@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
-import 'package:storeangelApp/core/services/numberService.dart';
 import 'package:storeangelApp/core/services/string_service.dart';
 import 'package:storeangelApp/core/viewmodel/viewmodel_contract_condition_viewmodel.dart';
 import 'package:storeangelApp/ui/shared/app_header.dart';
@@ -17,7 +16,7 @@ class ContractConditionHeader extends StatelessWidget {
       return SliverToBoxAdapter(
         child: Stack(
           children: [
-            SizeConfig.verticalSpace(SizeConfig.headerHeight+15),
+            SizeConfig.verticalSpace(SizeConfig.headerHeight-30),
             AppHeader(
               isBack: true,
               title:StringService.getConditionStatus(model.step)+' ${model.step}/3' ,

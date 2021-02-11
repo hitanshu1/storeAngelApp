@@ -20,7 +20,7 @@ class CurrentOrderFloatingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (order.status == OrderPurchaseStatus.Proposal) {
+    if (order.status == OrderPurchaseStatus.OrderPlaced) {
 
     } else if (order.status == OrderPurchaseStatus.MoneyTransfer) {
 

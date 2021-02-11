@@ -2,8 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:storeangelApp/core/consts/appColors.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
+import 'package:storeangelApp/core/consts/storeangel_icons_icons.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/enums/mobileSize.dart';
 import 'package:storeangelApp/core/enums/premium_selected_tile.dart';
@@ -110,21 +112,24 @@ class _SubscriptionWidgetsState extends State<SubscriptionWidgets> with TickerPr
     return Align(
       child: DecoratedBox(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: SizeConfig.appItemShapeRadius,
             boxShadow: premiumTile.isSelected?[BoxShadow(blurRadius: 3, offset: Offset(0,2), color: Colors.black.withOpacity(.25))]:[BoxShadow()],
-            color: Theme.of(context).cardColor,
-            border: premiumTile.isSelected ? Border.all(color: Theme.of(context).primaryColor) : null),
+            color: Theme.of(context).primaryColor,
+            gradient: premiumTile.isSelected?AppColors.primaryGradient:AppColors.grayGradient,
+            border: premiumTile.isSelected ? Border.all(color: Theme.of(context).cardColor,
+            width: 5) : null,),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizeConfig.VerticalSpaceSmallMedium(),
+          SizeConfig.verticalSpaceMedium(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 3),
               child: AutoSizeText(
-                premiumTile.header,
-                style: AppStyles.BlackStyleWithBoldFont_24(context).copyWith(fontSize: SizeConfig.fontSizeLarger),
+               AppStrings.STOREANGEL_PREMIUM.tr(),
+                style: AppStyles.WhiteStyle_Font16.copyWith(fontSize: SizeConfig.fontSizeLarger,
+                    color: premiumTile.isSelected?AppColors.whiteColor:AppColors.primaryColor),
                 textAlign: TextAlign.center,
-                maxFontSize: SizeConfig.fontSizeLarger,
+                maxFontSize: SizeConfig.fontSizeMedium,
                 minFontSize: 10,
                 maxLines: 1,
               ),
@@ -133,8 +138,10 @@ class _SubscriptionWidgetsState extends State<SubscriptionWidgets> with TickerPr
               height: 4,
             ),
             AutoSizeText(
-              premiumTile.monthString,
-              style: AppStyles.GrayStyle_Font16(context),
+              premiumTile.header,
+              style: AppStyles.WhiteStyle_WithBold900_Font20.copyWith(
+                color: premiumTile.isSelected?AppColors.whiteColor:AppColors.primaryColor
+              ),
               maxLines: 1,
               minFontSize: 10,
               maxFontSize: SizeConfig.fontSizeSmall,
@@ -142,36 +149,65 @@ class _SubscriptionWidgetsState extends State<SubscriptionWidgets> with TickerPr
             SizedBox(
               height: SizeConfig.screenHeight * .01,
             ),
-            Divider(
-              color: premiumTile.isSelected ? Theme.of(context).primaryColor : Theme.of(context).backgroundColor,
+            Padding(
+              padding: SizeConfig.sidelargepadding,
+              child: Divider(
+                color: premiumTile.isSelected ? Theme.of(context).cardColor : Theme.of(context).focusColor,
+              ),
             ),
             SizedBox(
               height: SizeConfig.screenHeight * .005,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 2.0),
-              child: AutoSizeText(
-                premiumTile.tileName==PremiumSelectedTile.middle ? AppStrings.BEST_SELLER.tr() : AppStrings.GET_IT_NOW.tr(),
-                style: AppStyles.BlackStyleFontWeightSmall_24(context).copyWith(fontSize: SizeConfig.fontSizeLarge),
-                maxLines: 1,
-                minFontSize: 10,
-                maxFontSize: SizeConfig.fontSizeLarge,
-                textAlign: TextAlign.center,
+            AutoSizeText(
+              premiumTile.monthString,
+              style: AppStyles.GrayStyle_Font16(context).copyWith(
+                color: premiumTile.isSelected?AppColors.whiteColor:AppColors.grayFont
               ),
-            ),
-            SizedBox(
-              height: SizeConfig.screenHeight * .03,
+              maxLines: 1,
+              minFontSize: 8,
+              maxFontSize: SizeConfig.fontSizeSmaller,
             ),
             Text(
               premiumTile.price,
-              style: AppStyles.GreenStyleWithBold800_Font30(context),
+              style: AppStyles.GreenStyleWithBold800_Font30(context).copyWith(
+                color: premiumTile.isSelected?AppColors.whiteColor:AppColors.primaryColor
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 2.0),
+              child: AutoSizeText(
+                premiumTile.paymentType+'/'+AppStrings.MONTHLY.tr(),
+                style: AppStyles.GrayStyle_Font16(context).copyWith(
+                  color:premiumTile.isSelected?AppColors.whiteColor:AppColors.grayFont
+                ),
+                maxLines: 2,
+                minFontSize: 8,
+                maxFontSize: SizeConfig.fontSizeSmaller,
+                textAlign: TextAlign.center,
+              ),
             ),
             SizeConfig.verticalSpaceSmall(),
-            Text(
-              AppStrings.MONTHLY.tr(),
-              style: AppStyles.GrayStyle_Font16(context),
-            ),
-            SizeConfig.verticalSpaceESmall(),
+
+            premiumTile.tileName==PremiumSelectedTile.middle?Padding(
+              padding:SizeConfig.sidepadding,
+              child: Row(
+                children: [
+                  Icon(StoreangelIcons.madel,color: AppColors.whiteColor,size: SizeConfig.iconSize,),
+                  AutoSizeText(
+                    AppStrings.BEST_SELLER.tr() ,
+                    style: AppStyles.WhiteStyle_Font20.copyWith(fontSize: SizeConfig.fontSizeSmall,
+                    ),
+                    maxLines: 1,
+                    minFontSize: 5,
+                    maxFontSize: SizeConfig.fontSizeSmall,
+                    textAlign: TextAlign.center,
+                  ),
+
+                ],
+              ),
+            ):Container(height:  SizeConfig.iconSize,),
+            SizeConfig.verticalSpaceMedium(),
+
           ],
         ),
       ),

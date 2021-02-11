@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:storeangelApp/core/consts/appColors.dart';
-import 'package:storeangelApp/core/consts/assetsPath.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/storeangel_icons_icons.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
-import 'package:storeangelApp/ui/shared/view_app_Image.dart';
+
+import 'package:auto_size_text/auto_size_text.dart';
 
 class AppHeader extends StatelessWidget {
   final bool isAppImageOnly;
@@ -16,8 +16,10 @@ class AppHeader extends StatelessWidget {
   final TextStyle style;
   final bool isSort;
   final List<Widget> actions;
+  final Function onBackPress;
+  final Function onReverse;
 
-  const AppHeader({Key key,this.height,this.style,this.isAppImageOnly:false,this.secondChild,this.title,this.subtitle,this.isBack:false,this.isSort:false,this.actions}) : super(key: key);
+  const AppHeader({Key key,this.onReverse,this.onBackPress,this.height,this.style,this.isAppImageOnly:false,this.secondChild,this.title,this.subtitle,this.isBack:false,this.isSort:false,this.actions}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,48 +34,55 @@ class AppHeader extends StatelessWidget {
       ),
       child: Padding(
         padding:SizeConfig.sidepadding,
-        child: isBack?SizedBox(
-          height: height??SizeConfig.customerHeaderHeight,
-          child: Padding(
-            padding: EdgeInsets.only(
-              bottom: SizeConfig.screenHeight * 0.01
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  padding: EdgeInsets.zero  ,
-                  icon: Icon(Icons.arrow_back,
-                  color: AppColors.whiteColor,),
+        child: isBack?Padding(
+          padding: EdgeInsets.only(
+            bottom: actions!=null?0:SizeConfig.screenHeight * 0.01
+          ),
+          child: Stack(
+            children: [
+              Container(
+                height:  height??SizeConfig.customerHeaderHeight,
+                width: SizeConfig.screenWidth,
+                child: Column(
+
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: title!=null?AutoSizeText(
+                            title??'',
+                            style: style??AppStyles.WhiteStyleWithBold800_Font16.copyWith(
+                                fontSize: SizeConfig.fontSizeLargest
+                            ),
+                            textAlign: TextAlign.start,
+                            maxLines: 1,
+                          ):Container(),
+                        ),
+                        actions!=null?Wrap(children: actions,):Container()
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Positioned.fill(child: Align(
+                alignment: Alignment.topLeft,
+                child:  BackButton(
+
+                  color: AppColors.whiteColor,
                   onPressed: (){
-                    Navigator.pop(context);
+                    if(onBackPress!=null){
+                      onBackPress();
+                    }else{
+                      Navigator.pop(context);
+                    }
                   },
                 ),
-                SizedBox(
-                  width: SizeConfig.screenWidth,
-                  child: Row(
+              ))
 
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: title!=null?Text(
-                          title??'',
-                          style: style??AppStyles.WhiteStyleWithBold800_Font16.copyWith(
-                              fontSize: SizeConfig.fontSizeLargest
-                          ),
-                          textAlign: TextAlign.start,
-                          maxLines: 1,
-                        ):Container(),
-                      ),
-                      actions!=null?Wrap(children: actions,):Container()
-                    ],
-                  ),
-                ),
-
-              ],
-            ),
+            ],
           ),
         ):Row(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -95,7 +104,10 @@ class AppHeader extends StatelessWidget {
                           maxLines: 1,
                         ):Container(),
                       ),
-                      isSort?Icon(StoreangelIcons.sortUp,color: AppColors.whiteColor,):Container(),
+                      isSort?InkWell(child: Icon(StoreangelIcons.sortUp,color: AppColors.whiteColor,),
+                      onTap: (){
+                        onReverse();
+                      },):Container(),
                       actions!=null?Wrap(children: actions,):Container(),
 
                     ],

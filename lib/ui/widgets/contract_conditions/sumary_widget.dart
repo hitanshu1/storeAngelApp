@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
+import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/viewmodel/viewmodel_contract_condition_viewmodel.dart';
 import 'package:storeangelApp/ui/shared/button_widget.dart';
 import 'package:storeangelApp/ui/shared/custom_tile.dart';
@@ -18,27 +19,33 @@ class SummaryWidget extends StatelessWidget {
           return MultiSliver(children: [
             SizeConfig.verticalSliverSmallSpace(),
             SliverToBoxAdapter(
-              child: CustomTile(leadingText: AppStrings.DELIVERY_ADDRESS.tr(),
+              child: CustomTile(leadingText: AppStrings.DELIVERY_ADDRESS.tr()+":",
                 tradingText: model.selectedAddress.threeLineAddress,
+                isFixLeading: true,
+                leadingStyle: AppStyles.BlackStyleFont_20(context),
               ),
             ),
             SizeConfig.verticalSliverSmallSpace(),
             SliverToBoxAdapter(
-              child: CustomTile(leadingText: AppStrings.PAYMENT_METHOD.tr(),
-                tradingText: 'Advance payment',
+              child: CustomTile(leadingText: AppStrings.PAYMENT_METHOD.tr()+":",
+                tradingText: AppStrings.PREPAYMENT.tr(),
+                leadingStyle: AppStyles.BlackStyleFont_20(context),
+                isFixLeading: true,
               ),
             ),
             SizeConfig.verticalSliverSmallSpace(),
             SliverToBoxAdapter(
-              child: CustomTile(leadingText: AppStrings.DELIVERY_DATE.tr(),
+              child: CustomTile(leadingText: AppStrings.DELIVERY_DATE.tr()+":",
                 tradingText:model.selectPayment ,
+                leadingStyle: AppStyles.BlackStyleFont_20(context),
+                isFixLeading: true,
               ),
             ),
             SizeConfig.verticalSliverSmallSpace(),
             YourPriceInformationWidget(enableTextField: false,),
             SizeConfig.verticalSliverSmallSpace(),
             YourBudgetWidget(products: model.purchaseDetails.products,enableEdit: false,),
-            SizeConfig.verticalSliverSmallSpace(),
+            SizeConfig.verticalSliverMediumSpace(),
             SliverToBoxAdapter(
               child: Padding(
                 padding: SizeConfig.sidepadding,

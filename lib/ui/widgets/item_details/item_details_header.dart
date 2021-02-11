@@ -57,12 +57,12 @@ class ItemDetailsHeader extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Positioned(right: 0,bottom: 10,child: Align(
+                            Positioned(right: 0,bottom: 0,child: Align(
                               alignment:Alignment.bottomRight,
                               child: CustomStatusCheckBox(
                                 status: model.currentProduct.availableStatus,
-                                size: SizeConfig.screenWidth * .15,
-                                iconSize: SizeConfig.screenWidth*.10,
+                                size: SizeConfig.screenWidth * .2,
+                                iconSize: SizeConfig.screenWidth*.13,
                               ),
                             ))
                           ],
@@ -74,9 +74,9 @@ class ItemDetailsHeader extends StatelessWidget {
               ),
               CarouselSlider.builder(
                   options: CarouselOptions(
-                      autoPlay: true,
+                      autoPlay: false,
                       autoPlayInterval: Duration(seconds: 10),
-                      height: 230,
+                      height: SizeConfig.screenHeight*.27,
                       viewportFraction: 1,
                       enlargeCenterPage: false,
                       onPageChanged: (index, reason) {
@@ -90,11 +90,14 @@ class ItemDetailsHeader extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(AppStrings.euroSymbol+NumberService.priceAfterConvert(model.currentProduct.price, context)),
-                          CustomRatingWidget(reviewCount: 6, initialRating: 3, stars: 12),
-                        SizeConfig.verticalSpaceSmall(),
-                          Text(model.currentProduct.name,style: AppStyles.BlackStyleWithBold800Font_20(context),),
+                          Text(AppStrings.euroSymbol+NumberService.priceAfterConvert(model.currentProduct.price, context)+' | 100 ml',
+                            style: AppStyles.BlackStyleFont_20(context),),
                           SizeConfig.verticalSpaceSmall(),
+                          Text(model.currentProduct.name,style: AppStyles.BlackStyleWithBold800Font_24(context),),
+                          SizeConfig.verticalSpaceSmall(),
+                          CustomRatingWidget(reviewCount: 6, initialRating: 3, stars: 12),
+
+                          SizeConfig.verticalSpaceMedium(),
 
                           ItemEditableValueWidget(product: model.currentProduct,),
 
@@ -123,7 +126,8 @@ class ItemDetailsHeader extends StatelessWidget {
                     );
                   }).toList(),
                 ),
-              )
+              ),
+              SizeConfig.verticalSpaceSmall()
             ],
           ),
         ),

@@ -134,10 +134,11 @@ class StringService {
   }
 
   static String orderStatus(OrderPurchaseStatus status){
-    if(status==OrderPurchaseStatus.Pending){
-      return AppStrings.WAIT_FOR_AN_OFFER.tr();
+    if(status==OrderPurchaseStatus.PlaceAOrder){
+      return AppStrings.READY_TO_GO_SHOPPING.tr();
     }
     return AppStrings.PURCHASING_ACTIVE.tr();
   }
+
 
 }

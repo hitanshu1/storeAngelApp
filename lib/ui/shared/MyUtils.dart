@@ -104,6 +104,39 @@ class MyUtils
     }
     return true;
   }
+  bool validationStreet(String street) {
+
+    if (street.isEmpty) {
+      toastdisplay(AppStrings.VALIDATION_STREET_ERROR_MSG.tr());
+      return false;
+    }
+    return true;
+  }
+  bool validationZip(String zip) {
+
+    if (zip.isEmpty) {
+      toastdisplay(AppStrings.VALIDATION_ZIP_ERROR_MSG.tr());
+      return false;
+    }
+    return true;
+  }
+  bool validationCity(String city) {
+
+    if (city.isEmpty) {
+      toastdisplay(AppStrings.VALIDATION_ZIP_CITY_MSG.tr());
+      return false;
+    }
+    return true;
+  }
+  bool validationCountry(String country) {
+
+    if (country.isEmpty) {
+      toastdisplay(AppStrings.VALIDATION_ZIP_COUNTRY_MSG.tr());
+      return false;
+    }
+    return true;
+  }
+
 
   bool validationDate(String date) {
 

@@ -12,23 +12,33 @@ class ShareListViewModel extends BaseModel{
   List<UserModel>users=[];
   List<UserModel>selectedUsers=[];
   List<UserModel>unSelectedUsers=[];
+  UserModel currentUserDetails;
+
 
   void onEnableSearch(bool val)async{
     setState(ViewState.Busy);
     searchText=val;
-    users=await _myFirebaseServices.searchUserList('');
-    unSelectedUsers=await _myFirebaseServices.searchUserList('');
+    unSelectedUsers=await _myFirebaseServices.getUserList();
     setState(ViewState.Idle);
   }
-  void initializeData()async{
+  void initializeData(String userID)async{
     setState(ViewState.Busy);
+    currentUserDetails=await _myFirebaseServices.getUserDetails(userID);
 
+    setState(ViewState.Idle);
+  }
+  void removeUnselected(UserModel userVal){
+    setState(ViewState.Busy);
+    unSelectedUsers.remove(userVal);
     setState(ViewState.Idle);
   }
   void onSearch(String text)async{
     users=[];
-    users=await _myFirebaseServices.searchUserList(text);
-    print('object${users.length}');
+    unSelectedUsers.forEach((element) {
+      if(element.name.toLowerCase().contains(text.toLowerCase())||element.email.toLowerCase().contains(text.toLowerCase())){
+        users.add(element);
+      }
+    });
     setState(ViewState.Idle);
   }
   void onSelectUser(UserModel val){

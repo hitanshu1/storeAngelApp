@@ -14,6 +14,8 @@ import 'package:storeangelApp/ui/shared/custom_check_box.dart';
 import 'package:storeangelApp/ui/shared/custom_check_box_tile_widget.dart';
 import 'package:storeangelApp/ui/widgets/contract_conditions/time_of_payment_widget.dart';
 
+import 'delivery_period_widget.dart';
+
 
 class TermsOfEngagementWidget extends StatelessWidget {
 
@@ -31,7 +33,9 @@ class TermsOfEngagementWidget extends StatelessWidget {
               borderRadius: SizeConfig.appItemShapeRadius,
             ),
             child:  SliverPadding(
-              padding: SizeConfig.sidepadding,
+              padding: SizeConfig.sidepadding.copyWith(
+                bottom: SizeConfig.verticalGap
+              ),
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate(
                       (context, index) {
@@ -40,7 +44,7 @@ class TermsOfEngagementWidget extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(AppStrings.ADDRESSES.tr()+":",
-                                style: AppStyles.BlackStyleWithBold800Font_20(context),),
+                                style: AppStyles.BlackStyleFont_24(context),),
                               ),
                               IconButton(padding: EdgeInsets.zero,icon: Icon(Icons.add,color: AppColors.primaryColor,),
                                   onPressed: (){
@@ -53,7 +57,7 @@ class TermsOfEngagementWidget extends StatelessWidget {
 
                         if(index==model.userAddress.length+1){
                           return Padding(
-                            padding: SizeConfig.verticalPadding,
+                            padding: SizeConfig.verticalMedPadding,
                             child: Row(
                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
@@ -79,6 +83,7 @@ class TermsOfEngagementWidget extends StatelessWidget {
                           );
                         }
                         return CustomCheckBoxTileWidget(
+                          padding: SizeConfig.verticalLargePadding,
                             value: model.addressValue(model.userAddress[index-1].id),
                             title: model.userAddress[index-1].threeLineAddress,
                             onTap: (){
@@ -99,6 +104,8 @@ class TermsOfEngagementWidget extends StatelessWidget {
           ),
         ),
         TimeOfPaymentWidget(),
+        DeliveryPeriodWidget(),
+        SizeConfig.verticalSliverMediumSpace(),
         SliverToBoxAdapter(
           child: Padding(
             padding: SizeConfig.sidepadding,
@@ -110,9 +117,8 @@ class TermsOfEngagementWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizeConfig.verticalSpaceSmall(),
                       Text(AppStrings.COMMENT.tr()+":",
-                        style: AppStyles.BlackStyleWithBold800Font_20(context),),
+                        style: AppStyles.BlackStyleFont_24(context),),
                       SizeConfig.verticalSpaceSmall(),
                       TextField(
 
@@ -136,7 +142,7 @@ class TermsOfEngagementWidget extends StatelessWidget {
           ),
         ),
 
-        SizeConfig.verticalSliverSmallSpace(),
+        SizeConfig.verticalSliverMediumSpace(),
         SliverToBoxAdapter(
           child: Padding(
             padding: SizeConfig.sidepadding,

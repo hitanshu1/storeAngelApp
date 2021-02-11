@@ -44,13 +44,7 @@ class _CourierOfferScreenState extends State<CourierOfferScreen> {
                 child: AppHeader(
                   height: SizeConfig.smallHeaderSize  ,
                   title: AppStrings.YOUR_OFFERS.tr(),
-                  actions: [
-                    InkWell(child:
-                    Icon(Icons.add,color: AppColors.whiteColor,),
-                        onTap: (){
-                      
-                    })
-                  ],
+
                 ),
               ),
               SizeConfig.verticalSliverMediumSpace(),
@@ -99,6 +93,7 @@ class _CourierOfferScreenState extends State<CourierOfferScreen> {
                             order: courierOffersViewModel.declineOffers[index],
                           ),
                           onTap: ()async{
+                            courierOffersViewModel.navigateTo(SingleOfferScreen.routeName, courierOffersViewModel.offerOrders[index], context);
 
                           },
                         ),

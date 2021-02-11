@@ -18,7 +18,7 @@ class HomeViewModel extends BaseModel {
   List<PurchaseDetails>watchlist=[];
   List<PurchaseDetails>notificationList=[];
   List<PurchaseDetails>inspireList=[];
-  UserModel user;
+  UserModel user=UserModel();
   var location = new Location();
   FirebaseAbstraction _myFirebaseServices = getIt<FirebaseAbstraction>();
   bool running=true;
@@ -115,6 +115,7 @@ class HomeViewModel extends BaseModel {
   Future getUserNotificationList(String userId)async{
     setState(ViewState.Busy);
     user=await _myFirebaseServices.getUserDetails(userId);
+
 
     //List is not supposed to be longer than 10 items
     List<PurchaseDetails> list =(await _myFirebaseServices.getUserNotificationList('useId'));

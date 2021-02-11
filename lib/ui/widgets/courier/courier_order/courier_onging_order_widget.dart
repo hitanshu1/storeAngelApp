@@ -11,6 +11,7 @@ import 'package:storeangelApp/ui/shared/store_order_details_widget.dart';
 import 'package:storeangelApp/ui/shared/title_text_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+
 class CourierOngoingOrderWidget extends StatelessWidget {
   final List<OrderByStore>orderByStoreList;
   final CourierOrderViewModel courierOrderViewModel;
@@ -42,28 +43,28 @@ class CourierOngoingOrderWidget extends StatelessWidget {
                       courierOrderViewModel.setSelectedIndex(index);
                     }
                 ),
-                itemCount: courierOrderViewModel.orderByStoreList.length,
+                itemCount: orderByStoreList.length,
                 itemBuilder: (context, index) {
                   return FittedBox(
                     child: InkWell(
                       child: StoreOrderDetailsWidget(
-                        orderByStore: courierOrderViewModel.orderByStoreList[index],
+                        orderByStore: orderByStoreList[index],
                       ),
                       onTap: (){
                         courierOrderViewModel.navigateToScreen(CourierOrderDetailsScreen.routeName, context,
-                        arguments: courierOrderViewModel.orderByStoreList[index]);
+                        arguments: orderByStoreList[index]);
                       },
                     ),
                   );
                 }):Text(AppStrings.THERE_ARE_NO_PURCHASES_ON.tr(),
               style: AppStyles.WhiteStyle_Font20,
               textAlign: TextAlign.center,),
-            courierOrderViewModel.orderByStoreList.length>0?Container(
+            orderByStoreList.length>1?Container(
               height: 30,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: courierOrderViewModel.orderByStoreList.map((url) {
-                  int index = courierOrderViewModel.orderByStoreList.indexOf(url);
+                children: orderByStoreList.map((url) {
+                  int index = orderByStoreList.indexOf(url);
                   return Container(
                     width: 8.0,
                     height: 8.0,
@@ -77,7 +78,7 @@ class CourierOngoingOrderWidget extends StatelessWidget {
                   );
                 }).toList(),
               ),
-            ):Container(),
+            ):SizeConfig.verticalSpaceMedium(),
           ],
         ),
       ),

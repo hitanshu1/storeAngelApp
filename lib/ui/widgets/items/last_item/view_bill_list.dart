@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
@@ -9,7 +8,7 @@ class ViewBillList extends StatelessWidget {
   final List imageUrls;
   final Function onClose;
   final Function onDelete;
-  bool enableDelete;
+  final bool enableDelete;
   ViewBillList({this.onClose,this.images,this.onDelete,this.imageUrls,this.enableDelete:true});
   @override
   Widget build(BuildContext context) {

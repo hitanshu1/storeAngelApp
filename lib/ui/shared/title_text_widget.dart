@@ -16,19 +16,19 @@ class TitleTextWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizeConfig.verticalSpaceSmall(),
-        Text(title,style: color!=null?AppStyles.BlackStyleFont_20(context).copyWith(
+        Text(title,style: color!=null?AppStyles.BlackStyleFont_24(context).copyWith(
             fontWeight: FontWeight.w300,
           color: color
-        ):AppStyles.BlackStyleFont_20(context).copyWith(
-          fontWeight: FontWeight.w300
+        ):AppStyles.BlackStyleFont_24(context).copyWith(
+          fontWeight: FontWeight.w500
         ),),
         SizeConfig.verticalSpaceSmall(),
         Container(
-          height: 1,
+          height: 2,
           width: SizeConfig.screenWidth*.1,
           color: color!=null?color:Provider.of<AppThemeViewModel>(context).themeData == AppTheme.dark
     ? AppColors.backgroundColor
-        : AppColors.darkGrayLittleColor),
+        : AppColors.black),
 
       ],
     );

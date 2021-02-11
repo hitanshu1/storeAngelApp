@@ -75,7 +75,7 @@ class CourierPriceCheckWidget extends StatelessWidget {
                         context: context,
                         child: StepBackDialog(
                           onPressOk: () {
-                            courierOrderDeliveredViewModel.updateOrderStatus(OrderPurchaseStatus.OrderAccepted);
+                            courierOrderDeliveredViewModel.updateOrderStatus(OrderPurchaseStatus.OrderPlaced);
                             courierOrderDeliveredViewModel.navigatorPop();
                           },
                         ));

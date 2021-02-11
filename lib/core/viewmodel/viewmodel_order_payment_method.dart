@@ -47,13 +47,13 @@ class OrderPaymentMethodViewModel extends BaseModel {
 }
 
   void onClickNext(OrderOrPurchases orderOrPurchases){
-    orderOrPurchases.status = OrderPurchaseStatus.OrderAccepted;
+    orderOrPurchases.status = OrderPurchaseStatus.OrderPlaced;
     navigationService.navigateTo(MainAppScreen.routeName,);
   }
 
   void onClickPayment(String paymentOption, BuildContext context, OrderOrPurchases orderOrPurchases) async {
 //    setState(ViewState.Busy);
-    orderOrPurchases.status = OrderPurchaseStatus.Proposal;
+    orderOrPurchases.status = OrderPurchaseStatus.OrderPlaced;
     if (paymentOption == AppPaymentMethods.payPal) {
       Navigator.of(context)
           .push(

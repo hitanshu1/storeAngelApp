@@ -14,11 +14,11 @@ class OrderStatusCard extends StatelessWidget {
   OrderStatusCard({this.status, this.prePaid: true});
 
   String get title {
-    if (status == OrderPurchaseStatus.Proposal) {
+    if (status == OrderPurchaseStatus.OrderPlaced) {
       return AppStrings.PAYMENT_IS_PENDING.tr();
     } else if (status == OrderPurchaseStatus.MoneyTransfer) {
       return AppStrings.COURIER_RECEIVED_PAYMENT.tr();
-    } else if (status == OrderPurchaseStatus.OrderAccepted) {
+    } else if (status == OrderPurchaseStatus.OrderPlaced) {
       return AppStrings.SHOPPING_IN_PROGRESS.tr();
     } else if (status == OrderPurchaseStatus.OrderRunning) {
       return AppStrings.YOUR_PURCHASE_WILL_BE_DELIVERED_SOON.tr();

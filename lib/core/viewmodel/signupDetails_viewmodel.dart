@@ -11,6 +11,8 @@ import 'package:storeangelApp/core/models/response_model.dart';
 import 'package:storeangelApp/core/models/user.dart';
 import 'package:storeangelApp/core/services/firebase_abstraction.dart';
 import 'package:storeangelApp/ui/screens/consumer/checkingAcceptedEmail_Screen.dart';
+import 'package:storeangelApp/ui/screens/consumer/mainApp_Screen.dart';
+import 'package:storeangelApp/ui/screens/courier/courier_main_page.dart';
 import 'package:storeangelApp/ui/screens/courier/tell_us_about_your_company_screen.dart';
 import 'package:storeangelApp/ui/shared/MyUtils.dart';
 import 'package:storeangelApp/ui/shared/base_model.dart';
@@ -123,6 +125,14 @@ class SignUpDetailsViewModel extends BaseModel {
     }
 
   }
+  void backPress(){
+    if(AppConstants.userType==UserType.Customer){
+      navigationService.navigateReplaceTo(MainAppScreen.routeName);
+    }else{
+      navigationService.navigateReplaceTo(CourierMainAppScreen.routeName);
+    }
+  }
+
 
 
   void addScrollListener(){

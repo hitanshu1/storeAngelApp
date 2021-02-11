@@ -8,7 +8,6 @@ import 'package:storeangelApp/core/consts/storeangel_icons_icons.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/enums/order_purchase_status.dart';
 import 'package:storeangelApp/core/models/order.dart';
-
 import 'package:storeangelApp/ui/shared/cantidant_rating_widget.dart';
 import 'package:storeangelApp/ui/shared/view_app_Image.dart';
 

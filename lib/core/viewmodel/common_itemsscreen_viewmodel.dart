@@ -190,7 +190,7 @@ class CommonItemScreenViewModel extends BaseModel{
       productName: 'Soy Milk',
       shopName: 'Metro',
       orderAmount: 130,
-      status: OrderPurchaseStatus.Proposal,
+      status: OrderPurchaseStatus.OrderPlaced,
       quantity: 5,
       purchaseDetails: PurchaseDetails(
           listName: 'Household',

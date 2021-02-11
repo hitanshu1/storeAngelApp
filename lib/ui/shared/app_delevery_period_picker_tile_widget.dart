@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:storeangelApp/core/consts/appColors.dart';
+
 import 'package:storeangelApp/core/consts/appConstants.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
@@ -84,7 +84,10 @@ class _AppDeliveryPeriodTileWidgetState extends State<AppDeliveryPeriodTileWidge
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(widget.title,style:AppStyles.BlackStyleWithBold800Font_20(context),),
+              Padding(
+                padding: SizeConfig.verticalPadding,
+                child: Text(widget.title,style:AppStyles.BlackStyleWithBold800Font_24(context),),
+              ),
               SizeConfig.verticalSpaceSmall(),
               InkWell(
                 onTap: (){
@@ -96,8 +99,8 @@ class _AppDeliveryPeriodTileWidgetState extends State<AppDeliveryPeriodTileWidge
                     borderRadius: BorderRadius.circular(SizeConfig.radiusSmall)
                   ),
                   child: Padding(
-                    padding: SizeConfig.padding,
-                    child: Center(child: Text(selectDateAndTime??widget.hintText,style: AppStyles.GrayStyle_Font16(context),),),
+                    padding: SizeConfig.paddingMediumhighSide,
+                    child: Center(child: Text(selectDateAndTime??widget.hintText,style: AppStyles.GrayStyleItalicFont20(context),),),
                   ),
                 ),
               ),

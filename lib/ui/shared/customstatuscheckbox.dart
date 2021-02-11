@@ -21,37 +21,23 @@ class CustomStatusCheckBox extends StatefulWidget {
 
 class _CustomStatusCheckBoxState extends State<CustomStatusCheckBox> with TickerProviderStateMixin {
   AvailableStatus status = AvailableStatus.inactive;
-  Color _iconColor;
 
-  Color get _activeBackgroundColor {
+  LinearGradient get _activeBackgroundColor {
     switch (status) {
-//      case AvailableStatus.inactive:
-//        return AppColors.lightGreyColor;
-//      case AvailableStatus.plenty:
-//        return AppColors.green;
-//      case AvailableStatus.few:
-//        return AppColors.amber;
-//      case AvailableStatus.runOut:
-//        return AppColors.red;
-//      case AvailableStatus.unknown:
-//        return Colors.transparent;
       case AvailableStatus.selected:
-        return AppColors.green;
+        return AppColors.primaryGradient;
       default:
-        return Colors.transparent;
+        return null;
     }
   }
 
   Border get _activeBorder {
     switch (status) {
       case AvailableStatus.selected:
-        _iconColor = AppColors.green;
         return Border.all(color: AppColors.green, width: 3);
       case AvailableStatus.unknown:
-        _iconColor = Colors.transparent;
         return Border.all(color: Colors.transparent, width: 3);
       default:
-        _iconColor = Colors.transparent;
           return Border.all(color: AppColors.availableStatusColor(status), width: 3);;
     }
   }
@@ -86,7 +72,7 @@ class _CustomStatusCheckBoxState extends State<CustomStatusCheckBox> with Ticker
                   height: widget.size,
                   margin: widget.minSize != null ? EdgeInsets.all(_margin) : null,
                   decoration:
-                      BoxDecoration(shape: BoxShape.circle, color: _activeBackgroundColor, border: _activeBorder),
+                      BoxDecoration(shape: BoxShape.circle, gradient: _activeBackgroundColor, border: _activeBorder),
                   child: status != AvailableStatus.selected
                       ? Container(child: widget.child!=null?widget.child:Container(),
                   )

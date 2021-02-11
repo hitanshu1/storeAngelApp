@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
         body: homeViewModel.state==ViewState.Busy?AppConstants.circulerProgressIndicator():CustomScrollView(
             slivers: <Widget>[
               HomeHeader(user: homeViewModel.user,),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
 
               SliverToBoxAdapter(
                 child: Padding(
@@ -47,9 +47,9 @@ class HomeScreen extends StatelessWidget {
               ),
               SizeConfig.verticalSliverSmallSpace(),
               YourOrderTodayWidget(sidePadding: sidePadding,),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
               InFormationInspireWidget(),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
               SliverToBoxAdapter(
                 child: Padding(
                   padding: SizeConfig.sidepadding,

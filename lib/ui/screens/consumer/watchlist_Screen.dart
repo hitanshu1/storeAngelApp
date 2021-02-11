@@ -47,7 +47,7 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
                 child: AppHeader(
                   title: AppStrings.YOUR_SHOPPING_LISTS.tr(),
                   actions: [
-                    IconButton(icon: Icon(Icons.add,color: AppColors.whiteColor,), onPressed: (){
+                    IconButton(icon: Icon(Icons.add,color: AppColors.whiteColor,size: SizeConfig.mediumIcon,), onPressed: (){
                       watchListViewModel.navigateToScreen(NewOrderSelectStore.routeName,context);
                     })
                   ],

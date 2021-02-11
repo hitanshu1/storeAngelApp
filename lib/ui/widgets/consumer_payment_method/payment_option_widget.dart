@@ -76,7 +76,7 @@ class PaymentOptionWidget extends StatelessWidget {
                       ),
                     ),
                     decoration: BoxDecoration(
-                        color: Theme.of(context).cardColor,
+                        color: Theme.of(context).toggleableActiveColor,
                         borderRadius: BorderRadius.circular(AppConstants.button_Radius)),
                   ),
                 ),

@@ -1,8 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:storeangelApp/core/consts/appColors.dart';
-import 'package:storeangelApp/core/consts/appConstants.dart';
-import 'package:storeangelApp/core/consts/assetsPath.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/ui/shared/button_widget.dart';
@@ -19,7 +16,7 @@ class UserDecideItem extends StatelessWidget {
   final GestureTapCallback onPressed;
   final String image;
   final String itemButtonText;
-  bool isReverse;
+  final bool isReverse;
 
   UserDecideItem({
     @required this.image,

@@ -56,6 +56,13 @@ class PickStoreViewModel extends BaseModel {
     _searchList = await _myFirebaseServices.Search(searchText);
     setState(ViewState.Idle);
   }
+  double opacityValue(StoreDataModel storeData){
+    if(selectedStoreList.length==3&&!selectedStoreList.contains(storeData)){
+      return .3;
+    }else{
+      return 1;
+    }
+  }
 
   void storeItemTapped(StoreDataModel storeDataModel) {
     setState(ViewState.Busy);

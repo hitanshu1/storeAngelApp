@@ -6,7 +6,6 @@ import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/models/user.dart';
 import 'package:storeangelApp/core/services/date_service.dart';
-import 'package:storeangelApp/ui/shared/app_header.dart';
 import 'package:storeangelApp/ui/shared/custom_five_widgets_tile.dart';
 import 'package:storeangelApp/ui/shared/customer_header_widget.dart';
 
@@ -20,9 +19,10 @@ class HomeHeader extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Stack(
         children: [
-          SizeConfig.verticalSpace(SizeConfig.customerHeaderHeight+SizeConfig.tileHeight*.5-SizeConfig.screenHeight*.0075),
+          SizeConfig.verticalSpace(SizeConfig.logoHeaderHeight+SizeConfig.tileHeight*.5-SizeConfig.screenHeight*.0075),
 
           CustomerHeader(
+            height:SizeConfig.logoHeaderHeight,
             title:'',
             isAppImageOnly: true,
 
@@ -34,7 +34,8 @@ class HomeHeader extends StatelessWidget {
               child: FittedBox(
                 fit: BoxFit.cover,
                 child: CustomFiveWidgetsTile(
-                  isReverse: true,
+                  borderRadius: SizeConfig.appReverseItemShapeRadius,
+                  emptyText: AppStrings.HERE_COULD_BE_YOUR_IMAGE.tr(),
                   trailingOneBackGroundColor: AppColors.primaryGradient,
                   trailingTwoBackGroundColor: AppColors.primaryGradient,
                   imageUrl: user?.imageUrl,
@@ -63,7 +64,7 @@ class HomeHeader extends StatelessWidget {
                         SizeConfig.verticalSpaceMedium(),
                         Text('Hi ${user?.name}',style: AppStyles.BlackStyleWithW500Font36(context).copyWith(fontWeight: FontWeight.w500),),
                         SizeConfig.verticalSpaceVeryGap(),
-                        Text(AppStrings.FIND_YOUR_ANGEL.tr(),style: AppStyles.BlackStyleFont16W300(context)),
+                        Text(AppStrings.FIND_YOUR_ANGEL.tr(),style: AppStyles.BlackStyle_WithW300_Font24(context)),
                         SizeConfig.verticalSpaceLarge(),
                         FittedBox(
                           child: Text('${AppStrings.LAST_LOGIN.tr()} '+

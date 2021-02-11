@@ -9,7 +9,6 @@ import 'package:storeangelApp/core/models/order.dart';
 import 'package:storeangelApp/core/services/date_service.dart';
 import 'package:storeangelApp/core/services/numberService.dart';
 import 'package:storeangelApp/core/viewmodel/viewmodel_courier_candidate_details.dart';
-import 'package:storeangelApp/ui/screens/consumer/summery_screen.dart';
 import 'package:storeangelApp/ui/shared/app_shap_item.dart';
 import 'package:storeangelApp/ui/shared/button_widget.dart';
 import 'package:storeangelApp/ui/shared/custom_tile.dart';
@@ -42,7 +41,7 @@ class OrderDetailsWidget extends StatelessWidget {
           CustomTile(leadingText: AppStrings.DELIVERY_PERIOD.tr(),
             leadingStyle: AppStyles.BlackStyleFont_20(context),
             subtitle: DateService.getDateWithHourFormat(order.purchaseDetails.time.toIso8601String(), context),),
-          SizeConfig.verticalSpaceSmall(),
+          SizeConfig.verticalSpaceMedium(),
           CustomTile(leadingText: AppStrings.PURCHASE_VALUE.tr(),
             tradingStyle: AppStyles.GrayStyleWithBold800ItalicFont16LowOpacity(context),
             tradingText: AppStrings.euroSymbol+NumberService.priceAfterConvert(order.orderAmount, context),),

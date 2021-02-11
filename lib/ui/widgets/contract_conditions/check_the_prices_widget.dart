@@ -16,9 +16,9 @@ class CheckThePricesWidget extends StatelessWidget {
         builder: (context,model,child){
           return MultiSliver(children: [
             YourPriceInformationWidget(enableTextField: true,),
-            SizeConfig.verticalSliverSmallSpace(),
+            SizeConfig.verticalSliverMediumSpace(),
             YourBudgetWidget(products: model.purchaseDetails.products,),
-            SizeConfig.verticalSliverSmallSpace(),
+            SizeConfig.verticalSliverMediumSpace(),
             SliverToBoxAdapter(
               child: Padding(
                 padding: SizeConfig.sidepadding,

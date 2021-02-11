@@ -39,6 +39,8 @@ class TellUsAboutYourCompanyViewModel extends BaseModel{
     });
   }
 
+
+
   void addScrollListener(){
     if(scrollController.position.pixels==0){
       hasShadow = false;

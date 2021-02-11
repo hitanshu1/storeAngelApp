@@ -25,7 +25,8 @@ class CourierOrderChatWidget extends StatelessWidget {
                     stream: courierOrderChatViewModel.getMessages(),
                     builder: (context,snapshot){
                       if(snapshot.hasData){
-                        return ListView.builder(itemCount: snapshot.data.length,itemBuilder: (context,int index){
+                        return ListView.builder(itemCount: snapshot.data.length,
+                            itemBuilder: (context,int index){
                           return Padding(
                             padding: SizeConfig.sidepadding.copyWith(
 

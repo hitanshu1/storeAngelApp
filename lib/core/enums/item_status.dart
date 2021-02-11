@@ -1,0 +1,1 @@
+enum ItemStatus{UnSelected,Selected,Few,UnAvailable}

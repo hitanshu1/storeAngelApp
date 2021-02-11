@@ -5,6 +5,7 @@ import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/models/product.dart';
 import 'package:storeangelApp/core/services/numberService.dart';
 import 'package:storeangelApp/ui/shared/app_shap_item.dart';
+import 'package:storeangelApp/ui/shared/circular_image_with_border.dart';
 import 'package:storeangelApp/ui/shared/view_app_Image.dart';
 
 class AlterNativeItemTileWidget extends StatelessWidget {
@@ -31,7 +32,21 @@ class AlterNativeItemTileWidget extends StatelessWidget {
               Text(product.name,style: AppStyles.BlackStyleWithBold800Font_20(context),
               maxLines: 2,),
               SizeConfig.verticalSpaceVeryGap(),
-              Text(AppStrings.euroSymbol+NumberService.priceAfterConvert(product.price, context),style: AppStyles.BlackStyleFont20W300(context),)
+              Text(AppStrings.euroSymbol+NumberService.priceAfterConvert(product.price, context),style: AppStyles.BlackStyleFont20W300(context),),
+              SizeConfig.verticalSpaceVeryGap(),
+              SizedBox(
+                height: 30,
+                child: ListView.builder(scrollDirection: Axis.horizontal,
+                    itemCount: product.alterNativeAddedClients.length,
+                    itemBuilder: (context,int index){
+                  return CircularImageWithBorder(
+                    imageUrl: product.alterNativeAddedClients[index].imageUrl,
+                    isActive: false,
+                    height: 30,
+
+                  );
+                }),
+              ),
             ],
           ),
         ),

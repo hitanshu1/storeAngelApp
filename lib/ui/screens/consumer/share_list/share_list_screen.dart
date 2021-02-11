@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:storeangelApp/core/consts/appConstants.dart';
+import 'package:storeangelApp/core/models/user.dart';
 import 'package:storeangelApp/core/viewmodel/viewmodel_share_list.dart';
 import 'package:storeangelApp/ui/shared/base_model.dart';
 import 'package:storeangelApp/ui/shared/base_view.dart';
@@ -10,8 +12,10 @@ class ShareListScreen extends StatelessWidget {
   static const String routeName='shareListScreen';
   @override
   Widget build(BuildContext context) {
+    final user=Provider.of<UserModel>(context);
     return Scaffold(
       body:BaseView<ShareListViewModel>(
+        onModelReady: (model)=>model.initializeData(user.id),
         builder: (context,model,child){
           if(model.state==ViewState.Busy){
             return AppConstants.circulerProgressIndicator();

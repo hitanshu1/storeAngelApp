@@ -34,22 +34,10 @@ class TimeOfPaymentWidget extends StatelessWidget {
                       return Padding(
                         padding:SizeConfig.verticalPadding,
                         child: Text(AppStrings.TIME_OF_PAYMENT.tr(),
-                          style: AppStyles.BlackStyleWithBold800Font_20(context),),
+                          style: AppStyles.BlackStyleFont_24(context),),
                       );
                     }
-                    if(index==model.timeOfPayments.length){
-                      return CustomCheckBoxTileWidget(
-                        isBorderColor: false,
-                        value: model.paymentValue(model.timeOfPayments[index-1]),
-                        title:  model.selectDateAndTime != null
-                            ? model.selectDateAndTime
-                            : AppStrings.SELECT_DELIVERY_DATE.tr(),
-                         onTap: () {
-                           model.onSelectPayment(model.timeOfPayments[index-1]);
-                           onTapSelectDate(model, context);
-                         },
-                      );
-                    }
+
                     return CustomCheckBoxTileWidget(
                       padding: SizeConfig.verticalC13Padding,
                         value: model.paymentValue(model.timeOfPayments[index-1]),

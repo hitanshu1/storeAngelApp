@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:storeangelApp/core/consts/appConstants.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
@@ -28,7 +27,7 @@ class CourierOrderBottomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (order.status == OrderPurchaseStatus.Proposal) {
+    if (order.status == OrderPurchaseStatus.OrderPlaced) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -129,7 +128,7 @@ class CourierOrderBottomWidget extends StatelessWidget {
             ),
             _nextButton(
               onPressed: () {
-                model.updateOrderStatus(OrderPurchaseStatus.OrderAccepted,index);
+                model.updateOrderStatus(OrderPurchaseStatus.OrderPlaced,index);
                 model.navigateToScreen(CourierOrderDeliveredScreen.routeName, context,
                     arguments: CourierOrderDeliveredScreenArgument(
                         order: order, initialIndex: 0));
@@ -143,7 +142,7 @@ class CourierOrderBottomWidget extends StatelessWidget {
                       context: context,
                       child: StepBackDialog(
                         onPressOk: () {
-                          model.updateOrderStatus(OrderPurchaseStatus.Proposal,index);
+                          model.updateOrderStatus(OrderPurchaseStatus.OrderPlaced,index);
                           model.navigatorPop();
                         },
                       ));
@@ -152,7 +151,7 @@ class CourierOrderBottomWidget extends StatelessWidget {
           ],
         ),
       );
-    } else if (order.status == OrderPurchaseStatus.OrderAccepted) {
+    } else if (order.status == OrderPurchaseStatus.OrderPlaced) {
       return Padding(
         padding: SizeConfig.sidepadding,
         child: Column(
@@ -283,7 +282,7 @@ class CourierOrderBottomWidget extends StatelessWidget {
                       context: context,
                       child: StepBackDialog(
                         onPressOk: () {
-                          model.updateOrderStatus(OrderPurchaseStatus.OrderAccepted,index);
+                          model.updateOrderStatus(OrderPurchaseStatus.OrderPlaced,index);
                           model.navigatorPop();
                         },
                       ));

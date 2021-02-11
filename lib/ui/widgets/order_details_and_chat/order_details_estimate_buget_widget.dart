@@ -30,6 +30,9 @@ class OrderDetailsEstimateBudgetWidget extends StatelessWidget {
             return Padding(
               padding: SizeConfig.sidepadding,
               child: CourierItemTileWidget(
+                onClickStatus: (){
+
+                },
                 isBorder:index!=products.length,
                 product: products[index-1],
                 enableQuantity: true,

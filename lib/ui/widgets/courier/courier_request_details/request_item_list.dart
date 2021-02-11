@@ -23,6 +23,9 @@ class CourierItemList extends StatelessWidget {
             return Padding(
               padding: SizeConfig.sidepadding,
               child: CourierItemTileWidget(
+                onClickStatus: (){
+
+                },
                 isBorder:index!=products.length-1,
                 product: products[index],
                 enableQuantity: enableQuantity,

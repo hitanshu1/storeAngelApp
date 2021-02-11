@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
-import 'package:storeangelApp/ui/shared/button_widget.dart';
+import 'package:storeangelApp/ui/shared/circuler_button_widget.dart';
 
 class CustomDialog extends StatelessWidget {
   final String title, subTitle;
@@ -35,12 +35,12 @@ class CustomDialog extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: ButtonWidget(
+                child: CircularButtonWidget(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  buttonColor: Theme.of(context).primaryColorLight,
-                  buttonText: AppStrings.BACK.tr(),
+                  buttonColor: Theme.of(context).cardColor,
+                  buttonText: AppStrings.CANCEL.tr(),
                   fontSize: AppStyles.BlackStyleWithBold800Font_24(context).fontSize,
                   textColor: Theme.of(context).focusColor,
                   radius: SizeConfig.smallBorderRadius,
@@ -48,7 +48,7 @@ class CustomDialog extends StatelessWidget {
               ),
               SizeConfig.horizontalSpaceSmall(),
               Expanded(
-                child: ButtonWidget(
+                child: CircularButtonWidget(
                     onPressed: onPressOk,
                     buttonColor: Theme.of(context).primaryColor,
                     buttonText: AppStrings.OK.tr(),

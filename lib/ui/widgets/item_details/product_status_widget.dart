@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
-import 'package:storeangelApp/core/services/date_service.dart';
 import 'package:storeangelApp/core/services/numberService.dart';
 import 'package:storeangelApp/core/services/time_ago_service.dart';
 import 'package:storeangelApp/core/viewmodel/viewmodel_item_details.dart';

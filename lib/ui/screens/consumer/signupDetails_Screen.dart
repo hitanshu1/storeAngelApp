@@ -9,6 +9,7 @@ import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/models/user.dart';
+import 'package:storeangelApp/core/services/date_service.dart';
 import 'package:storeangelApp/core/services/statusbar_service.dart';
 import 'package:storeangelApp/core/viewmodel/signupDetails_viewmodel.dart';
 import 'package:storeangelApp/ui/shared/base_model.dart';
@@ -65,7 +66,7 @@ class _SignUpDetailsScreenState extends State<SignUpDetailsScreen> {
     if (picked != null && picked != selectedDate)
       setState(() {
         selectedDate = picked;
-        birthDateController.text=AppConstants().pickDate(selectedDate);
+        birthDateController.text=DateService.pickDate(selectedDate,context);
       });
   }
 
@@ -78,17 +79,6 @@ class _SignUpDetailsScreenState extends State<SignUpDetailsScreen> {
       onModelReady: (signUpDetailsViewModel)=>signUpDetailsViewModel.initialize(_scrollController),
       builder: (context, signUpDetailsViewModel, child) {
         return Scaffold(
-//          appBar: CustomAppBar(
-//            elevation:signUpDetailsViewModel.hasShadow?4:0,
-//            title: Text(
-//              '',
-//              style: AppStyles.BlackStyleWithBold800Font_24(context),
-//            ),
-//            leading: BackButton(
-//              color: Theme.of(context).iconTheme.color,
-//            ),
-//            backgroundColor: Theme.of(context).backgroundColor,
-//          ),
           body: Stack(
             children: <Widget>[
               SingleChildScrollView(
@@ -97,40 +87,11 @@ class _SignUpDetailsScreenState extends State<SignUpDetailsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-//                    Container(
-//                      width: SizeConfig.screenWidth,
-//                      padding: SizeConfig.sidelargepadding,
-//                      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: <Widget>[
-//                        Consumer<SignUpDetailsViewModel>(
-//                          builder: (context, model, child) => model.state == ViewState.Busy
-//                              ? CircleAvatar(
-//                                  child: AppConstants.circulerProgressIndicator(),
-//                                  radius: SizeConfig.smallImageHeight55,
-//                                )
-//                              : PhotoWidget(
-//                                  colorButton: Theme.of(context).primaryColorLight,
-//                                  imageFile: model.imageFile,
-//                                  radius: SizeConfig.smallImageHeight55,
-//                                  onTap: () {
-//                                    _optionsDialogBox(model, context);
-//                                  },
-//                                ),
-//                        ),
-//                        SizeConfig.VerticalSpaceSmallMedium(),
-//                        InkWell(
-//                          onTap: () {
-//                            _optionsDialogBox(signUpDetailsViewModel, context);
-//                          },
-//                          child: Text(
-//                            AppStrings.ADD_YOUR_PHOTO.tr(),
-//                            style: AppStyles.BlackStyleFont_20(context),
-//                            textAlign: TextAlign.center,
-//                          ),
-//                        ),
-//                      ]),
-//                    ),
                     AppHeader(
                       isBack: true,
+                      onBackPress: (){
+                        signUpDetailsViewModel.backPress();
+                      },
                       height: SizeConfig.smallHeaderSize,
                       title:AppStrings.TELL_US_ABOUT_YOUR_SELFE.tr() ,
                     ),

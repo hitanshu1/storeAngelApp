@@ -1,22 +1,28 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:storeangelApp/core/consts/appColors.dart';
+import 'package:storeangelApp/core/consts/appConstants.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/models/order.dart';
+import 'package:storeangelApp/core/models/user.dart';
 import 'package:storeangelApp/core/services/numberService.dart';
 import 'package:storeangelApp/core/services/statusbar_service.dart';
 import 'package:storeangelApp/core/services/string_service.dart';
 import 'package:storeangelApp/core/viewmodel/view_model_order_information.dart';
 import 'package:storeangelApp/ui/shared/app_delevery_period_picker_tile_widget.dart';
 import 'package:storeangelApp/ui/shared/app_header.dart';
+import 'package:storeangelApp/ui/shared/base_model.dart';
 import 'package:storeangelApp/ui/shared/base_view.dart';
 import 'package:storeangelApp/ui/shared/button_widget.dart';
 import 'package:storeangelApp/ui/shared/custom_tile.dart';
 import 'package:storeangelApp/ui/shared/text_field_increment_decrement_tile.dart';
 import 'package:storeangelApp/ui/widgets/courier/courier_request_details/request_details_order_widget.dart';
 import 'package:storeangelApp/ui/widgets/courier/courier_request_details/request_item_list.dart';
+
+import 'courier_main_page.dart';
 
 class RequestDetailsScreen extends StatefulWidget {
   final OrderOrPurchases order;
@@ -41,12 +47,15 @@ class _RequestDetailsScreenState extends State<RequestDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     StatusBarService.changeStatusBarColor(StatusBarType.OffGray, context);
+    final user=Provider.of<UserModel>(context);
     return BaseView<OrderInformationViewModel>(
+      onModelReady: (model)=>model.initializeData(user.id),
       builder: (context, orderInformationViewModel, child) {
         return Scaffold(
           key: _scaffoldKey,
           backgroundColor: Theme.of(context).canvasColor,
-          body: CustomScrollView(
+          body: orderInformationViewModel.state==ViewState.Busy?AppConstants.circulerProgressIndicator():
+          CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
                 child: AppHeader(
@@ -100,9 +109,9 @@ class _RequestDetailsScreenState extends State<RequestDetailsScreen> {
                   subtitle: widget.order.comment,
                 ),
               ),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
               CourierItemList(products: widget.order.purchaseDetails.products,),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
 
               SliverToBoxAdapter(
                 child: Padding(
@@ -121,16 +130,18 @@ class _RequestDetailsScreenState extends State<RequestDetailsScreen> {
                   padding: SizeConfig.sidepadding,
                   child: TextFieldIncrementDecrementTile(
                     controller: myFeeController,
-                    initialValue: 10,
+                    initialValue:orderInformationViewModel.userDetails.premium?99.99:10,
                     title: AppStrings.MY_FEE.tr(),
                   ),
                 ),
               ),
-              SizeConfig.verticalSliverMediumSpace(),
+              SizeConfig.verticalSliverBigSpace(),
               SliverToBoxAdapter(
                 child: Padding(
                   padding: SizeConfig.sidepadding,
                   child: ButtonWidget(onPressed: (){
+                    orderInformationViewModel.navigateToScreen(CourierMainAppScreen.routeName,
+                    arguments: 1);
 
                   },buttonText: AppStrings.SEND_OFFER.tr(),
                     buttonColor: AppColors.primaryColor,),

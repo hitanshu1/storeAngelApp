@@ -4,15 +4,17 @@ import 'package:storeangelApp/core/consts/sizeConfig.dart';
 class AppTileShape extends StatelessWidget {
   final Widget child;
   final Color color;
-  final bool isReverse;
-  AppTileShape({this.child,this.color,this.isReverse:false});
+  final BorderRadius borderRadius;
+
+  final List<BoxShadow>boxShadow;
+  AppTileShape({this.child,this.color,this.boxShadow,this.borderRadius});
   @override
   Widget build(BuildContext context) {
     return Container(
 
       decoration: BoxDecoration(
-        borderRadius: isReverse?SizeConfig.appReverseItemShapeRadius:SizeConfig.appItemShapeRadius,
-        boxShadow: [
+        borderRadius: borderRadius!=null?borderRadius:SizeConfig.appItemShapeRadius,
+        boxShadow:boxShadow?? [
           BoxShadow(
             color: Colors.black.withOpacity(.2),
             blurRadius: 10.0,
@@ -22,7 +24,7 @@ class AppTileShape extends StatelessWidget {
         ],
       ),
       child: ClipRRect(
-          borderRadius: isReverse?SizeConfig.appReverseItemShapeRadius:SizeConfig.appItemShapeRadius,
+          borderRadius: borderRadius!=null?borderRadius:SizeConfig.appItemShapeRadius,
           child: child),
     );
   }

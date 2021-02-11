@@ -11,7 +11,7 @@ class ProfileDetailsWidget extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Text(user.name,style: AppStyles.BlackStyleWithBold800Font_20(context),),
+          Text(user?.name,style: AppStyles.BlackStyleWithBold800Font_20(context),),
           SizeConfig.verticalSpaceVeryGap(),
           Text(user.addressLinen,style: AppStyles.BlackStyle_Font16(context),),
         ],

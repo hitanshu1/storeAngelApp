@@ -59,13 +59,14 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: BaseView<LogInViewModel>(
         builder: (context, loginModel, child) => CustomScaffold(
-          body: Stack(
-            children: <Widget>[
-              SingleChildScrollView(
-                child: Container(
+          body: SingleChildScrollView(
+            child: Stack(
+              children: <Widget>[
+                Container(
                   height: SizeConfig.screenHeight,
                   width: SizeConfig.screenWidth,
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Padding(
                         padding: EdgeInsets.only(
@@ -94,6 +95,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       Flexible(flex:2,child: SizeConfig.CVerticalSpace60()),
+//                      SizeConfig.verticalSpace(SizeConfig.screenHeight * .02),
+
                       Container(
                         width: SizeConfig.screenWidth,
                         padding: EdgeInsets.only(
@@ -136,23 +139,20 @@ class _LoginScreenState extends State<LoginScreen> {
                               },
                             ),
                             SizeConfig.CVerticalSpaceBigger(),
-                            Padding(
-                              padding:  EdgeInsets.only(bottom: bottom),
-                              child: ButtonWidget(
-                                buttonText: AppStrings.SIGN_IN.tr(),
-                                buttonColor: Theme.of(context).primaryColor,
-                                fontSize: SizeConfig.fontSizeMedium,
-                                radius: SizeConfig.introGetStarted_button_Radius,
-                                textColor: AppColors.whiteColor,
-                                onPressed: () {
-                                  loginModel.login(
-                                    email: textEmailController.text.trim(),
-                                    password: textPasswordController.text.trim(),
-                                    context: context
+                            ButtonWidget(
+                              buttonText: AppStrings.SIGN_IN.tr(),
+                              buttonColor: Theme.of(context).primaryColor,
+                              fontSize: SizeConfig.fontSizeMedium,
+                              radius: SizeConfig.introGetStarted_button_Radius,
+                              textColor: AppColors.whiteColor,
+                              onPressed: () {
+                                loginModel.login(
+                                  email: textEmailController.text.trim(),
+                                  password: textPasswordController.text.trim(),
+                                  context: context
 
-                                  );
-                                },
-                              ),
+                                );
+                              },
                             ),
                             SizeConfig.verticalSpaceExtraMedium(),
                             Consumer<LogInViewModel>(
@@ -214,17 +214,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                 ),
-              ),
-              Visibility(
-                visible: loginModel.state == ViewState.Busy,
-                child: new Container(
-                  height: SizeConfig.screenHeight,
-                  width: SizeConfig.screenWidth,
-                  color: Colors.transparent,
-                  child: Center(child: new CircularProgressIndicator()),
+                Visibility(
+                  visible: loginModel.state == ViewState.Busy,
+                  child: new Container(
+                    height: SizeConfig.screenHeight,
+                    width: SizeConfig.screenWidth,
+                    color: Colors.transparent,
+                    child: Center(child: new CircularProgressIndicator()),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

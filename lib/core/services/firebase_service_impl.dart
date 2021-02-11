@@ -19,6 +19,7 @@ import 'package:storeangelApp/core/models/firebase_model/shop_model.dart';
 import 'package:storeangelApp/core/models/firebase_model/store_model.dart';
 import 'package:storeangelApp/core/models/firebase_storedata_model.dart';
 import 'package:storeangelApp/core/models/order.dart';
+import 'package:storeangelApp/core/models/order_by_store.dart';
 import 'package:storeangelApp/core/models/package_model.dart';
 import 'package:storeangelApp/core/models/product.dart';
 import 'package:storeangelApp/core/models/purchase_deatails.dart';
@@ -502,19 +503,16 @@ class MyFirebaseServiceImpl extends FirebaseAbstraction {
 
   @override
   Future getUserDetails(String userId) async {
+    print('start get User Details');
     final result =
-        _fireStoreService.documentStream(path: '${DatabaseUrls.colUsers}/$userId', builder: (data, docId) => data);
-    var data = await result.first;
+        _fireStoreService.documentFuture(path: '${DatabaseUrls.colUsers}/$userId', builder: (data, docId) => data);
+    var data = await result;
+    print('end get User Details: $result');
     if (data != null) {
       UserModel user = UserModel.fromMap(data);
-      user.imageUrl='https://images.squarespace-cdn.com/content/v1/5a63f3576957da47039e978d/1570935942384-6U2AVVPK8NYV6QAKA9G8/ke17ZwdGBToddI8pDm48kD_EBJTid90xDjO5SX6e80l7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1Uc6EOJre3mGFdgUx8pjWwfhBGu-DTObg0CFoS6b5SYn2ztZMSeC9DacuK30jUy4DsA/9068.jpg?format=2500w';
-      user.street='Hauptstrasse 6a';
-      user.city='Düsseldorf';
-      user.zipCode='56456';
-      user.name='Petra-Maria';
       return user;
     } else {
-      return null;
+      return UserModel();
     }
   }
 
@@ -566,14 +564,14 @@ class MyFirebaseServiceImpl extends FirebaseAbstraction {
         status: ShareStatus.Approve),
   ];
 
-  @override
-  Future getUserList() {
-    // TODO: implement getUserList
-    final users = Future.delayed(Duration.zero, () {
-      return userlist;
-    });
-    return users;
-  }
+//  @override
+//  Future getUserList() {
+//    // TODO: implement getUserList
+//    final users = Future.delayed(Duration.zero, () {
+//      return userlist;
+//    });
+//    return users;
+//  }
 
   List<UserModel> allusers = [
     UserModel(
@@ -581,7 +579,6 @@ class MyFirebaseServiceImpl extends FirebaseAbstraction {
         imageUrl:
             'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg',
         status: ShareStatus.Unknown,
-        isPremium: true,
         city: '95455 Nürnberg'),
     UserModel(
         name: 'Sck coo',
@@ -597,7 +594,7 @@ class MyFirebaseServiceImpl extends FirebaseAbstraction {
         imageUrl:
             'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F04%2Fjlcloseup-2000.jpg',
         status: ShareStatus.Unknown,
-        isPremium: true,
+
       street: 'Domstrasse 20 ',
       zipCode: '50668',
       city: 'Nürnberg',),
@@ -609,7 +606,7 @@ class MyFirebaseServiceImpl extends FirebaseAbstraction {
         city: 'Nürnberg',
         imageUrl:
             'https://hips.hearstapps.com/hbz.h-cdn.co/assets/17/15/hbz-hottest-men-jon-hamm-gettyimages-141278424.jpg',
-        isPremium: true,
+
         status: ShareStatus.Unknown),
     UserModel(
         name: 'Jane Fisher',
@@ -1358,6 +1355,13 @@ class MyFirebaseServiceImpl extends FirebaseAbstraction {
     });
     return orders;
   }
+  @override
+  Future getDeclineOfferOrderForCourier(String courierId) async {
+    Future orders = Future.delayed(Duration.zero, () {
+      return AppSampleData.declineOffers;
+    });
+    return orders;
+  }
 
   @override
   Future<ResponseModel> onDeleteOffer(OrderOrPurchases order) async {
@@ -1374,8 +1378,8 @@ class MyFirebaseServiceImpl extends FirebaseAbstraction {
   }
 
   @override
-  Future<List<OrderOrPurchases>> getPastOrders(String courierID) async {
-    return [AppSampleData.asignCourierOrder.first];
+  Future<List<OrderByStore>> getPastOrders(String courierID) async {
+    return AppSampleData.pastOrders;
   }
 
   @override
@@ -1648,6 +1652,38 @@ class MyFirebaseServiceImpl extends FirebaseAbstraction {
     });
 
     return orderList;
+  }
+
+  @override
+  Future<List<UserModel>> getUserList() {
+    final result = _fireStoreService.collectionFuture(
+      path: '${DatabaseUrls.colUsers}',
+      builder: (data, docId) {
+        UserModel _user=UserModel.fromMap(data);
+        return _user;
+
+
+      },
+    );
+
+    return result;
+  }
+
+  @override
+  Stream<int> userUnreadMessage(String otherUserID, String userID) {
+    print('otherUserId==$otherUserID');
+
+    final StreamController<int> unReadMessageController = StreamController<int>();
+      if(otherUserID=='2'){
+        unReadMessageController.sink.add(1);
+
+      }
+
+
+
+
+      return unReadMessageController.stream;
+
   }
 
 }

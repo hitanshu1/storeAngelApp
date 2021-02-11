@@ -22,7 +22,10 @@ class WatchListWidget extends StatelessWidget {
                 (context, int index) {
 
                   if(index==model.wishList.skip(2).length){
-                    return  PremiumWidget();
+                    return  Padding(
+                      padding: SizeConfig.verticalC13Padding,
+                      child: PremiumWidget(),
+                    );
                   }
 
 

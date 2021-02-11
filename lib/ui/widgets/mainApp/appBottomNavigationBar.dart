@@ -1,11 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:storeangelApp/core/consts/appColors.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/storeangel_icons_icons.dart';
-import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/viewmodel/mainApp_viewmodel.dart';
 import 'package:storeangelApp/core/viewmodel/viewmodel_profile.dart';
 import 'package:storeangelApp/ui/shared/custom_bar_item.dart';

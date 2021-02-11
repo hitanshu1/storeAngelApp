@@ -97,6 +97,12 @@ import 'core/viewmodel/appIntroduction_viewmodel.dart';
 import 'core/viewmodel/checkingAcceptedEmail_viewmodel.dart';
 import 'core/viewmodel/contact_And_Help_viewmodel.dart';
 import 'core/viewmodel/pickStore_viewmodel.dart';
+import 'core/viewmodel/premium_first_screen_viewmodel.dart';
+import 'core/viewmodel/view_model_client_details_tile.dart';
+import 'core/viewmodel/view_model_courier_delivery_details.dart';
+import 'core/viewmodel/view_model_courier_item_details.dart';
+import 'core/viewmodel/view_model_courier_order_summery.dart';
+import 'core/viewmodel/view_model_pick_new_store.dart';
 import 'core/viewmodel/viewmodel_contract_condition_viewmodel.dart';
 import 'core/viewmodel/viewmodel_share_list.dart';
 import 'core/viewmodel/viewmodel_single_alternative_product.dart';
@@ -223,4 +229,10 @@ void setupLocator() {
   getIt.registerFactory(() => ContractConditionViewModel());
   getIt.registerFactory(() => TellUsYourAddressViewModel());
   getIt.registerFactory(() => ShareListViewModel());
+  getIt.registerFactory(() => PickNewStoreViewModel());
+  getIt.registerFactory(() => PremiumFirstScreenViewModel());
+  getIt.registerFactory(() => ClientDetailsTileViewModel());
+  getIt.registerFactory(() => CourierItemDetailsViewModel());
+  getIt.registerFactory(() => CourierDeliveryDetailsViewModel());
+  getIt.registerFactory(() => CourierOrderSummeryViewModel());
 }

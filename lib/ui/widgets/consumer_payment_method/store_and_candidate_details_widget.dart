@@ -13,7 +13,7 @@ import 'package:storeangelApp/ui/shared/cantidant_rating_widget.dart';
 import 'package:storeangelApp/ui/shared/custom_five_widgets_tile.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:storeangelApp/ui/shared/view_app_Image.dart';
-import 'package:storeangelApp/ui/widgets/courier/courier_order/item_available_widget.dart';
+
 
 
 class StoreAndCandidateDetailsWidget extends StatelessWidget {

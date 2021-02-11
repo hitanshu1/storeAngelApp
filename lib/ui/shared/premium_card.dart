@@ -1,15 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:provider/provider.dart';
 import 'package:storeangelApp/core/consts/appColors.dart';
-import 'package:storeangelApp/core/consts/appConstants.dart';
-import 'package:storeangelApp/core/consts/apptheme.dart';
 import 'package:storeangelApp/core/consts/assetsPath.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
-import 'package:storeangelApp/core/viewmodel/apptheme_viewmodel.dart';
-import 'package:storeangelApp/ui/screens/premiumScreen.dart';
+import 'package:storeangelApp/ui/screens/premium_first_screen.dart';
 import 'package:storeangelApp/ui/shared/app_shap_item.dart';
 import 'package:storeangelApp/ui/shared/view_app_Image.dart';
 
@@ -24,10 +19,10 @@ class PremiumCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool imageHeightIsNotNull = imageHeight != null;
+
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, PremiumScreen.routeName);
+        Navigator.pushNamed(context, PremiumFirstScreen.routeName);
       },
       child: AppShapeItem(
         child: Container(
@@ -35,18 +30,18 @@ class PremiumCard extends StatelessWidget {
               gradient: AppColors.primaryGradient
           ),
           child: Padding(
-            padding:SizeConfig.paddingWithHighVerticalSpace,
+            padding:SizeConfig.premiumTilePadding,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizeConfig.horizontalSpaceSmall(),
                 ViewAppImage(
-                  width: SizeConfig.smallImageHeight60,
-                  height: SizeConfig.smallImageHeight60,
+                  boxFit: BoxFit.contain,
+                  width: SizeConfig.smallImageheight,
+                  height: SizeConfig.smallImageheight,
                   assetUrl: AssetsPath.gift,
 
                 ),
-                SizeConfig.horizontalSpaceSmall(),
+                SizeConfig.horizontalSpaceBig(),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +54,7 @@ class PremiumCard extends StatelessWidget {
                           maxLines: 2,
                           minFontSize: 10,
                           maxFontSize: SizeConfig.fontSizeLarge,
-                          style: titleStyle != null ? titleStyle : AppStyles.WhiteStyle_WithBold700_Font20,
+                          style: titleStyle != null ? titleStyle : AppStyles.WhiteStyle_WithBold_Font24,
                         ),
                       ),
                       SizeConfig.CVerticalSpaceVarySmall(),

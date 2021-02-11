@@ -27,8 +27,8 @@ class _TextFieldWithIncrementDecrementState extends State<TextFieldWithIncrement
 
   Widget _buttonWidget(IconData icon){
     return Container(
-      width: 30,
-      height: 30,
+      width: 35,
+      height: 35,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(SizeConfig.radiusSmall),
           gradient: AppColors.primaryGradient
@@ -68,11 +68,11 @@ class _TextFieldWithIncrementDecrementState extends State<TextFieldWithIncrement
               });
             }
           },),
-        SizedBox(width: 90,
+        SizedBox(width: 87,
             child: Padding(
               padding:SizeConfig.smallInnerSidePadding,
               child: SmallTextField(
-                height: 30,
+                height: 35,
                 color: widget.textFieldColor,
                 hasBorderSideColor: false,
                 controller: widget.controller,

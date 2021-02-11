@@ -26,7 +26,7 @@ class StoreAddressWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizeConfig.verticalSpaceSmall(),
-                        Text(AppStrings.ADDRESS.tr(),
+                        Text(AppStrings.ADDRESS.tr()+":",
                           style: AppStyles.BlackStyleWithBold800Font_20(context),),
                         SizeConfig.verticalSpaceSmall(),
                         Text(model.currentStore.twoLineAddress,

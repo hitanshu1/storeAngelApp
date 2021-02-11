@@ -18,7 +18,7 @@ class ItemSearchScreen extends StatelessWidget {
             slivers: [
               ItemSearchHeader(
               ),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
               SliverPadding(
                 padding: SizeConfig.sidepadding,
                 sliver: SearchItemListWidget(),

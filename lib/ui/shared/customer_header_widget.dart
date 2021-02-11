@@ -15,12 +15,13 @@ class CustomerHeader extends StatelessWidget {
   final String subtitle;
   final bool isSort;
   final List<Widget> actions;
+  final double height;
 
-  const CustomerHeader({Key key,this.isAppImageOnly:false,this.secondChild,this.title,this.subtitle,this.isBack:false,this.isSort:false,this.actions}) : super(key: key);
+  const CustomerHeader({Key key,this.height,this.isAppImageOnly:false,this.secondChild,this.title,this.subtitle,this.isBack:false,this.isSort:false,this.actions}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: SizeConfig.customerHeaderHeight,
+      height: height??SizeConfig.customerHeaderHeight,
       width: SizeConfig.screenWidth,
 
       decoration: BoxDecoration(

@@ -6,6 +6,7 @@ class PremiumTile {
   final String price;
   final PremiumSelectedTile tileName;
   final int stackPosition;
+  final String paymentType;
 
   bool isSelected;
   bool wasLastSelected;
@@ -13,6 +14,7 @@ class PremiumTile {
   PremiumTile(
       {this.header,
       this.monthString,
+        this.paymentType,
       this.price,
       this.stackPosition,
       this.tileName,

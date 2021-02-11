@@ -24,7 +24,7 @@ class TimeAgoService{
     } else if (difference.inHours >= 1) {
       return (numericDates) ? '${AppStrings.TODAY.tr()} -1 ${AppStrings.HOUR_AGO.tr()}' : '${AppStrings.TODAY.tr()} -${AppStrings.AN_HOUR_AGO.tr()}';
     } else if (difference.inMinutes >= 2) {
-      return '${AppStrings.TODAY.tr()} -${difference.inMinutes} ${AppStrings.MINS_AGO.tr()}';
+      return '${AppStrings.TODAY.tr()} - ${DateService.getMinutesString(context, difference.inMinutes)}';
     } else if (difference.inMinutes >= 1) {
       return (numericDates) ? '${AppStrings.TODAY.tr()} -1 ${AppStrings.MIN_AGO.tr()}' : '${AppStrings.TODAY.tr()} -${AppStrings.A_MIN_AGO.tr()}';
     } else if (difference.inSeconds >= 3) {

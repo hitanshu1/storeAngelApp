@@ -16,12 +16,14 @@ import 'package:storeangelApp/core/viewmodel/viewmodel_additems.dart';
 import 'package:storeangelApp/core/viewmodel/viewmodel_profile.dart';
 import 'package:storeangelApp/getIt.dart';
 import 'package:storeangelApp/router.dart';
+
 import 'package:storeangelApp/ui/screens/consumer/landing_Screen.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'core/models/user.dart';
 import 'core/services/auth_service.dart';
 import 'core/viewmodel/googleMapsFindAddress_viewModel.dart';
 import 'core/viewmodel/selectAddress_viewmodel.dart';
+
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -113,6 +115,7 @@ class AppMainMaterialApp extends StatelessWidget {
         argument: LandingScreenArgument(isAlready: isAlready),
       ),
 //    home: PickStoreScreen(),
+//    home: CheckingAcceptedEmailScreen(),
     );
   }
 }

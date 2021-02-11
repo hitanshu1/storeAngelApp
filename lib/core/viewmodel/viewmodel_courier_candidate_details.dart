@@ -34,7 +34,7 @@ class CourierCandidateDetailsViewModel extends BaseModel{
     setState(ViewState.Idle);
   }
   void onSubmit(OrderOrPurchases order){
-    if(order.status==OrderPurchaseStatus.Pending){
+    if(order.status==OrderPurchaseStatus.PlaceAOrder){
       navigateToScreen(SummeryScreen.routeName,
           arguments: SummeryScreenArgument(
               orPurchases: order,

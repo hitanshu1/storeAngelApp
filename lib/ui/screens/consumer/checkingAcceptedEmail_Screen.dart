@@ -11,6 +11,7 @@ import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/viewmodel/apptheme_viewmodel.dart';
 import 'package:storeangelApp/core/viewmodel/checkingAcceptedEmail_viewmodel.dart';
 import 'package:storeangelApp/ui/shared/base_view.dart';
+import 'package:storeangelApp/ui/shared/customCard.dart';
 import 'package:storeangelApp/ui/shared/view_app_Image.dart';
 
 class CheckingAcceptedEmailScreen extends StatelessWidget {
@@ -33,17 +34,22 @@ class CheckingAcceptedEmailScreen extends StatelessWidget {
                   children: <Widget>[
                     Consumer<AppThemeViewModel>(
                         builder: (context, appThemeViewModel, child) =>
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                gradient: AppColors.primaryGradient
-                              ),
-                              child: Padding(
-                                padding:  EdgeInsets.all(10.0),
-                                child: ViewAppImage(
-                                    assetUrl:AssetsPath.angelLogo,
-                                height: SizeConfig.smallImageHeight60,
-                                width: SizeConfig.smallImageHeight60,),
+                            CustomCard(
+                              side: BorderSide.none,
+                              radius: 10,
+                              elevation: 10,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  gradient: AppColors.primaryGradient
+                                ),
+                                child: Padding(
+                                  padding:  EdgeInsets.all(10.0),
+                                  child: ViewAppImage(
+                                      assetUrl:AssetsPath.angelLogo,
+                                  height: SizeConfig.smallerImageheight75,
+                                  width: SizeConfig.smallerImageheight75,),
+                                ),
                               ),
                             )),
                     SizeConfig.verticalSpaceBigMedium(),

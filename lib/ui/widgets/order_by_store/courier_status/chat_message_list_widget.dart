@@ -110,7 +110,7 @@ class _ChatMessageListWidgetState extends State<ChatMessageListWidget> {
                           fontSize: AppStyles.BlackStyleFontWeightSmall_24(context).fontSize,
                         ),
                       );
-                    } else if (widget.status == OrderPurchaseStatus.Proposal && !widget.prePaid) {
+                    } else if (widget.status == OrderPurchaseStatus.OrderPlaced && !widget.prePaid) {
                       return Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: SizeConfig.screenWidth * .05, vertical: SizeConfig.screenWidth * .05),

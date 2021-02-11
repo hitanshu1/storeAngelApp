@@ -186,7 +186,7 @@ class _CourierDeliveringOrderWidgetState extends State<CourierDeliveringOrderWid
                     context: context,
                     child: StepBackDialog(
                       onPressOk: () {
-                        courierOrderDeliveredViewModel.updateOrderStatus(OrderPurchaseStatus.PriceCheck);
+                        courierOrderDeliveredViewModel.updateOrderStatus(OrderPurchaseStatus.MoneyTransfer);
                         courierOrderDeliveredViewModel.navigatorPop();
                       },
                     ),

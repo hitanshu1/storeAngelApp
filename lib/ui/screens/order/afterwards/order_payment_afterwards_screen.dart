@@ -121,7 +121,7 @@ class _OrderPaymentAfterWardsScreenState extends State<OrderPaymentAfterWardsScr
                                 ),
                                 centerTitle: true,
                                 actions: [
-                                  orderPaymentAfterWardsViewModel.status == OrderPurchaseStatus.Proposal ||
+                                  orderPaymentAfterWardsViewModel.status == OrderPurchaseStatus.OrderPlaced ||
                                           orderPaymentAfterWardsViewModel.status == OrderPurchaseStatus.MoneyTransfer
                                       ? InkWell(
                                           child: Padding(
@@ -173,7 +173,7 @@ class _OrderPaymentAfterWardsScreenState extends State<OrderPaymentAfterWardsScr
                                           prePaid: false,
                                           order: orderPaymentAfterWardsViewModel.order,
                                           onPaymentPop: () {
-                                            orderPaymentAfterWardsViewModel.onUpdateStatus(OrderPurchaseStatus.Proposal);
+                                            orderPaymentAfterWardsViewModel.onUpdateStatus(OrderPurchaseStatus.OrderPlaced);
                                           },
                                         ),
                                       );

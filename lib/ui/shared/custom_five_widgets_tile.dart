@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:storeangelApp/core/consts/appColors.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
-import 'package:storeangelApp/ui/shared/app_shap_item.dart';
-import 'package:storeangelApp/ui/shared/customCard.dart';
 import 'package:storeangelApp/ui/shared/customer_details/order_trading_widget_shape.dart';
 import 'package:storeangelApp/ui/shared/view_app_Image.dart';
 
@@ -11,23 +9,27 @@ import 'app_tile_shape.dart';
 
 class  CustomFiveWidgetsTile extends StatelessWidget {
   final String imageUrl;
+  final String emptyText;
   final Widget middleWidget;
   final Widget trailingOne,trailingTwo;
   final LinearGradient trailingOneBackGroundColor,trailingTwoBackGroundColor;
   final bool enableFav;
   final bool isFav;
   final Function onToggleFav;
-  final bool isReverse;
   final bool enableTrailingTwoPadding;
-  CustomFiveWidgetsTile({this.enableTrailingTwoPadding:true,@required this.trailingOne,@required this.trailingTwo,
+  final List<BoxShadow>boxShadow;
+  final BorderRadius borderRadius;
+  CustomFiveWidgetsTile({this.boxShadow,this.emptyText,this.enableTrailingTwoPadding:true,@required this.trailingOne,@required this.trailingTwo,
     this.trailingOneBackGroundColor,this.trailingTwoBackGroundColor,@required this.imageUrl,@required this.middleWidget,
-  this.enableFav:false,this.isFav:false,this.onToggleFav,this.isReverse:false});
+  this.enableFav:false,this.isFav:false,this.onToggleFav,this.borderRadius});
 
 
   @override
   Widget build(BuildContext context) {
     return AppTileShape(
-      isReverse: isReverse,
+      boxShadow: boxShadow,
+      borderRadius: borderRadius,
+
       child: SizedBox(
         width: SizeConfig.screenWidth,
         child: FittedBox(
@@ -38,11 +40,15 @@ class  CustomFiveWidgetsTile extends StatelessWidget {
                 height: SizeConfig.tileHeight,
                 child: Stack(
                   children: [
-                    ViewAppImage(
-                      boxFit: BoxFit.cover,
-                      height: SizeConfig.tileHeight,
-                      width: SizeConfig.tileHeight,
-                      imageUrl: imageUrl,
+                    Container(
+                      color:Colors.white,
+                      child: ViewAppImage(
+                        emptyText: emptyText,
+                        boxFit: BoxFit.cover,
+                        height: SizeConfig.tileHeight,
+                        width: SizeConfig.tileHeight,
+                        imageUrl: imageUrl,
+                      ),
                     ),
                     enableFav?Positioned.fill(child: Align(
                       alignment: Alignment.bottomLeft,

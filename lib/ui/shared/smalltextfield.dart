@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:storeangelApp/core/consts/appColors.dart';
-import 'package:storeangelApp/core/consts/appConstants.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/services/numberService.dart';
@@ -25,12 +24,14 @@ class SmallTextField extends StatefulWidget {
   final TextStyle hintStyle;
   final Function onTap;
   final Function(String) onSubmit;
+  final Function(String) onChange;
   final FormFieldValidator validator;
   final double height;
   final Color color;
 
   const SmallTextField(
       {this.labelText,
+        this.onChange,
       this.enable: true,
       this.hintText,
       this.controller,
@@ -61,12 +62,19 @@ class _SmallTextFieldState extends State<SmallTextField> {
       borderSide: BorderSide(color: borderSide ? AppColors.lightGreyColor : Colors.transparent),
       borderRadius: BorderRadius.circular(10));
 
+  String _initialValue;
+
   @override
   void initState() {
+    _initialValue=widget.controller.text;
+    setState(() {
+
+    });
     if (widget.controller == null)
       _defaultController = TextEditingController();
     else
       _defaultController = widget.controller;
+
     if (_defaultController != null && widget.enableSuffixIfTextIsNotEmpty) {
       _defaultController.addListener(() {
         if(mounted)setState(() {});
@@ -88,6 +96,12 @@ class _SmallTextFieldState extends State<SmallTextField> {
 
   @override
   Widget build(BuildContext context) {
+    if(_initialValue!=widget.controller.text&&widget.controller.text!=''){
+      setState(() {
+        _defaultController=widget.controller;
+        _initialValue=widget.controller.text;
+      });
+    }
     return Container(
       height: widget.height,
       decoration: BoxDecoration(
@@ -114,6 +128,7 @@ class _SmallTextFieldState extends State<SmallTextField> {
             try {
               _number = double.parse(val.replaceAll(',', '.'));
               print('number $_number is not equal ${_number==0}');
+              widget.onChange('$_number');
             } catch (e) {
               print(e);
             }

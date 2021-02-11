@@ -16,7 +16,6 @@ import 'package:storeangelApp/ui/screens/receipt_view_screen.dart';
 import 'package:storeangelApp/ui/shared/MyUtils.dart';
 import 'package:storeangelApp/ui/shared/base_model.dart';
 import 'package:storeangelApp/ui/shared/base_view.dart';
-import 'package:storeangelApp/ui/shared/button_widget.dart';
 import 'package:storeangelApp/ui/shared/circuler_button_widget.dart';
 import 'package:storeangelApp/ui/shared/customAppBar.dart';
 import 'package:storeangelApp/ui/widgets/orderDelivered/order_delivered_info_row.dart';
@@ -341,7 +340,7 @@ class _OrderDeliveredScreenState extends State<OrderDeliveredScreen> {
                             }))
                         : Container(),
                     model.order.receipts != null ? SizeConfig.horizontalSpaceSmall() : Container(),
-                    model.order.status==OrderPurchaseStatus.Finished||model.order.status==OrderPurchaseStatus.OrderDelivered?Container():Expanded(
+                    model.order.status==OrderPurchaseStatus.OrderDelivered||model.order.status==OrderPurchaseStatus.OrderDelivered?Container():Expanded(
                         child: CircularButtonWidget(
                             radius: 15,
                             fontSize: AppStyles.WhiteStyle_WithBold700_Font20.fontSize,

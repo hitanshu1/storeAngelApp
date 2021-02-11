@@ -14,6 +14,7 @@ import 'appColors.dart';
 import 'appString.dart';
 import 'apptheme.dart';
 
+
 class AppConstants {
   //todo Move Api keys into external folder
   static String faceBookClientID = "739736566948754";
@@ -123,7 +124,7 @@ class AppConstants {
 
   String pickDate(DateTime picked) {
     if (picked != null) {
-      String formatted = _formatter.format(picked);
+      String formatted = _formatter.format(picked,);
       return formatted;
     }
     return '';
@@ -201,15 +202,13 @@ class AppConstants {
 
 
   static String getStatusTitle(OrderOrPurchases order) {
-    if (order.status == OrderPurchaseStatus.Proposal) {
+    if (order.status == OrderPurchaseStatus.PlaceAOrder) {
       return AppStrings.PENDING_PAYMENT.tr();
     } else if (order.status == OrderPurchaseStatus.MoneyTransfer) {
       return AppStrings.PAYMENT_RECEIVED.tr();
-    } else if (order.status == OrderPurchaseStatus.OrderAccepted) {
+    } else if (order.status == OrderPurchaseStatus.OrderPlaced) {
       return AppStrings.PURCHASE_ORDER.tr();
-    } else if (order.status == OrderPurchaseStatus.PriceCheck) {
-      return AppStrings.PRICE_CHECKED.tr();
-    } else if (order.status == OrderPurchaseStatus.OrderRunning) {
+    }  else if (order.status == OrderPurchaseStatus.OrderRunning) {
       return AppStrings.DELIVERING_ORDER.tr();
     } else if (order.status == OrderPurchaseStatus.OrderDelivered) {
       return AppStrings.ORDER_DELIVERED.tr();

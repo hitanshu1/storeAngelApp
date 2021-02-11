@@ -17,7 +17,7 @@ class PayAfterWardOrderStatusRowWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         OrderCircleIcon(
-            isSelected: status == OrderPurchaseStatus.OrderAccepted || status == OrderPurchaseStatus.PriceCheck,
+            isSelected: status == OrderPurchaseStatus.OrderPlaced || status == OrderPurchaseStatus.MoneyTransfer,
             selectedIcon: StoreangelIcons.shopping_cart_order_full,
             nonSelectedIcon: StoreangelIcons.shopping_card_order_icon),
         Expanded(
@@ -37,7 +37,7 @@ class PayAfterWardOrderStatusRowWidget extends StatelessWidget {
           ),
         ),
         OrderCircleIcon(
-            isSelected: status == OrderPurchaseStatus.Proposal,
+            isSelected: status == OrderPurchaseStatus.OrderPlaced,
             selectedIcon: StoreangelIcons.hourglass_full,
             nonSelectedIcon: StoreangelIcons.hourglass1),
         Expanded(

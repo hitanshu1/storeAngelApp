@@ -57,21 +57,23 @@ class SummeryScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
               SliverToBoxAdapter(
                 child: Padding(
                   padding: SizeConfig.sidepadding,
                   child: TitleTextWidget(
-                    title: AppStrings.SUMMARY.tr(),
+                    title: AppStrings.SUMMARY.tr()+":",
                   ),
                 ),
               ),
+//              SizeConfig.verticalSliverMediumSpace(),
               ConsumerOrderDetailsWidget(orPurchases: argument.orPurchases,
                 candidate: argument.candidate,),
               SliverToBoxAdapter(
                 child: Padding(
                   padding: SizeConfig.sidepadding,
                   child: ButtonWidget(
+
                     buttonText: AppStrings.PLACE_THE_ORDER.tr(),
                     onPressed: (){
                       summaryViewModel.navigateToScreen(ConsumerPaymentMethodScreen.routeName,

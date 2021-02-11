@@ -18,8 +18,11 @@ class SizeConfig {
   static const double fontSizeMedium = 14;
   static const double expandedHeight=170;
   static  double headerHeight;
+  static double mediumIcon;
   static  double customerHeaderHeight;
   static double smallHeaderSize;
+  static double logoHeaderHeight;
+  static double lowOpacity=.7;
 
   static double fontSizeVerySmall;
   static final  double fontSizeSmall = 12;
@@ -54,7 +57,7 @@ class SizeConfig {
   static double appBarIconSize;
   static double verticalGap;
   static double textFieldHeight=55;
-  static double mediumIcon=30;
+
   static double largeIcon=40;
   static double serachAppbarheight=70;
   static double commonSliverAppBarBorderRadius=35;
@@ -87,9 +90,11 @@ class SizeConfig {
     smallerIconSize=12;
     mediumIconSize=25;
     tileHeight=orgScreenHeight*.17;
-    customerHeaderHeight=orgScreenHeight*.23;
-    smallHeaderSize=orgScreenHeight*.19;
+    customerHeaderHeight=orgScreenHeight*.19;
+    logoHeaderHeight=orgScreenHeight*.21;
+    smallHeaderSize=orgScreenHeight*.2;
     headerHeight=orgScreenHeight*.25;
+    mediumIcon=orgScreenHeight*.04;
 
 
     //radius
@@ -99,7 +104,6 @@ class SizeConfig {
     radiusBig = orgScreenHeight * 0.03;
     iconSize = orgScreenWidth * 0.05;
     tabIconSize = orgScreenHeight * 0.03;
-    double mediumIcon=orgScreenWidth * 0.1;
 
     horizontalGap = SizeConfig.screenWidth*.09;
     appBarIconSize = 24;
@@ -310,12 +314,20 @@ class SizeConfig {
   static EdgeInsets get smalltopPadding=>EdgeInsets.only(
       left:SizeConfig.screenWidth * 0.05,top: _topPadding,
   right:SizeConfig.screenWidth * 0.05 );
+  static EdgeInsets get topCPadding=>EdgeInsets.only(
+    top: _topPadding,
+     );
   static EdgeInsets get columntopPadding=>EdgeInsets.only(
       top: screenHeight*.1);
   static EdgeInsets get sidepadding=>EdgeInsets.only(
       left: screenWidth * 0.04,right:screenWidth * 0.04 ) ;
   static EdgeInsets get tilesPadding=>EdgeInsets.only(
-      left: screenWidth * 0.04,right:screenWidth * 0.04 ,bottom: screenHeight * 0.0125) ;
+      left: screenWidth * 0.04,right:screenWidth * 0.04 ,bottom: screenHeight * 0.02) ;
+  static EdgeInsets get tilePadding=>EdgeInsets.only(
+    top: screenHeight * 0.01,
+    bottom: screenHeight * 0.01) ;
+  static EdgeInsets get tilesBottomPadding=>EdgeInsets.only(
+      bottom: screenHeight * 0.02) ;
   static EdgeInsets get largeSidepadding=>EdgeInsets.only(
       left: screenWidth * 0.15) ;
   static EdgeInsets get largerSidepadding=>EdgeInsets.only(
@@ -333,6 +345,9 @@ class SizeConfig {
   static EdgeInsets get paddingWithHighVerticalSpace=>EdgeInsets.only(
       left: screenWidth * 0.04,right:screenWidth * 0.04,top: screenHeight*.023,
       bottom:  screenHeight*.023) ;
+  static EdgeInsets get premiumTilePadding=>EdgeInsets.only(
+      left: screenWidth * 0.1,right:screenWidth * 0.1,top: screenHeight*.027,
+      bottom:  screenHeight*.027) ;
 
   static EdgeInsets get paddingMediumhighSide=>EdgeInsets.only(
       left: screenWidth * 0.043,right:screenWidth * 0.043,top: screenHeight*.016,
@@ -390,7 +405,7 @@ class SizeConfig {
       left: screenWidth * 0.05,right:screenWidth * 0.05,top: SizeConfig.screenHeight*.018,
       bottom:  SizeConfig.screenHeight*.018) ;
   static EdgeInsets get verticalPadding=>EdgeInsets.only(
-      bottom:screenHeight * 0.01,top: screenHeight*.01) ;
+      bottom:screenHeight * 0.013,top: screenHeight*.013) ;
   static EdgeInsets get bottomPadding=>EdgeInsets.only(
       bottom:screenHeight * 0.025,) ;
   static EdgeInsets get bottomsmallPadding=>EdgeInsets.only(
@@ -399,6 +414,8 @@ class SizeConfig {
     bottom:10,);
   static EdgeInsets get verticalBigPadding=>EdgeInsets.only(
       bottom:screenHeight * 0.009,top: screenHeight*.009) ;
+  static EdgeInsets get verticalLargePadding=>EdgeInsets.only(
+      bottom:SizeConfig.screenHeight*.02,top: SizeConfig.screenHeight*.02) ;
   static EdgeInsets get verticalLarPadding=>EdgeInsets.only(
       bottom:SizeConfig.screenHeight*.03,top: SizeConfig.screenHeight*.03) ;
   static EdgeInsets get verticalMedPadding=>EdgeInsets.only(
@@ -407,6 +424,8 @@ class SizeConfig {
       bottom:SizeConfig.screenHeight*.03,top: SizeConfig.screenHeight*.01) ;
   static EdgeInsets get verticalC13Padding=>EdgeInsets.only(
       bottom:13,top: 13) ;
+  static EdgeInsets get verticalSmallPadding=>EdgeInsets.only(
+      bottom:SizeConfig.screenHeight*.004,top: SizeConfig.screenHeight*.004) ;
   static EdgeInsets get paddingC13=>EdgeInsets.only(
     left: 13,right: 13,
       bottom:13,top: 13) ;
@@ -478,6 +497,16 @@ class SizeConfig {
       child: verticalSpace(SizeConfig.screenHeight*.04),
     );
   }
+  static SliverToBoxAdapter verticalSliverBigSpace(){
+    return SliverToBoxAdapter(
+      child: verticalSpace(SizeConfig.screenHeight*.06),
+    );
+  }
+  static SliverToBoxAdapter verticalSliverExtraLargeSpace(){
+    return SliverToBoxAdapter(
+      child: verticalSpace(SizeConfig.screenHeight*.1),
+    );
+  }
 
   static void setMobileSize(int height, int width){
     if(height<780){
@@ -500,6 +529,17 @@ class SizeConfig {
     return  BorderRadius.only(
       bottomLeft: Radius.circular(SizeConfig.borderRadius),
       bottomRight: Radius.circular(SizeConfig.borderRadius),
+      topRight: Radius.circular(SizeConfig.borderRadius),
+    );
+  }
+  static BorderRadius get bottomCircularRadius{
+    return  BorderRadius.only(
+      bottomLeft: Radius.circular(SizeConfig.borderRadius),
+      bottomRight: Radius.circular(SizeConfig.borderRadius)
+    );
+  }
+  static BorderRadius get topRightCirShapeRadius{
+    return  BorderRadius.only(
       topRight: Radius.circular(SizeConfig.borderRadius),
     );
   }

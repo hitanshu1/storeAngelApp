@@ -55,7 +55,7 @@ class CurrentOrderDeliveryMiddleWidget extends StatelessWidget {
           ),
         ),
         SizeConfig.verticalSpaceMedium(),
-        order.status==OrderPurchaseStatus.Proposal?Column(
+        order.status==OrderPurchaseStatus.OrderPlaced?Column(
           children: [
             SizedBox(
               height: widgetHeight,
@@ -131,14 +131,14 @@ class CurrentOrderDeliveryMiddleWidget extends StatelessWidget {
 
                       onPressOk: (){
 
-                        Provider.of<CourierOrderDeliveredViewModel>(context, listen: false).updateOrderStatus(OrderPurchaseStatus.Proposal);
+                        Provider.of<CourierOrderDeliveredViewModel>(context, listen: false).updateOrderStatus(OrderPurchaseStatus.OrderPlaced);
                         Provider.of<CourierOrderDeliveredViewModel>(context, listen: false).navigatorPop();
                       },
                     ));
                   },
                   secondButtonText: AppStrings.START_PURCHASE.tr(),
                   secondButtonTap: (){
-                    Provider.of<CourierOrderDeliveredViewModel>(context, listen: false).updateOrderStatus(OrderPurchaseStatus.OrderAccepted);
+                    Provider.of<CourierOrderDeliveredViewModel>(context, listen: false).updateOrderStatus(OrderPurchaseStatus.OrderPlaced);
                   }
               )
             ],

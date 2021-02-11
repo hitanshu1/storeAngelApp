@@ -8,6 +8,9 @@ class CustomFloatingActionButtonExtended extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
+      onPressed: (){
+
+      },
       heroTag: UniqueKey(),
       backgroundColor: Colors.transparent,
       focusColor: Colors.transparent,

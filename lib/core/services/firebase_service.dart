@@ -63,6 +63,37 @@ class FireStoreServices {
       return result;
     });
   }
+  Future<List<T>> collectionFuture<T>({
+    @required String path,
+    @required T builder(Map<String, dynamic> data, String documentID),
+    Query queryBuilder(Query query),
+    int sort(T lhs, T rhs),
+  }) {
+    Query  query =  FirebaseFirestore.instance.collection(path);
+    if (queryBuilder != null) {
+      query = queryBuilder(query);
+    }
+//    return querydocuments.map((document) => Job(
+//      id: document.data['uid'],
+//      name: document.data['name'],
+//    )).toList();
+  final result= query.get().then((value){
+    return value.docs.map((doc) => builder(doc.data(), doc.id)).toList();
+  });
+    return result;
+  }
+  Future<T> documentFuture<T>({
+    @required String path,
+    @required T builder(Map<String, dynamic> data, String documentID),
+    Query queryBuilder(Query query),
+    int sort(T lhs, T rhs),
+  }) {
+    final reference = FirebaseFirestore.instance.doc(path);
+    final doc = reference.get();
+    return doc.then((value) => builder(value.data(),value.id));
+
+  }
+
 
   Stream<T> documentStream<T>({
     @required String path,

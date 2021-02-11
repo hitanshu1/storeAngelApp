@@ -24,9 +24,8 @@ class PickerStoreListWidget extends StatelessWidget {
                       StoreDataModel store=model.searchList[index];
                   return Padding(
                     padding: SizeConfig.sidebottompadding,
-                    child: GestureDetector(
-                      onTap: (){
-                      },
+                    child: Opacity(
+                      opacity: model.opacityValue(store),
                       child: CustomFiveWidgetsTile(
                         trailingOneBackGroundColor:model.selectedStoreList.contains(store)?AppColors.primaryGradient:AppColors.blackGradient ,
                           trailingTwoBackGroundColor: model.selectedStoreList.contains(store)?AppColors.primaryGradient:AppColors.blackGradient,

@@ -18,7 +18,7 @@ import 'package:storeangelApp/ui/screens/consumer/order_details_and_chat_screen.
 import 'package:storeangelApp/ui/screens/consumer/pick_Store_Screen.dart';
 import 'package:storeangelApp/ui/screens/consumer/pick_new_store_screen.dart';
 import 'package:storeangelApp/ui/screens/consumer/save_articles_screen.dart';
-import 'package:storeangelApp/ui/screens/consumer/share_list_screen.dart';
+import 'package:storeangelApp/ui/screens/consumer/share_list/your_user_list_screen.dart';
 import 'package:storeangelApp/ui/screens/consumer/share_notification_screen.dart';
 import 'package:storeangelApp/ui/screens/consumer/signupDetails_Screen.dart';
 import 'package:storeangelApp/ui/screens/consumer/signup_screen.dart';
@@ -28,10 +28,12 @@ import 'package:storeangelApp/ui/screens/consumer/userDecideTypeScreen.dart';
 import 'package:storeangelApp/ui/screens/consumer/your_offer_screen.dart';
 import 'package:storeangelApp/ui/screens/contract_conditions_screen.dart';
 import 'package:storeangelApp/ui/screens/courier/courier_delivery_details_screen.dart';
+import 'package:storeangelApp/ui/screens/courier/courier_item_details_screen.dart';
 import 'package:storeangelApp/ui/screens/courier/courier_main_page.dart';
 import 'package:storeangelApp/ui/screens/courier/courier_order/courier_order_delivered_summary_screen.dart';
 import 'package:storeangelApp/ui/screens/courier/courier_order_delivered_screen.dart';
 import 'package:storeangelApp/ui/screens/courier/courier_order_details_screen.dart';
+import 'package:storeangelApp/ui/screens/courier/courier_order_summery_screen.dart';
 import 'package:storeangelApp/ui/screens/courier/courier_orderproductDetailslist.dart';
 import 'package:storeangelApp/ui/screens/courier/courier_signup_screen.dart';
 import 'package:storeangelApp/ui/screens/courier/request_details_screen.dart';
@@ -57,13 +59,16 @@ import 'package:storeangelApp/ui/screens/order/store_catalogue_screen.dart';
 import 'package:storeangelApp/ui/screens/order_courier_flow/select_product_screen.dart';
 import 'package:storeangelApp/ui/screens/order_delivered_screen.dart';
 import 'package:storeangelApp/ui/screens/premiumScreen.dart';
+import 'package:storeangelApp/ui/screens/premium_first_screen.dart';
 import 'package:storeangelApp/ui/screens/proposal_screen.dart';
 import 'package:storeangelApp/ui/screens/purchase_screen.dart';
+import 'package:storeangelApp/ui/screens/receipt_screen.dart';
 import 'package:storeangelApp/ui/screens/receipt_view_screen.dart';
 import 'package:storeangelApp/ui/screens/stripe_verfication_webview.dart';
 import 'package:storeangelApp/ui/screens/watchlist_detaillist_item_screen.dart';
 import 'package:storeangelApp/ui/widgets/courier/single_offer_screen.dart';
 
+import 'ui/screens/consumer/share_list/share_list_screen.dart';
 import 'ui/screens/consumer/store_details_screen.dart';
 const String initialRoute = LandingScreen.routeName;
 
@@ -409,6 +414,32 @@ class AppRouter {
           pageBuilder: (_, __, ___) => ShareListScreen(),
           transitionDuration: Duration(seconds: 0),
         );
+      case YourUserListScreen.routeName:
+        return  PageRouteBuilder(
+          pageBuilder: (_, __, ___) => YourUserListScreen(selectedUser: settings.arguments,),
+          transitionDuration: Duration(seconds: 0),
+        );
+      case PremiumFirstScreen.routeName:
+        return  PageRouteBuilder(
+          pageBuilder: (_, __, ___) => PremiumFirstScreen(),
+          transitionDuration: Duration(seconds: 0),
+        );
+      case CourierItemDetailsScreen.routeName:
+        return  PageRouteBuilder(
+          pageBuilder: (_, __, ___) => CourierItemDetailsScreen(arguments: settings.arguments,),
+          transitionDuration: Duration(seconds: 0),
+        );
+      case CourierOrderSummeryScreen.routeName:
+        return  PageRouteBuilder(
+          pageBuilder: (_, __, ___) => CourierOrderSummeryScreen(arguments: settings.arguments,),
+          transitionDuration: Duration(seconds: 0),
+        );
+      case ReceiptScreen.routeName:
+        return  PageRouteBuilder(
+          pageBuilder: (_, __, ___) => ReceiptScreen(participant: settings.arguments,),
+          transitionDuration: Duration(seconds: 0),
+        );
+
 
       default:
         return MaterialPageRoute(

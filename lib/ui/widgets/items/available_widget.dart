@@ -10,9 +10,6 @@ import 'package:storeangelApp/core/models/product.dart';
 import 'package:storeangelApp/ui/shared/view_app_Image.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-
-
-
 class AvailableWidget extends StatelessWidget {
   final AvailableStatus availableStatus;
   final Product product;

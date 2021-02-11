@@ -214,7 +214,7 @@ class _CourierCurrentOrderTabScreenState extends State<CourierCurrentOrderTabScr
       courierCurrentOrderTabViewModel.isProposalOrMoneyTransferView
           ? SliverPadding(
               padding: EdgeInsets.only(
-                  bottom: widget.order.status == OrderPurchaseStatus.Proposal
+                  bottom: widget.order.status == OrderPurchaseStatus.OrderPlaced
                       ? SizeConfig.screenHeight * .15
                       : SizeConfig.screenHeight * .02),
               sliver: SliverToBoxAdapter(
@@ -246,7 +246,7 @@ class _CourierCurrentOrderTabScreenState extends State<CourierCurrentOrderTabScr
                               onClickPush: () async{
                                 courierCurrentOrderTabViewModel.navigatorPop(null);
                                 courierCurrentOrderTabViewModel
-                                        .updateOrderStatus(OrderPurchaseStatus.PriceCheck);
+                                        .updateOrderStatus(OrderPurchaseStatus.MoneyTransfer);
                                 _scrollController.jumpTo(0);
                               },
                               currentIndex: index));
@@ -270,7 +270,7 @@ class _CourierCurrentOrderTabScreenState extends State<CourierCurrentOrderTabScr
                                       Navigator.of(context, rootNavigator: true).pop();
                                       courierCurrentOrderTabViewModel.isProposalOrMoneyTransferView
                                           ? courierOrderDeliveredViewModel
-                                              .updateOrderStatus(OrderPurchaseStatus.Proposal)
+                                              .updateOrderStatus(OrderPurchaseStatus.OrderPlaced)
                                           : courierOrderDeliveredViewModel
                                               .updateOrderStatus(OrderPurchaseStatus.MoneyTransfer);
                                     },
@@ -279,7 +279,7 @@ class _CourierCurrentOrderTabScreenState extends State<CourierCurrentOrderTabScr
                           },
                           secondButtonText: AppStrings.FINISHED_PURCHASE.tr(),
                           secondButtonTap: () {
-                            courierOrderDeliveredViewModel.updateOrderStatus(OrderPurchaseStatus.PriceCheck);
+                            courierOrderDeliveredViewModel.updateOrderStatus(OrderPurchaseStatus.MoneyTransfer);
                           }),
                     ),
                   );
@@ -294,7 +294,7 @@ class _CourierCurrentOrderTabScreenState extends State<CourierCurrentOrderTabScr
                               hasLastPage: true,
                               onClickPush: () {
                                 courierCurrentOrderTabViewModel.navigatorPop(widget.order);
-                                courierOrderDeliveredViewModel.updateOrderStatus(OrderPurchaseStatus.PriceCheck);
+                                courierOrderDeliveredViewModel.updateOrderStatus(OrderPurchaseStatus.MoneyTransfer);
                               }));
                     },
                     child: ListItemViewWidget(

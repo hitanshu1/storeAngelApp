@@ -47,7 +47,7 @@ class StoreDetailsHeader extends StatelessWidget {
                       options: CarouselOptions(
                           autoPlay: true,
                           autoPlayInterval: Duration(seconds: 10),
-                          height: 70,
+                          height: 90,
                           viewportFraction: 1,
                           enlargeCenterPage: false,
                           onPageChanged: (index, reason) {
@@ -62,8 +62,8 @@ class StoreDetailsHeader extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
 
-                              SizeConfig.verticalSpaceSmall(),
-                              Text(model.currentStore.name,style: AppStyles.BlackStyleWithBold800Font_20(context),),
+                              SizeConfig.verticalSpaceMedium(),
+                              Text(model.currentStore.name,style: AppStyles.BlackStyleWithBold800Font_24(context),),
                               SizeConfig.verticalSpaceSmall(),
                               CustomRatingWidget(reviewCount: 6, initialRating: 3, stars: 14)
 
@@ -71,7 +71,7 @@ class StoreDetailsHeader extends StatelessWidget {
                           ),
                         );
                       }),
-
+                  SizeConfig.verticalSpaceSmall(),
                   Container(
                     height: 30,
                     child: Row(

@@ -28,7 +28,7 @@ class AlternativeProductWidget extends StatelessWidget {
             ),
           ),
           SizeConfig.verticalSliverSmallSpace(),
-          SliverGrid(
+          model.currentProduct.alternativeProduct!=null?SliverGrid(
             gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 300.0,
               mainAxisSpacing: 5.0,
@@ -41,9 +41,9 @@ class AlternativeProductWidget extends StatelessWidget {
                   product: model.currentProduct.alternativeProduct[index],
                 );
               },
-              childCount: model.currentProduct.alternativeProduct?.length,
+              childCount: model.currentProduct.alternativeProduct.length,
             ),
-          )
+          ):SliverToBoxAdapter()
         ]),
       );
     });

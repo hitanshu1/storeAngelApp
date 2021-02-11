@@ -55,7 +55,7 @@ class ViewOfferOrderWidget extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              order.status == OrderPurchaseStatus.Pending
+                              order.status == OrderPurchaseStatus.PlaceAOrder
                                   ? AppStrings.PENDING.tr()
                                   : order.status == OrderPurchaseStatus.Rejected
                                       ? AppStrings.REJECTED.tr()

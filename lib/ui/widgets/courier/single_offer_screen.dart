@@ -1,27 +1,23 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:storeangelApp/core/consts/appColors.dart';
 import 'package:storeangelApp/core/consts/appConstants.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
+import 'package:storeangelApp/core/consts/storeangel_icons_icons.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/enums/order_purchase_status.dart';
 import 'package:storeangelApp/core/models/order.dart';
-import 'package:storeangelApp/core/services/date_service.dart';
 import 'package:storeangelApp/core/services/numberService.dart';
 import 'package:storeangelApp/core/services/statusbar_service.dart';
-import 'package:storeangelApp/core/services/string_service.dart';
 import 'package:storeangelApp/core/viewmodel/view_model_order_information.dart';
 import 'package:storeangelApp/ui/shared/MyUtils.dart';
 import 'package:storeangelApp/ui/shared/base_view.dart';
-import 'package:storeangelApp/ui/shared/button_widget.dart';
 import 'package:storeangelApp/ui/shared/circuler_button_widget.dart';
 import 'package:storeangelApp/ui/shared/customSliverAppBar.dart';
 import 'package:storeangelApp/ui/shared/custom_divider_widget.dart';
 import 'package:storeangelApp/ui/shared/custom_flexible_space_widget.dart';
 import 'package:storeangelApp/ui/shared/deliveryinfo_rowWidget.dart';
-import 'package:storeangelApp/ui/shared/status_dot.dart';
 import 'package:storeangelApp/ui/shared/view_app_Image.dart';
 
 import 'courier_offers/courier_order_dialog.dart';
@@ -38,7 +34,7 @@ class SingleOfferScreen extends StatefulWidget {
 
 class _SingleOfferScreenState extends State<SingleOfferScreen> {
   var radius = SizeConfig.radiusOfSliverAppbar;
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+//  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   ScrollController _scrollController = ScrollController();
 
   TextEditingController priceController = TextEditingController();
@@ -73,23 +69,29 @@ class _SingleOfferScreenState extends State<SingleOfferScreen> {
   @override
   Widget build(BuildContext context) {
     StatusBarService.changeStatusBarColor(StatusBarType.OffGray, context);
-    final theme = Theme.of(context);
+
     return BaseView<OrderInformationViewModel>(
       builder: (context, orderInformationViewModel, child) {
         return Scaffold(
-          key: _scaffoldKey,
+//          key: _scaffoldKey,
           backgroundColor: Theme.of(context).toggleableActiveColor,
-          body: CustomScrollView(
+
+          body:
+          CustomScrollView(
             controller: _scrollController,
             slivers: [
               CustomSliverAppBar(
-                backgroundColor: theme.canvasColor,
+                backgroundColor: Theme.of(context).canvasColor,
                 pinned: true,
                 floating: false,
                 leading: BackButton(
                   color: Theme.of(context).iconTheme.color,
                   onPressed: () {
-                    orderInformationViewModel.navigatorPop();
+                     Navigator.of(context).pop();
+
+
+
+
                   },
                 ),
 
@@ -126,15 +128,19 @@ class _SingleOfferScreenState extends State<SingleOfferScreen> {
                               padding: SizeConfig.sidepadding * 1.15,
                               child: Row(
                                 children: [
-                                  Text(
-                                    AppStrings.STATUS.tr(),
-                                    style: AppStyles.GreenStyleWithBold800_Font30(context).copyWith(
-                                      fontWeight: FontWeight.normal
-                                    ),
-                                  ),
                                   Expanded(
                                     child: Text(
-                                      widget.order.status == OrderPurchaseStatus.Pending
+                                      AppStrings.STATUS.tr(),
+                                      style: AppStyles.GreenStyleWithBold800_Font30(context).copyWith(
+                                        fontWeight: FontWeight.normal
+                                      ),
+                                    ),
+                                  ),
+                                  Icon(StoreangelIcons.arrow_forward_icon,color: AppColors.primaryColor,
+                                  size: SizeConfig.smallerIconSize,),
+                                  Expanded(
+                                    child: Text(
+                                      widget.order.status == OrderPurchaseStatus.PlaceAOrder
                                           ? AppStrings.PENDING.tr()
                                           : widget.order.status == OrderPurchaseStatus.Rejected
                                               ? AppStrings.REJECTED.tr()
@@ -144,7 +150,7 @@ class _SingleOfferScreenState extends State<SingleOfferScreen> {
                                               .copyWith(fontWeight: FontWeight.normal, color: AppColors.red)
                                           : AppStyles.BlackStyleWithBold800Font_24(context)
                                               .copyWith(fontWeight: FontWeight.normal, fontSize: SizeConfig.fontSizeLarge,
-                                      ),textAlign: TextAlign.center,
+                                      ),textAlign: TextAlign.right,
                                     ),
                                   ),
                                 ],
@@ -253,84 +259,90 @@ class _SingleOfferScreenState extends State<SingleOfferScreen> {
                   ),
                 ),
               ),
-              SliverList(
-                  delegate: SliverChildListDelegate([
-                SizeConfig.verticalSpaceSmall(),
-                DeliveryInfoRowWidget(
+
+              SliverToBoxAdapter(
+                child:   DeliveryInfoRowWidget(
                     firstText: AppStrings.PREFERRED_DELIVERY_DATE.tr() + ':',
                     secondText: AppStrings.AS_SOON_AS_POSSIBLE.tr()),
-                DeliveryInfoRowWidget(
-                    firstText: AppStrings.YOUR_DELIVERY_PERIOD.tr() + ':', secondText: DateService.getDateFormatWithYear(widget.order.selectedDate.toIso8601String(),
-                    context)),
-                DeliveryInfoRowWidget(
-                    firstText: StringService.getCourierBudgetName(widget.order.purchaseDetails).name + ':',
-                    secondText: '${AppStrings.euro + ' '}${NumberService.priceAfterConvert(widget.order.orderAmount,context)}'),
-                DeliveryInfoRowWidget(
-                    firstText: AppStrings.ORDER_PAYMENT.tr() + ':', secondText: widget.order.orderPayment),
-                DeliveryInfoRowWidget(
-                  firstText: AppStrings.NUMBER_OF_OFFERS.tr() + ':',
-                  secondText: '7',
-                  hasBorderColor: true,
-                ),
-                DeliveryInfoRowWidget(
-                  firstText: AppStrings.PUBLISHED.tr() + ' / ' + AppStrings.COMPLETED.tr() + ':',
-                  secondText: '6 / 4',
-                ),
-                SizeConfig.CVerticalSpaceMedium(),
-                Padding(
-                  padding: SizeConfig.sidepadding,
-                  child: Text(AppStrings.COMMENT.tr() + ':', style: AppStyles.GrayStyle_Font16(context)),
-                ),
-                SizeConfig.CVerticalSpaceSmallMediumC12(),
-                Padding(
-                  padding: SizeConfig.sidepadding,
-                  child: Text(widget.order.comment),
-                ),
-                SizeConfig.CVerticalSpaceBig43(),
-                Padding(
-                  padding: SizeConfig.sidepadding,
-                  child: Text(
-                    '${widget.order.purchaseDetails.products.length} ${AppStrings.ITEMS.tr()}',
-                    style: AppStyles.BlackStyleFont300_16(context),
-                  ),
-                ),
-                SizeConfig.verticalSpaceSmall(),
-              ])),
-              SliverPadding(
-                padding: SizeConfig.sidepadding,
-                sliver: SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                      (context, index) => Container(
-                            decoration:
-                                BoxDecoration(border: AppConstants.bottomBorder(context)),
-                            child: Padding(
-                              padding: SizeConfig.verticalC13Padding,
-                              child: Row(
-                                children: [
-                                  StatusDot(
-                                    availableStatus: widget.order.purchaseDetails.products[index].availableStatus,
-                                  ),
-                                  SizeConfig.horizontalSpaceSmall(),
-                                  Expanded(
-                                    child: RichText(
-                                      text: TextSpan(
-                                        text: '${widget.order.purchaseDetails.products[index].name} ',
-                                        style: AppStyles.BlackStyleWithBold600Font_20(context),
-                                      ),
-                                    ),
-                                  ),
-                                  widget.order.purchaseDetails.products[index].quantity != 0
-                                      ? Text('${widget.order.purchaseDetails.products[index].quantity}')
-                                      : Container()
-                                ],
-                              ),
-                            ),
-                          ),
-                      childCount: widget.order.purchaseDetails.products.length > 4 && !orderInformationViewModel.viewAll
-                          ? 4
-                          : widget.order.purchaseDetails.products.length),
-                ),
               ),
+//              SliverList(
+//                  delegate: SliverChildListDelegate([
+//                SizeConfig.verticalSpaceSmall(),
+//                DeliveryInfoRowWidget(
+//                    firstText: AppStrings.PREFERRED_DELIVERY_DATE.tr() + ':',
+//                    secondText: AppStrings.AS_SOON_AS_POSSIBLE.tr()),
+//                DeliveryInfoRowWidget(
+//                    firstText: AppStrings.YOUR_DELIVERY_PERIOD.tr() + ':', secondText: DateService.getDateFormatWithYear(widget.order.selectedDate.toIso8601String(),
+//                    context)),
+//                DeliveryInfoRowWidget(
+//                    firstText: StringService.getCourierBudgetName(widget.order.purchaseDetails).name + ':',
+//                    secondText: '${AppStrings.euro + ' '}${NumberService.priceAfterConvert(widget.order.orderAmount,context)}'),
+//                DeliveryInfoRowWidget(
+//                    firstText: AppStrings.ORDER_PAYMENT.tr() + ':', secondText: widget.order.orderPayment),
+//                DeliveryInfoRowWidget(
+//                  firstText: AppStrings.NUMBER_OF_OFFERS.tr() + ':',
+//                  secondText: '7',
+//                  hasBorderColor: true,
+//                ),
+//                DeliveryInfoRowWidget(
+//                  firstText: AppStrings.PUBLISHED.tr() + ' / ' + AppStrings.COMPLETED.tr() + ':',
+//                  secondText: '6 / 4',
+//                ),
+//                SizeConfig.CVerticalSpaceMedium(),
+//                Padding(
+//                  padding: SizeConfig.sidepadding,
+//                  child: Text(AppStrings.COMMENT.tr() + ':', style: AppStyles.GrayStyle_Font16(context)),
+//                ),
+//                SizeConfig.CVerticalSpaceSmallMediumC12(),
+//                Padding(
+//                  padding: SizeConfig.sidepadding,
+//                  child: Text(widget.order.comment),
+//                ),
+//                SizeConfig.CVerticalSpaceBig43(),
+//                Padding(
+//                  padding: SizeConfig.sidepadding,
+//                  child: Text(
+//                    '${widget.order.purchaseDetails.products.length} ${AppStrings.ITEMS.tr()}',
+//                    style: AppStyles.BlackStyleFont300_16(context),
+//                  ),
+//                ),
+//                SizeConfig.verticalSpaceSmall(),
+//              ])),
+//              SliverPadding(
+//                padding: SizeConfig.sidepadding,
+//                sliver: SliverList(
+//                  delegate: SliverChildBuilderDelegate(
+//                      (context, index) => Container(
+//                            decoration:
+//                                BoxDecoration(border: AppConstants.bottomBorder(context)),
+//                            child: Padding(
+//                              padding: SizeConfig.verticalC13Padding,
+//                              child: Row(
+//                                children: [
+//                                  StatusDot(
+//                                    availableStatus: widget.order.purchaseDetails.products[index].availableStatus,
+//                                  ),
+//                                  SizeConfig.horizontalSpaceSmall(),
+//                                  Expanded(
+//                                    child: RichText(
+//                                      text: TextSpan(
+//                                        text: '${widget.order.purchaseDetails.products[index].name} ',
+//                                        style: AppStyles.BlackStyleWithBold600Font_20(context),
+//                                      ),
+//                                    ),
+//                                  ),
+//                                  widget.order.purchaseDetails.products[index].quantity != 0
+//                                      ? Text('${widget.order.purchaseDetails.products[index].quantity}')
+//                                      : Container()
+//                                ],
+//                              ),
+//                            ),
+//                          ),
+//                      childCount: widget.order.purchaseDetails.products.length > 4 && !orderInformationViewModel.viewAll
+//                          ? 4
+//                          : widget.order.purchaseDetails.products.length),
+//                ),
+//              ),
               SliverPadding(
                 padding: EdgeInsets.only(bottom: SizeConfig.screenHeight * .04),
                 sliver: SliverList(
@@ -360,6 +372,7 @@ class _SingleOfferScreenState extends State<SingleOfferScreen> {
                             CustomDividerWidget(
                               height: 1,
                             ),
+                            SizeConfig.verticalSpaceSmall(),
                             Row(
                               children: [
                                 Expanded(

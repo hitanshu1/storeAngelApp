@@ -9,7 +9,6 @@ import 'package:storeangelApp/core/viewmodel/viewmodel_mystore.dart';
 import 'package:storeangelApp/ui/screens/consumer/store_details_screen.dart';
 import 'package:storeangelApp/ui/shared/cantidant_rating_widget.dart';
 import 'package:storeangelApp/ui/shared/custom_five_widgets_tile.dart';
-import 'package:storeangelApp/ui/shared/premium_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class StoreListWidget extends StatelessWidget {
@@ -20,9 +19,6 @@ class StoreListWidget extends StatelessWidget {
           delegate: SliverChildBuilderDelegate(
                 (context, int index) {
 
-              if(index==model.stores.length){
-                return  PremiumWidget();
-              }
 
               return Padding(
                 padding: SizeConfig.sidebottompadding,
@@ -31,9 +27,10 @@ class StoreListWidget extends StatelessWidget {
                     model.navigateToScreen(StoreDetailsScreen.routeName,arguments:index);
                   },
                   child: CustomFiveWidgetsTile(
-
+                    trailingOneBackGroundColor: AppColors.primaryGradient,
+                      trailingTwoBackGroundColor: AppColors.primaryGradient,
                       trailingOne: Center(
-                        child: Icon(Icons.info_outline,color: AppColors.whiteColor,size: SizeConfig.mediumIcon,),
+                        child: Icon(Icons.check,color: AppColors.whiteColor,size: SizeConfig.mediumIcon,),
                       ),
                       trailingTwo: FittedBox(
                         child: Column(
@@ -45,7 +42,7 @@ class StoreListWidget extends StatelessWidget {
                           ],
                         ),
                       ),
-                      imageUrl: model.stores[index].image,
+                      imageUrl: model.selectedStores[index].image,
                       middleWidget: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -60,7 +57,7 @@ class StoreListWidget extends StatelessWidget {
                             ],
                           ),
                           SizeConfig.verticalSpaceSmall(),
-                          Text(model.stores[index].name,
+                          Text(model.selectedStores[index].name,
                             style: AppStyles.BlackStyleWithBold800Font_24(context),),
                           SizeConfig.verticalSpaceSmall(),
                           Text('in 300 m',style: AppStyles.BlackStyleFont20W300(context),),
@@ -70,7 +67,7 @@ class StoreListWidget extends StatelessWidget {
                           SizeConfig.verticalSpaceMedium(),
 
 
-                          Text(model.stores[index].twoLineAddressWithoutName,
+                          Text(model.selectedStores[index].twoLineAddressWithoutName,
                             style: AppStyles.BlackStyleFont16Light(context),),
                           SizeConfig.verticalSpaceSmall(),
                         ],
@@ -78,7 +75,7 @@ class StoreListWidget extends StatelessWidget {
                 ),
               );
             },
-            childCount: model.stores.length+1,
+            childCount: model.selectedStores.length,
           ));
     });
   }

@@ -1,17 +1,12 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:storeangelApp/core/consts/appColors.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
-import 'package:storeangelApp/core/consts/storeangel_icons_icons.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/models/order.dart';
 import 'package:storeangelApp/core/services/date_service.dart';
-import 'package:storeangelApp/core/services/numberService.dart';
 import 'package:storeangelApp/ui/shared/cantidant_rating_widget.dart';
 import 'package:storeangelApp/ui/shared/custom_five_widgets_tile.dart';
-import 'package:storeangelApp/ui/shared/customer_details/cutomer_details_widget.dart';
 import 'package:storeangelApp/ui/shared/view_app_Image.dart';
 
 
@@ -39,8 +34,12 @@ class RequestDetailsOrderWidget extends StatelessWidget {
               ],
             ),
           ),
-          trailingTwo:Center(
-            child: Icon(StoreangelIcons.user,color: AppColors.whiteColor,),
+          enableTrailingTwoPadding:false,
+          trailingTwo: FittedBox(
+            fit: BoxFit.cover,
+            child: ViewAppImage(
+              imageUrl: order.storeDetails.image,
+            ),
           ),
           middleWidget: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

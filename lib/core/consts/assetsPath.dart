@@ -179,6 +179,22 @@ class AssetsPath {
   static const grayIndicatorBottom='assets/images/gray_indicator_bottom.png';
   static const greenIndicatorRight='assets/images/green_indicator_right.png';
   static const angelLogo='assets/images/angel_logo.png';
+  static const threePerson='assets/images/three_persion.png';
+  static const threePersonGray='assets/images/three_person_gray.png';
+  static const storeOne='assets/images/store/store1.png';
+  static const storeTwo='assets/images/store/store2.png';
+  static const storeThree='assets/images/store/store3.png';
+  static const storeFour='assets/images/store/store4.png';
+  static const storeFive='assets/images/store/store5.png';
+  static const storeSix='assets/images/store/store6.png';
+  static const greenHeart='assets/images/greenHeart.png';
+  static const defaultUser='assets/images/default_user.png';
+  static const receiptView='assets/images/recipet_view.png';
+
+
+
+  ///svg
+static const angelHeartSvg='assets/images/angelHeartSvg.svg';
 
 
 }

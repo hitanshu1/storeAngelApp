@@ -4,19 +4,16 @@ import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
 import 'package:storeangelApp/core/consts/storeangel_icons_icons.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
-import 'package:storeangelApp/core/models/order.dart';
-import 'package:storeangelApp/core/services/date_service.dart';
+import 'package:storeangelApp/core/models/order_by_store.dart';
 import 'package:storeangelApp/core/services/time_ago_service.dart';
-
 import 'package:storeangelApp/ui/shared/custom_five_widgets_tile.dart';
-
 import 'package:storeangelApp/ui/shared/view_app_Image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:storeangelApp/ui/widgets/courier/courier_order/item_available_widget.dart';
 
 
 class PurchasesOrderWidget extends StatelessWidget {
-  final OrderOrPurchases order;
+  final OrderByStore order;
   PurchasesOrderWidget({this.order});
   @override
   Widget build(BuildContext context) {
@@ -37,7 +34,7 @@ class PurchasesOrderWidget extends StatelessWidget {
                   imageUrl: order.storeDetails.image,
                 )
             ),
-            imageUrl: order.clientDetails.imageUrl,
+            imageUrl: order.participants.first.clientDetails.imageUrl,
             middleWidget: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -46,20 +43,20 @@ class PurchasesOrderWidget extends StatelessWidget {
                   children: [
                     Expanded(child: Text(AppStrings.ORDER.tr(),style: AppStyles.BlackStyleFont16Light(context),)),
 
-                    Text(TimeAgoService.timeAgoSinceDate(order.selectedDate, context),
+                    Text(TimeAgoService.timeAgoSinceDate(order.orderTime, context),
                       style: AppStyles.GrayStyleItalicFont16(context),),
 
                   ],
                 ),
                 SizeConfig.verticalSpaceSmall(),
-                Text(order.clientDetails.name,style: AppStyles.BlackStyleWithBold800Font_24(context),),
+                Text(order.participants.first.clientDetails.name,style: AppStyles.BlackStyleWithBold800Font_24(context),),
                 SizeConfig.verticalSpaceSmall(),
                 Text(AppStrings.euroSymbol+' 22,75'+' | '+'11 '+AppStrings.ARTICLES.tr(),
                   style: AppStyles.BlackStyleFont20W300(context),),
                 SizeConfig.verticalSpaceSmall(),
-                ItemAvailableWidget(products: order.purchaseDetails.products,),
+                ItemAvailableWidget(products: order.participants.first.products,),
                 SizeConfig.verticalSpaceSmall(),
-                Text(order.clientDetails.twoLineAddress,
+                Text(order.participants.first.clientDetails.twoLineAddress,
                   style: AppStyles.BlackStyleFont16Light(context),),
                 SizeConfig.verticalSpaceSmall(),
               ],

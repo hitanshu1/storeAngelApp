@@ -17,15 +17,17 @@ class YourBudgetWidget extends StatelessWidget {
         tradingText:!enableEdit?AppStrings.euroSymbol+'${NumberService.totalPrice(products, context)}':null ,
         tradingWidget: enableEdit?Container(
           width: 70,
-          height: 40,
+          height: 30,
           child: Center(child: Text(AppStrings.euroSymbol+'${NumberService.totalPrice(products, context)}'),),
           decoration: BoxDecoration(
             color: Theme.of(context).cardColor,
             borderRadius: BorderRadius.circular(SizeConfig.radiusSmall),
           ),
+
         ):null,
 
-        subtitle: AppStrings.MAXIMUM_SUM_THAT_THAT_A_SUPPLIER_MAY_SPEND.tr(),),
+        subtitle: AppStrings.MAXIMUM_SUM_THAT_THAT_A_SUPPLIER_MAY_SPEND.tr(),
+      isItalic: false,),
     );
   }
 }

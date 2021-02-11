@@ -121,6 +121,14 @@ class StoreangelIcons {
   static const IconData search = IconData(0xe80a, fontFamily: _kFontFam2, fontPackage: _kFontPkg);
   static const IconData banana_apple_full = IconData(0xe80b, fontFamily: _kFontFam2, fontPackage: _kFontPkg);
   static const IconData banana_apple = IconData(0xe80c, fontFamily: _kFontFam2,fontPackage: _kFontPkg);
+  static const IconData flyingAngel = IconData(0xe80d, fontFamily: _kFontFam2, fontPackage: _kFontPkg);
+  static const IconData madel = IconData(0xe80e, fontFamily: _kFontFam2, fontPackage: _kFontPkg);
+  static const IconData angelHeart = IconData(0xe80f, fontFamily: _kFontFam2, fontPackage: _kFontPkg);
+  static const IconData delete = IconData(0xe810, fontFamily: _kFontFam2, fontPackage: _kFontPkg);
+  static const IconData shoppingBasket = IconData(0xe811, fontFamily: _kFontFam2, fontPackage: _kFontPkg);
+  static const IconData separateList = IconData(0xe812, fontFamily: _kFontFam2, fontPackage: _kFontPkg);
+  static const IconData listTogether = IconData(0xe813, fontFamily: _kFontFam2, fontPackage: _kFontPkg);
+  static const IconData page = IconData(0xe814, fontFamily: _kFontFam2, fontPackage: _kFontPkg);
 
 
 

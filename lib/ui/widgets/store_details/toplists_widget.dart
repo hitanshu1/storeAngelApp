@@ -24,7 +24,7 @@ class TopListsWidget extends StatelessWidget {
                     (context, index) {
 
                   return Padding(
-                    padding: SizeConfig.bottomPadding,
+                    padding: SizeConfig.tilesBottomPadding,
                     child: CustomFiveWidgetsTile(
                         trailingOne: FittedBox(
                           child: Column(

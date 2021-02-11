@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:storeangelApp/core/consts/appColors.dart';
 import 'package:storeangelApp/core/consts/appString.dart';
 import 'package:storeangelApp/core/consts/sizeConfig.dart';
+import 'package:storeangelApp/core/consts/storeangel_icons_icons.dart';
 import 'package:storeangelApp/core/consts/text_styles.dart';
 import 'package:storeangelApp/core/models/purchase_deatails.dart';
 import 'package:storeangelApp/core/viewmodel/viewmodel_save_articles.dart';
-import 'package:storeangelApp/ui/screens/consumer/share_list_screen.dart';
 import 'package:storeangelApp/ui/shared/app_header.dart';
 import 'package:storeangelApp/ui/shared/base_view.dart';
 import 'package:storeangelApp/ui/shared/button_widget.dart';
@@ -14,9 +14,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:storeangelApp/ui/shared/title_text_widget.dart';
 import 'package:storeangelApp/ui/widgets/save_articles/articles_list_widget.dart';
 import 'package:storeangelApp/ui/widgets/save_articles/articles_order_details_widget.dart';
-
 import '../contract_conditions_screen.dart';
 import 'item_search_screen.dart';
+import 'share_list/share_list_screen.dart';
 
 
 class SaveArticlesScreen extends StatelessWidget {
@@ -35,14 +35,20 @@ class SaveArticlesScreen extends StatelessWidget {
                   isBack: true,
                   title: AppStrings.YOUR_SHOPPING_LISTS.tr(),
                   actions: [
-                    IconButton(icon: Icon(Icons.add,color: AppColors.whiteColor,),
+                    IconButton(icon: Icon(StoreangelIcons.share_with_three_dots_icon,color: AppColors.whiteColor,
+                    size: SizeConfig.iconSize,),
                         onPressed: (){
                           model.navigateToScreen(ShareListScreen.routeName);
+                        }),
+
+                    IconButton(icon: Icon(Icons.add,color: AppColors.whiteColor,size: SizeConfig.mediumIcon),
+                        onPressed: (){
+                          model.navigateToScreen(ItemSearchScreen.routeName);
                         })
                   ],
                 ),
               ),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
               SliverToBoxAdapter(
                 child: Padding(
                   padding: SizeConfig.sidepadding,
@@ -51,7 +57,7 @@ class SaveArticlesScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
               SliverToBoxAdapter(
                 child:Padding(
                   padding: SizeConfig.sidepadding,
@@ -65,13 +71,13 @@ class SaveArticlesScreen extends StatelessWidget {
                 child: Padding(
                   padding: SizeConfig.sidepadding,
                   child: Text(AppStrings.SELECT_ALL_OF_THE_ITEMS.tr(),
-                    style: AppStyles.BlackStyleFont_20(context),),
+                    style: AppStyles.BlackStyleFont_16(context),),
                 ),
               ),
               SizeConfig.verticalSliverSmallSpace(),
               ArticlesListWidget(products: purchaseDetails.products,
               showNewPrice: true,isItalicFont: false,),
-              SizeConfig.verticalSliverSmallSpace(),
+              SizeConfig.verticalSliverMediumSpace(),
               SliverToBoxAdapter(
                 child: Padding(
                   padding: SizeConfig.sidepadding,

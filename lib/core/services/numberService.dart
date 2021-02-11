@@ -25,7 +25,7 @@ class NumberService {
   static getDollarOrEuroHintText(BuildContext context){
 
     Locale locale = context.locale;
-    if (locale == Locale.fromSubtags(languageCode: 'de')) {
+    if (locale == Locale.fromSubtags(languageCode: locale.toString())) {
       return AppStrings.EUROHINTTEXT.tr();
     } else {
       return AppStrings.DOLLAR_HINT_TEXT.tr();
@@ -38,8 +38,8 @@ class NumberService {
     String _numberFullDivider;
 
     Locale locale = context.locale;
-    if (locale.languageCode.toString()=='en') {
-      _numberDecimalDivider = ',';
+    if (locale==Locale('en', 'US')) {
+      _numberDecimalDivider = '.';
       _numberFullDivider = ',';
     } else {
       _numberDecimalDivider = ',';
@@ -51,21 +51,26 @@ class NumberService {
 
     newNum = stringCommaList.first;
     if ((newNum?.isEmpty ?? true)) newNum = '0';
-    newNum = _convertNewNum(newNum, _numberFullDivider);
-
+//    newNum = _convertNewNum(newNum, _numberFullDivider);
+    print('new number${newNum}');
     switch (afterCommaString.length) {
       case 0:
+        print('0');
         return newNum += '${_numberDecimalDivider}00';
       case 1:
+        print('1');
         return newNum += _numberDecimalDivider + stringCommaList.last[0] + '0';
       case 2:
+        print('2');
         return newNum += _numberDecimalDivider + stringCommaList.last;
       default:
+        print('default');
         return newNum += _numberDecimalDivider + stringCommaList.last.substring(0, 2);
     }
   }
 
   static String _convertNewNum(String newNum, String _numberFullDivider){
+    print('_convertNumber==$newNum}');
     switch (newNum.length) {
       case 4:
         return newNum[0] + _numberFullDivider + newNum.substring(1, newNum.length);
@@ -106,7 +111,8 @@ class NumberService {
 
     var f = new NumberFormat("###.##", "en_US");
     final String _result = f.format(_totalPrice);
-    return convertNumber(_result, context);
+    print('total Price==${_result}');
+    return addAfterCommaTwoZeros(_result, context);
   }
   static int getAvailableProduct(List<Product>products,AvailableStatus availableStatus){
     int _number=0;

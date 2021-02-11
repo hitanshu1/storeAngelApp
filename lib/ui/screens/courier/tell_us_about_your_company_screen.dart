@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:storeangelApp/core/consts/appColors.dart';
@@ -11,7 +10,6 @@ import 'package:storeangelApp/ui/shared/bottomsheet_search_view.dart';
 import 'package:storeangelApp/ui/shared/button_widget.dart';
 import 'package:storeangelApp/ui/shared/customAppBar.dart';
 import 'package:storeangelApp/ui/widgets/signup/first_lastname_widget.dart';
-
 class TellUsAboutYourCompanyScreen extends StatefulWidget {
   static const String routeName = 'tellUuAboutYourCompany';
 
@@ -42,6 +40,9 @@ class _TellUsAboutYourCompanyScreenState extends State<TellUsAboutYourCompanyScr
             ),
             leading: BackButton(
               color: Theme.of(context).iconTheme.color,
+              onPressed: (){
+
+              },
             ),
             backgroundColor: Theme.of(context).backgroundColor,
             elevation: tellUsAboutYourCompanyViewModel.hasShadow?4:0,

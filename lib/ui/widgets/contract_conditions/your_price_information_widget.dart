@@ -31,10 +31,14 @@ class YourPriceInformationWidget extends StatelessWidget {
                         return Padding(
                           padding:SizeConfig.verticalPadding,
                           child: Text(AppStrings.YOUR_PRICING_INFORMATION.tr()+":",
-                            style: AppStyles.BlackStyleWithBold800Font_20(context),),
+                            style: AppStyles.BlackStyleFont_24(context),),
+
                         );
                       }
                       return CourierItemTileWidget(
+                        onClickStatus: (){
+
+                        },
                         isBorder:index!=model.purchaseDetails.products.length,
                         product: model.purchaseDetails.products[index-1],
                         enableQuantity: false,
